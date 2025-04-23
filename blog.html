@@ -48,12 +48,6 @@
       background: #f9f9f9;
       padding: 1rem;
       margin-top: 1rem;
-      position: relative;
-    }
-
-    .post.featured {
-      border-color: gold;
-      background-color: #fffbe6;
     }
 
     .category {
@@ -91,17 +85,6 @@
       border-radius: 5px;
       font-weight: bold;
     }
-
-    .featured-label {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: gold;
-      color: black;
-      font-weight: bold;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-    }
   </style>
 </head>
 <body>
@@ -130,14 +113,20 @@
         <option value="Tips">💡 Tips & Advice</option>
         <option value="Projects">🛠 Project Updates</option>
         <option value="Spotlight">🌟 Student Spotlight</option>
-      </select>
-      <label><input type="checkbox" id="featured"> Mark as Featured</label><br>
+      </select><br>
       <button onclick="submitPost()">Post</button>
 
-      <h2>🌟 Featured Posts</h2>
-      <div id="featuredList"></div>
+      <h2>Latest Posts</h2>
+      <h2>Filter by Category</h2>
+<div id="filterBar" style="margin-bottom: 1rem;">
+  <button onclick="filterPosts('All')">All</button>
+  <button onclick="filterPosts('General')">🧠 General</button>
+  <button onclick="filterPosts('Events')">📅 Events</button>
+  <button onclick="filterPosts('Tips')">💡 Tips & Advice</button>
+  <button onclick="filterPosts('Projects')">🛠 Project Updates</button>
+  <button onclick="filterPosts('Spotlight')">🌟 Student Spotlight</button>
+</div>
 
-      <h2>All Posts</h2>
       <div id="postList"></div>
     </div>
   </div>
@@ -147,108 +136,155 @@
   <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
 
   <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
-      authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
-      projectId: "hbacl-student-chapter-blog",
-      storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
-      messagingSenderId: "1099160172364",
-      appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
-    };
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+    authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+    projectId: "hbacl-student-chapter-blog",
+    storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+    messagingSenderId: "1099160172364",
+    appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+  };
 
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
 
-    function checkPassword() {
-      const input = document.getElementById('passwordInput').value;
-      if (input === "hbacl2025") {
-        document.getElementById('passwordScreen').style.display = 'none';
-        document.getElementById('blogContent').style.display = 'block';
-        loadPosts();
-      } else {
-        document.getElementById('errorMessage').textContent = "Incorrect password.";
-      }
+  function checkPassword() {
+    const input = document.getElementById('passwordInput').value;
+    if (input === "hbacl2025") {
+      document.getElementById('passwordScreen').style.display = 'none';
+      document.getElementById('blogContent').style.display = 'block';
+      loadPosts();
+    } else {
+      document.getElementById('errorMessage').textContent = "Incorrect password.";
+    }
+  }
+
+  function submitPost() {
+    const name = document.getElementById('name').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const category = document.getElementById('category').value;
+    if (!name || !message) return alert("Please fill in all fields!");
+
+    const now = firebase.firestore.FieldValue.serverTimestamp();
+
+    db.collection("posts").add({
+      name,
+      message,
+      category,
+      timestamp: now,
+      lastUpdated: now,
+      comments: []
+    }).then(() => {
+      document.getElementById('name').value = "";
+      document.getElementById('message').value = "";
+    });
+  }
+
+let allPostData = []; // Store everything globally
+let activeCategory = "All";
+
+function loadPosts() {
+  const postList = document.getElementById('postList');
+  db.collection("posts").orderBy("lastUpdated", "desc").onSnapshot(snapshot => {
+    allPostData = []; // Reset list on new snapshot
+
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      data.id = doc.id;
+      allPostData.push(data);
+    });
+
+    renderPosts();
+  });
+}
+
+function renderPosts() {
+  const postList = document.getElementById('postList');
+  postList.innerHTML = "";
+
+  const postsToShow = activeCategory === "All"
+    ? allPostData
+    : allPostData.filter(p => p.category === activeCategory);
+
+  postsToShow.forEach(data => {
+    const postId = data.id;
+
+    const post = document.createElement("div");
+    post.className = "post";
+
+    post.innerHTML = `
+      <span class="category">${data.category}</span><br>
+      <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
+      <p>${data.message}</p>
+      <div class="comments" id="comments-${postId}"></div>
+      <div id="extra-comments-${postId}" style="display: none; padding-left: 1rem;"></div>
+      <button id="toggle-btn-${postId}" onclick="toggleComments('${postId}')">Show all comments</button>
+      <input type="text" id="commenter-${postId}" placeholder="Your name" />
+      <input type="text" id="comment-${postId}" placeholder="Add a comment" />
+      <button onclick="addComment('${postId}')">Comment</button>
+    `;
+
+    postList.appendChild(post);
+
+    const allComments = data.comments || [];
+    const newest = allComments[allComments.length - 1];
+    const older = allComments.slice(0, -1);
+
+    const commentDisplay = document.getElementById(`comments-${postId}`);
+    const extraCommentBox = document.getElementById(`extra-comments-${postId}`);
+
+    if (newest) {
+      const p = document.createElement("p");
+      p.innerHTML = `<strong>${newest.by}:</strong> ${newest.text}`;
+      commentDisplay.appendChild(p);
     }
 
-    function submitPost() {
-      const name = document.getElementById('name').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const category = document.getElementById('category').value;
-      const featured = document.getElementById('featured').checked;
-      if (!name || !message) return alert("Please fill in all fields!");
-
-      db.collection("posts").add({
-        name,
-        message,
-        category,
-        featured,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        comments: []
-      }).then(() => {
-        document.getElementById('name').value = "";
-        document.getElementById('message').value = "";
-        document.getElementById('featured').checked = false;
+    if (older.length > 0) {
+      older.forEach(c => {
+        const p = document.createElement("p");
+        p.innerHTML = `<strong>${c.by}:</strong> ${c.text}`;
+        extraCommentBox.appendChild(p);
       });
+    } else {
+      document.getElementById(`toggle-btn-${postId}`).style.display = "none";
     }
+  });
+}
 
-    function loadPosts() {
-      const postList = document.getElementById('postList');
-      const featuredList = document.getElementById('featuredList');
-      db.collection("posts").orderBy("timestamp", "desc").onSnapshot(snapshot => {
-        postList.innerHTML = "";
-        featuredList.innerHTML = "";
+function filterPosts(category) {
+  activeCategory = category;
+  renderPosts();
+}
 
-        snapshot.forEach(doc => {
-          const data = doc.data();
-          const postId = doc.id;
 
-          const post = document.createElement("div");
-          post.className = "post" + (data.featured ? " featured" : "");
-          post.innerHTML = `
-            ${data.featured ? '<div class="featured-label">🌟 Featured</div>' : ""}
-            <span class="category">${data.category}</span><br>
-            <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
-            <p>${data.message}</p>
-            <div class="comments" id="comments-${postId}"></div>
-            <input type="text" id="commenter-${postId}" placeholder="Your name" />
-            <input type="text" id="comment-${postId}" placeholder="Add a comment" />
-            <button onclick="addComment('${postId}')">Comment</button>
-          `;
+  function toggleComments(postId) {
+    const section = document.getElementById(`extra-comments-${postId}`);
+    const button = document.getElementById(`toggle-btn-${postId}`);
+    const isHidden = section.style.display === "none";
+    section.style.display = isHidden ? "block" : "none";
+    button.textContent = isHidden ? "Hide comments" : "Show all comments";
+  }
 
-          if (data.featured) {
-            featuredList.appendChild(post);
-          } else {
-            postList.appendChild(post);
-          }
+  function addComment(postId) {
+    const commenter = document.getElementById(`commenter-${postId}`).value.trim();
+    const commentText = document.getElementById(`comment-${postId}`).value.trim();
+    if (!commenter || !commentText) return;
 
-          if (data.comments && data.comments.length) {
-            const commentSection = document.getElementById(`comments-${postId}`);
-            data.comments.forEach(c => {
-              const p = document.createElement("p");
-              p.innerHTML = `<strong>${c.by}:</strong> ${c.text}`;
-              commentSection.appendChild(p);
-            });
-          }
+    const postRef = db.collection("posts").doc(postId);
+    postRef.get().then(doc => {
+      if (doc.exists) {
+        const data = doc.data();
+        const comments = data.comments || [];
+        comments.push({ by: commenter, text: commentText });
+
+        postRef.update({
+          comments: comments,
+          lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
         });
-      });
-    }
+      }
+    });
+  }
+</script>
 
-    function addComment(postId) {
-      const commenter = document.getElementById(`commenter-${postId}`).value.trim();
-      const commentText = document.getElementById(`comment-${postId}`).value.trim();
-      if (!commenter || !commentText) return;
-
-      const postRef = db.collection("posts").doc(postId);
-      postRef.get().then(doc => {
-        if (doc.exists) {
-          const data = doc.data();
-          const comments = data.comments || [];
-          comments.push({ by: commenter, text: commentText });
-
-          postRef.update({ comments });
-        }
-      });
-    }
-  </script>
 </body>
 </html>
