@@ -32,6 +32,8 @@
   <h1>Student Chapter of Central Louisiana – HBACL</h1>
   <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
   <p>Building the Future – One Student at a Time</p>
+  <p id="visitor-count">Visitors: loading...</p>
+
 </header>
 
 <nav>
@@ -326,6 +328,37 @@
 <footer>
   <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
 </footer>
+  <!-- Firebase libraries if not already loaded -->
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+    authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+    projectId: "hbacl-student-chapter-blog",
+    storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+    messagingSenderId: "1099160172364",
+    appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  function incrementVisitorCount(page) {
+    const ref = db.collection("siteStats").doc("qHInYYm4SZlzh2BL5K2r");
+    ref.get().then(doc => {
+      if (doc.exists) {
+        const data = doc.data();
+        const newCount = (data[page] || 0) + 1;
+        ref.update({ [page]: newCount });
+        document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
+      }
+    });
+  }
+</script>
+incrementVisitorCount("main");
+
 
 </body>
 </html>
