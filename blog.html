@@ -4,115 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Student Blog – HBACL Chapter</title>
-  <script type="module">
-    // Firebase setup
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import {
-      getFirestore, collection, addDoc, query, onSnapshot,
-      orderBy, serverTimestamp
-    } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
-      authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
-      projectId: "hbacl-student-chapter-blog",
-      storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
-      messagingSenderId: "1099160172364",
-      appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // Password protection
-    window.checkPassword = function () {
-  const input = document.getElementById('passwordInput').value;
-  if (input === "hbacl2025") {
-    document.getElementById('passwordScreen').style.display = 'none';
-    document.getElementById('blogContent').style.display = 'block';
-    loadPosts();
-  } else {
-    document.getElementById('errorMessage').textContent = "Incorrect password.";
-  }
-};
-
-
-    // Post submission
-    window.submitPost = async () => {
-      const name = document.getElementById('name').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if (!name || !message) return alert("Fill in both fields!");
-
-      await addDoc(collection(db, "posts"), {
-        name,
-        message,
-        timestamp: serverTimestamp(),
-        comments: []
-      });
-
-      document.getElementById('name').value = "";
-      document.getElementById('message').value = "";
-    };
-
-    // Load posts and comments
-    function loadPosts() {
-      const postList = document.getElementById('postList');
-      const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
-
-      onSnapshot(q, snapshot => {
-        postList.innerHTML = "";
-        snapshot.forEach(doc => {
-          const data = doc.data();
-          const post = document.createElement('div');
-          post.className = "post";
-          post.innerHTML = `
-            <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
-            <p>${data.message}</p>
-            <div class="comments" id="comments-${doc.id}"></div>
-            <input type="text" id="commenter-${doc.id}" placeholder="Your name" />
-            <input type="text" id="comment-${doc.id}" placeholder="Add a comment" />
-            <button onclick="addComment('${doc.id}')">Comment</button>
-          `;
-          postList.appendChild(post);
-
-          // Show comments
-          if (data.comments && data.comments.length) {
-            const commentSection = document.getElementById(`comments-${doc.id}`);
-            data.comments.forEach(c => {
-              const p = document.createElement("p");
-              p.innerHTML = `<strong>${c.by}:</strong> ${c.text}`;
-              commentSection.appendChild(p);
-            });
-          }
-        });
-      });
-    }
-
-    // Add a comment
-    window.addComment = async (postId) => {
-      const commenter = document.getElementById(`commenter-${postId}`).value.trim();
-      const commentText = document.getElementById(`comment-${postId}`).value.trim();
-      if (!commenter || !commentText) return;
-
-      const postRef = collection(db, "posts");
-      const q = query(postRef, orderBy("timestamp", "desc"));
-      onSnapshot(q, async (snapshot) => {
-        snapshot.forEach(async (doc) => {
-          if (doc.id === postId) {
-            const data = doc.data();
-            const newComments = data.comments || [];
-            newComments.push({ by: commenter, text: commentText });
-
-            await addDoc(collection(db, "posts"), {
-              ...data,
-              comments: newComments,
-              timestamp: data.timestamp
-            });
-          }
-        });
-      });
-    };
-  </script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -191,5 +82,102 @@
       <div id="postList"></div>
     </div>
   </div>
+
+  <!-- Firebase libraries -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+      authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+      projectId: "hbacl-student-chapter-blog",
+      storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+      messagingSenderId: "1099160172364",
+      appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value;
+      if (input === "hbacl2025") {
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('blogContent').style.display = 'block';
+        loadPosts();
+      } else {
+        document.getElementById('errorMessage').textContent = "Incorrect password.";
+      }
+    }
+
+    function submitPost() {
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !message) return alert("Please fill in both fields!");
+
+      db.collection("posts").add({
+        name,
+        message,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        comments: []
+      }).then(() => {
+        document.getElementById('name').value = "";
+        document.getElementById('message').value = "";
+      });
+    }
+
+    function loadPosts() {
+      db.collection("posts").orderBy("timestamp", "desc").onSnapshot(snapshot => {
+        const postList = document.getElementById('postList');
+        postList.innerHTML = "";
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const postId = doc.id;
+
+          const post = document.createElement("div");
+          post.className = "post";
+          post.innerHTML = `
+            <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
+            <p>${data.message}</p>
+            <div class="comments" id="comments-${postId}"></div>
+            <input type="text" id="commenter-${postId}" placeholder="Your name" />
+            <input type="text" id="comment-${postId}" placeholder="Add a comment" />
+            <button onclick="addComment('${postId}')">Comment</button>
+          `;
+
+          postList.appendChild(post);
+
+          if (data.comments && data.comments.length) {
+            const commentSection = document.getElementById(`comments-${postId}`);
+            data.comments.forEach(c => {
+              const p = document.createElement("p");
+              p.innerHTML = `<strong>${c.by}:</strong> ${c.text}`;
+              commentSection.appendChild(p);
+            });
+          }
+        });
+      });
+    }
+
+    function addComment(postId) {
+      const commenter = document.getElementById(`commenter-${postId}`).value.trim();
+      const commentText = document.getElementById(`comment-${postId}`).value.trim();
+      if (!commenter || !commentText) return;
+
+      const postRef = db.collection("posts").doc(postId);
+      postRef.get().then(doc => {
+        if (doc.exists) {
+          const data = doc.data();
+          const comments = data.comments || [];
+          comments.push({ by: commenter, text: commentText });
+
+          postRef.update({ comments });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
+
