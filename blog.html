@@ -213,7 +213,7 @@ function renderPosts() {
     post.className = "post";
 
     post.innerHTML = `
-    <p><button onclick="likePost('${postId}')" id="like-btn-${postId}">❤️ Like</button> <span id="like-count-${postId}">${data.likeCount || 0} like(s)</span></p>
+
 
       <span class="category">${data.category}</span><br>
       <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
@@ -224,6 +224,7 @@ function renderPosts() {
       <input type="text" id="commenter-${postId}" placeholder="Your name" />
       <input type="text" id="comment-${postId}" placeholder="Add a comment" />
       <button onclick="addComment('${postId}')">Comment</button>
+      <p><button onclick="likePost('${postId}')" id="like-btn-${postId}">❤️ Like</button> <span id="like-count-${postId}">${data.likeCount || 0} like(s)</span></p>
     `;
 
     postList.appendChild(post);
