@@ -3,55 +3,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Blog – HBACL Chapter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Chapter Blog – HBACL</title>
   <style>
-    header {
-  background-color: white;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-header img {
-  max-width: 225px;
-  display: block;
-  margin: 0 auto 1rem;
-}
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  color: #1e1e2f;
-}
-header p {
-  font-size: 1.2rem;
-  color: #555;
-}
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f4f4f4;
-      padding: 2rem;
       margin: 0;
+      padding: 0;
     }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h1 {
+    header {
+      background-color: white;
       text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    header img {
+      max-width: 225px;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
       color: #1e1e2f;
     }
 
-    input, textarea, select {
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .nav-line {
+      background-color: #14141f;
+      height: 6px;
       width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.5rem;
-      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .blog-wrapper {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+      margin: 2rem auto;
+      max-width: 800px;
     }
 
     button {
@@ -60,6 +58,20 @@ header p {
       border: none;
       padding: 0.5rem 1rem;
       cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #357abd;
+    }
+
+    input[type="text"], input[type="password"], textarea, select {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
       border-radius: 5px;
     }
 
@@ -87,73 +99,17 @@ header p {
       font-size: 0.95rem;
       color: #333;
     }
-
-    #blogContent {
-      display: none;
-    }
-
-    .home-button {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .home-button a {
-      background-color: #4a90e2;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
   </style>
-
-  .blog-wrapper {
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.08);
-  margin-top: 2rem;
-}
-
-button {
-  background: #4a90e2;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #357abd;
-}
-
 </head>
 <body>
-  <header style="background-color: white; padding: 2rem 1rem 1rem; text-align: center;">
-  <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo" style="max-width: 225px; display: block; margin: 0 auto 1rem;" />
-  <h1 style="margin: 0; font-size: 2.5rem; color: #1e1e2f;">Student Chapter Blog</h1>
-  <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
-  <p style="font-size: 1.2rem; color: #555;">Connecting Students Across Chapters</p>
-</header>
-
-<!-- Blue nav-style line -->
-<div style="background-color: #4a90e2; height: 6px; width: 100%; margin-bottom: 2rem;"></div>
+  <header>
+    <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
+    <h1>Student Chapter Blog</h1>
+    <p>Connecting Students Across Chapters</p>
+  </header>
+  <div class="nav-line"></div>
 
   <div class="blog-wrapper">
-  <!-- Keep your home button, post form, filter buttons, postList all inside here -->
-</div>
-
-
-
-  <div class="container">
-    <h1>Student Chapter Blog</h1>
-
-    <div class="home-button">
-      <a href="index.html">🏠 Back to Home</a>
-    </div>
-
     <div id="passwordScreen">
       <p>This area is for current and former students. Enter password to continue.</p>
       <input type="password" id="passwordInput" placeholder="Enter password" />
@@ -161,7 +117,11 @@ button:hover {
       <p id="errorMessage" style="color:red;"></p>
     </div>
 
-    <div id="blogContent">
+    <div id="blogContent" style="display: none;">
+      <div style="text-align:center; margin-bottom: 1rem;">
+        <a href="index.html" style="text-decoration: none;"><button>🏠 Back to Home</button></a>
+      </div>
+
       <h2>Create a Post</h2>
       <input type="text" id="name" placeholder="Your Name" />
       <textarea id="message" rows="4" placeholder="What's happening?"></textarea>
@@ -172,27 +132,27 @@ button:hover {
         <option value="Tips">💡 Tips & Advice</option>
         <option value="Projects">🛠 Project Updates</option>
         <option value="Spotlight">🌟 Student Spotlight</option>
-      </select><br>
+      </select>
       <button onclick="submitPost()">Post</button>
 
       <label for="searchInput">Search Posts:</label>
-<input type="text" id="searchInput" placeholder="Search by name or content..." oninput="applyFilters()" />
+      <input type="text" id="searchInput" placeholder="Search by name or content..." oninput="applyFilters()" />
 
-
-      <h2>Latest Posts</h2>
       <h2>Filter by Category</h2>
-<div id="filterBar" style="margin-bottom: 1rem;">
-  <button onclick="filterPosts('All')">All</button>
-  <button onclick="filterPosts('General')">🧠 General</button>
-  <button onclick="filterPosts('Events')">📅 Events</button>
-  <button onclick="filterPosts('Tips')">💡 Tips & Advice</button>
-  <button onclick="filterPosts('Projects')">🛠 Project Updates</button>
-  <button onclick="filterPosts('Spotlight')">🌟 Student Spotlight</button>
-</div>
+      <div id="filterBar" style="margin-bottom: 1rem;">
+        <button onclick="filterPosts('All')">All</button>
+        <button onclick="filterPosts('General')">🧠 General</button>
+        <button onclick="filterPosts('Events')">📅 Events</button>
+        <button onclick="filterPosts('Tips')">💡 Tips & Advice</button>
+        <button onclick="filterPosts('Projects')">🛠 Project Updates</button>
+        <button onclick="filterPosts('Spotlight')">🌟 Student Spotlight</button>
+      </div>
 
       <div id="postList"></div>
     </div>
   </div>
+</body>
+</html>
 
   <!-- Firebase Libraries -->
   <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
