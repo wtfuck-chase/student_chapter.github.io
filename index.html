@@ -75,7 +75,122 @@
   <p>Ready to join?</p>
   <a class="button" href="Permission_Slip.pdf" download>Download Permission Slip</a>
   <a class="button" href="Student_Chapter_Application.docx" download>Join Now</a>
-</section>
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Carousel</title>
+  <style>
+    .carousel-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 1s ease;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 1;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+
+    .carousel-button:hover {
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="carousel-container" id="carouselContainer">
+  <button class="carousel-button prev" onclick="prevSlide()">❮</button>
+  <button class="carousel-button next" onclick="nextSlide()">❯</button>
+  <div class="carousel-slide" id="carouselSlide">
+    <!-- Replace with your actual image URLs -->
+    <img src="https://via.placeholder.com/600x400?text=1" alt="Photo 1">
+    <img src="https://via.placeholder.com/600x400?text=2" alt="Photo 2">
+    <img src="https://via.placeholder.com/600x400?text=3" alt="Photo 3">
+    <img src="https://via.placeholder.com/600x400?text=4" alt="Photo 4">
+    <img src="https://via.placeholder.com/600x400?text=5" alt="Photo 5">
+    <img src="https://via.placeholder.com/600x400?text=6" alt="Photo 6">
+    <img src="https://via.placeholder.com/600x400?text=7" alt="Photo 7">
+    <img src="https://via.placeholder.com/600x400?text=8" alt="Photo 8">
+    <img src="https://via.placeholder.com/600x400?text=9" alt="Photo 9">
+    <img src="https://via.placeholder.com/600x400?text=10" alt="Photo 10">
+    <img src="https://via.placeholder.com/600x400?text=11" alt="Photo 11">
+    <img src="https://via.placeholder.com/600x400?text=12" alt="Photo 12">
+    <img src="https://via.placeholder.com/600x400?text=13" alt="Photo 13">
+    <img src="https://via.placeholder.com/600x400?text=14" alt="Photo 14">
+    <img src="https://via.placeholder.com/600x400?text=15" alt="Photo 15">
+    <img src="https://via.placeholder.com/600x400?text=16" alt="Photo 16">
+    <img src="https://via.placeholder.com/600x400?text=17" alt="Photo 17">
+    <img src="https://via.placeholder.com/600x400?text=18" alt="Photo 18">
+  </div>
+</div>
+
+<script>
+  const slide = document.getElementById('carouselSlide');
+  const container = document.getElementById('carouselContainer');
+  const totalImages = 18;
+  let index = 0;
+  let intervalId;
+
+  function updateSlide() {
+    slide.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide() {
+    index = (index + 1) % totalImages;
+    updateSlide();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + totalImages) % totalImages;
+    updateSlide();
+  }
+
+  function startAutoSlide() {
+    intervalId = setInterval(nextSlide, 3000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(intervalId);
+  }
+
+  container.addEventListener('mouseenter', stopAutoSlide);
+  container.addEventListener('mouseleave', startAutoSlide);
+
+  // Start automatic sliding on load
+  startAutoSlide();
+</script>
+  
+  </section>
 
 <section id="events">
   <h2>Calendar of Events</h2>
