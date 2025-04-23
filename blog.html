@@ -275,6 +275,7 @@ function filterPosts(category) {
 
     function likePost(postId) {
   // Prevent multiple likes using localStorage
+ window.likePost = function(postId) {
   const likedPosts = JSON.parse(localStorage.getItem("likedPosts") || "[]");
   if (likedPosts.includes(postId)) return alert("You already liked this post.");
 
@@ -293,7 +294,8 @@ function filterPosts(category) {
       });
     }
   });
-}
+};
+
 
 
     const postRef = db.collection("posts").doc(postId);
