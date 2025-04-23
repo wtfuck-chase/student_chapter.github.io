@@ -279,22 +279,6 @@ function filterPosts(category) {
 
 ;
 
-
-
-    const postRef = db.collection("posts").doc(postId);
-    postRef.get().then(doc => {
-      if (doc.exists) {
-        const data = doc.data();
-        const comments = data.comments || [];
-        comments.push({ by: commenter, text: commentText });
-
-        postRef.update({
-          comments: comments,
-          lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
-        });
-      }
-    });
-  }
     window.likePost = function(postId) {
   const likedPosts = JSON.parse(localStorage.getItem("likedPosts") || "[]");
   if (likedPosts.includes(postId)) return alert("You already liked this post.");
@@ -316,6 +300,8 @@ function filterPosts(category) {
     }
   });
 };
+
+
 
 </script>
 
