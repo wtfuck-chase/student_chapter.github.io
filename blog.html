@@ -224,7 +224,11 @@ function renderPosts() {
       <input type="text" id="commenter-${postId}" placeholder="Your name" />
       <input type="text" id="comment-${postId}" placeholder="Add a comment" />
       <button onclick="addComment('${postId}')">Comment</button>
-      <p><button onclick="likePost('${postId}')" id="like-btn-${postId}">❤️ Like</button> <span id="like-count-${postId}">${data.likeCount || 0} like(s)</span></p>
+      <p>
+  <button onclick="likePost('${postId}')" id="like-btn-${postId}">❤️ Like</button>
+  <span id="like-count-${postId}">${data.likeCount || 0} like(s)</span>
+</p>
+
     `;
 
     postList.appendChild(post);
@@ -275,7 +279,8 @@ function filterPosts(category) {
 
     function likePost(postId) {
   // Prevent multiple likes using localStorage
- window.likePost = function(postId) {
+ 
+window.likePost = function(postId) {
   const likedPosts = JSON.parse(localStorage.getItem("likedPosts") || "[]");
   if (likedPosts.includes(postId)) return alert("You already liked this post.");
 
@@ -290,7 +295,8 @@ function filterPosts(category) {
       }).then(() => {
         likedPosts.push(postId);
         localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
-        document.getElementById(`like-count-${postId}`).textContent = `${currentLikes + 1} like(s)`;
+        const likeCountEl = document.getElementById(`like-count-${postId}`);
+        if (likeCountEl) likeCountEl.textContent = `${currentLikes + 1} like(s)`;
       });
     }
   });
