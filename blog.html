@@ -1,3 +1,4 @@
+<!-- blog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +27,7 @@
       color: #1e1e2f;
     }
 
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       margin: 0.5rem 0;
       padding: 0.5rem;
@@ -47,6 +48,23 @@
       background: #f9f9f9;
       padding: 1rem;
       margin-top: 1rem;
+      position: relative;
+    }
+
+    .post.featured {
+      border-color: gold;
+      background-color: #fffbe6;
+    }
+
+    .category {
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      background: #4a90e2;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
     }
 
     .comments {
@@ -59,23 +77,40 @@
     #blogContent {
       display: none;
     }
+
+    .home-button {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .home-button a {
+      background-color: #4a90e2;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .featured-label {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: gold;
+      color: black;
+      font-weight: bold;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Student Chapter Blog</h1>
-    <div style="text-align: center; margin-bottom: 1rem;">
-  <a href="index.html" style="
-    display: inline-block;
-    background-color: #4a90e2;
-    color: white;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-  ">🏠 Back to Home</a>
-</div>
 
+    <div class="home-button">
+      <a href="index.html">🏠 Back to Home</a>
+    </div>
 
     <div id="passwordScreen">
       <p>This area is for current and former students. Enter password to continue.</p>
@@ -88,19 +123,30 @@
       <h2>Create a Post</h2>
       <input type="text" id="name" placeholder="Your Name" />
       <textarea id="message" rows="4" placeholder="What's happening?"></textarea>
+      <label>Choose a category:</label>
+      <select id="category">
+        <option value="General">🧠 General</option>
+        <option value="Events">📅 Events</option>
+        <option value="Tips">💡 Tips & Advice</option>
+        <option value="Projects">🛠 Project Updates</option>
+        <option value="Spotlight">🌟 Student Spotlight</option>
+      </select>
+      <label><input type="checkbox" id="featured"> Mark as Featured</label><br>
       <button onclick="submitPost()">Post</button>
+
+      <h2>🌟 Featured Posts</h2>
+      <div id="featuredList"></div>
 
       <h2>All Posts</h2>
       <div id="postList"></div>
     </div>
   </div>
 
-  <!-- Firebase libraries -->
+  <!-- Firebase Libraries -->
   <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
 
   <script>
-    // Initialize Firebase
     const firebaseConfig = {
       apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
       authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
@@ -127,30 +173,40 @@
     function submitPost() {
       const name = document.getElementById('name').value.trim();
       const message = document.getElementById('message').value.trim();
-      if (!name || !message) return alert("Please fill in both fields!");
+      const category = document.getElementById('category').value;
+      const featured = document.getElementById('featured').checked;
+      if (!name || !message) return alert("Please fill in all fields!");
 
       db.collection("posts").add({
         name,
         message,
+        category,
+        featured,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         comments: []
       }).then(() => {
         document.getElementById('name').value = "";
         document.getElementById('message').value = "";
+        document.getElementById('featured').checked = false;
       });
     }
 
     function loadPosts() {
+      const postList = document.getElementById('postList');
+      const featuredList = document.getElementById('featuredList');
       db.collection("posts").orderBy("timestamp", "desc").onSnapshot(snapshot => {
-        const postList = document.getElementById('postList');
         postList.innerHTML = "";
+        featuredList.innerHTML = "";
+
         snapshot.forEach(doc => {
           const data = doc.data();
           const postId = doc.id;
 
           const post = document.createElement("div");
-          post.className = "post";
+          post.className = "post" + (data.featured ? " featured" : "");
           post.innerHTML = `
+            ${data.featured ? '<div class="featured-label">🌟 Featured</div>' : ""}
+            <span class="category">${data.category}</span><br>
             <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
             <p>${data.message}</p>
             <div class="comments" id="comments-${postId}"></div>
@@ -159,7 +215,11 @@
             <button onclick="addComment('${postId}')">Comment</button>
           `;
 
-          postList.appendChild(post);
+          if (data.featured) {
+            featuredList.appendChild(post);
+          } else {
+            postList.appendChild(post);
+          }
 
           if (data.comments && data.comments.length) {
             const commentSection = document.getElementById(`comments-${postId}`);
@@ -192,4 +252,3 @@
   </script>
 </body>
 </html>
-
