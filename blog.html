@@ -116,6 +116,10 @@
       </select><br>
       <button onclick="submitPost()">Post</button>
 
+      <label for="searchInput">Search Posts:</label>
+<input type="text" id="searchInput" placeholder="Search by name or content..." oninput="applyFilters()" />
+
+
       <h2>Latest Posts</h2>
       <h2>Filter by Category</h2>
 <div id="filterBar" style="margin-bottom: 1rem;">
@@ -200,11 +204,16 @@ function loadPosts() {
 
 function renderPosts() {
   const postList = document.getElementById('postList');
+  const searchTerm = document.getElementById('searchInput')?.value.trim().toLowerCase() || "";
+
   postList.innerHTML = "";
 
-  const postsToShow = activeCategory === "All"
-    ? allPostData
-    : allPostData.filter(p => p.category === activeCategory);
+  const postsToShow = allPostData
+    .filter(p => activeCategory === "All" || p.category === activeCategory)
+    .filter(p =>
+      p.name?.toLowerCase().includes(searchTerm) ||
+      p.message?.toLowerCase().includes(searchTerm)
+    );
 
   postsToShow.forEach(data => {
     const postId = data.id;
@@ -213,8 +222,6 @@ function renderPosts() {
     post.className = "post";
 
     post.innerHTML = `
-
-
       <span class="category">${data.category}</span><br>
       <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
       <p>${data.message}</p>
@@ -225,10 +232,9 @@ function renderPosts() {
       <input type="text" id="comment-${postId}" placeholder="Add a comment" />
       <button onclick="addComment('${postId}')">Comment</button>
       <p>
-  <button onclick="likePost('${postId}')" id="like-btn-${postId}">❤️ Like</button>
-  <span id="like-count-${postId}">${data.likeCount || 0} like(s)</span>
-</p>
-
+        <button onclick="likePost('${postId}')" id="like-btn-${postId}">❤️ Like</button>
+        <span id="like-count-${postId}">${data.likeCount || 0} like(s)</span>
+      </p>
     `;
 
     postList.appendChild(post);
@@ -258,10 +264,16 @@ function renderPosts() {
   });
 }
 
+
 function filterPosts(category) {
   activeCategory = category;
   renderPosts();
 }
+
+    function applyFilters() {
+  renderPosts();
+}
+
 
 
   function toggleComments(postId) {
