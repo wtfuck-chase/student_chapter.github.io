@@ -136,8 +136,6 @@
     }
  
   </style>
-</head>
-<body>
 
 <div class="carousel-container" id="carouselContainer">
   <button class="carousel-button prev" onclick="prevSlide()">❮</button>
@@ -344,9 +342,10 @@
 
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
+const ref = db.collection("siteStats").doc("visitorCount");
 
   function incrementVisitorCount(page) {
-    const ref = db.collection("siteStats").doc("qHInYYm4SZlzh2BL5K2r");
+    
     ref.get().then(doc => {
       if (doc.exists) {
         const data = doc.data();
