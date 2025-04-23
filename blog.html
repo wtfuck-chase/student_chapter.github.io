@@ -213,6 +213,8 @@ function renderPosts() {
     post.className = "post";
 
     post.innerHTML = `
+    <p><button onclick="likePost('${postId}')" id="like-btn-${postId}">❤️ Like</button> <span id="like-count-${postId}">${data.likeCount || 0} like(s)</span></p>
+
       <span class="category">${data.category}</span><br>
       <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
       <p>${data.message}</p>
@@ -269,6 +271,29 @@ function filterPosts(category) {
     const commenter = document.getElementById(`commenter-${postId}`).value.trim();
     const commentText = document.getElementById(`comment-${postId}`).value.trim();
     if (!commenter || !commentText) return;
+
+    function likePost(postId) {
+  // Prevent multiple likes using localStorage
+  const likedPosts = JSON.parse(localStorage.getItem("likedPosts") || "[]");
+  if (likedPosts.includes(postId)) return alert("You already liked this post.");
+
+  const postRef = db.collection("posts").doc(postId);
+  postRef.get().then(doc => {
+    if (doc.exists) {
+      const data = doc.data();
+      const currentLikes = data.likeCount || 0;
+
+      postRef.update({
+        likeCount: currentLikes + 1
+      }).then(() => {
+        likedPosts.push(postId);
+        localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+        document.getElementById(`like-count-${postId}`).textContent = `${currentLikes + 1} like(s)`;
+      });
+    }
+  });
+}
+
 
     const postRef = db.collection("posts").doc(postId);
     postRef.get().then(doc => {
