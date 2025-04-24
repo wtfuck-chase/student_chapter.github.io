@@ -11,6 +11,7 @@
     header h1 { margin: 0; font-size: 2.5rem; color: #1e1e2f; }
     header p { font-size: 1.2rem; margin-top: 0.5rem; color: #555; }
     nav { background-color: #14141f; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+    nav .nav-links { display: flex; justify-content: center; flex: 1; }
     nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
     #searchInput { padding: 0.5rem; font-size: 1rem; max-width: 250px; margin-left: auto; }
     section { padding: 3rem 1rem; max-width: 1000px; margin: auto; }
@@ -39,7 +40,7 @@
 </header>
 
 <nav>
-  <div>
+  <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="calendar.html">Events</a>
     <a href="blog.html">Student Blog</a>
@@ -94,11 +95,6 @@
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
 <script>
-  // Your blog logic and firebase setup here
-</script>
-</body>
-</html>
-
   document.addEventListener("DOMContentLoaded", function () {
     const firebaseConfig = {
       apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
@@ -116,7 +112,6 @@
     ref.get().then(doc => {
       const data = doc.exists ? doc.data() : {};
       const newCount = (data.blog || 0) + 1;
-
       ref.set({ blog: newCount }, { merge: true }).then(() => {
         document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
       });
