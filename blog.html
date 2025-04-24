@@ -1,128 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Chapter Blog – HBACL</title>
   <style>
-    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; color: #333; }
-    header { background-color: white; padding: 2rem 1rem; text-align: center; }
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background-color: #f4f4f4; }
+    header { background-color: white; color: #1e1e2f; padding: 2rem 1rem; text-align: center; }
     header img { max-width: 225px; display: block; margin: 0 auto 1rem; }
     header h1 { margin: 0; font-size: 2.5rem; color: #1e1e2f; }
-    header p { font-size: 1.2rem; color: #555; margin-top: 0.5rem; }
+    header p { font-size: 1.2rem; margin-top: 0.5rem; color: #555; }
     nav { background-color: #14141f; padding: 1rem; text-align: center; }
     nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
-    .container { max-width: 800px; margin: auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 2rem; }
+    section { padding: 3rem 1rem; max-width: 1000px; margin: auto; }
     h2 { color: #1e1e2f; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
-    input, textarea, select { width: 100%; margin: 0.5rem 0; padding: 0.5rem; font-size: 1rem; }
-    button { background: #4a90e2; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer; border-radius: 5px; }
-    .post { border-left: 5px solid #4a90e2; background: #f9f9f9; padding: 1rem; margin-top: 1rem; }
-    .category { font-size: 0.8rem; font-weight: bold; color: #fff; background: #4a90e2; padding: 0.2rem 0.5rem; border-radius: 4px; display: inline-block; margin-bottom: 0.5rem; }
-    .comments { margin-top: 0.5rem; padding-left: 1rem; font-size: 0.95rem; color: #333; }
-    footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; margin-top: 3rem; }
+    .post { background: white; border-left: 5px solid #4a90e2; margin: 1rem 0; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .comment-block { margin-top: 1rem; padding-left: 1rem; font-size: 0.95rem; }
+    footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; }
+    .button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 5px; margin: 1rem 0; }
+    input[type="password"] { padding: 0.5rem; font-size: 1rem; width: 300px; }
+    #password-section { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
-    <h1>Student Chapter Blog</h1>
-    <p>Connecting Students Across Chapters</p>
-    <p id="visitor-count">Visitors: loading...</p>
-  </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="calendar.html">Events</a>
-    <a href="blog.html">Student Blog</a>
-    <a href="newsletter.html">Newsletter</a>
-  </nav>
+<header>
+  <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
+  <h1>Student Chapter Blog</h1>
+  <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
+  <p>Connecting Students Across Chapters</p>
+  <p id="visitor-count">Visitors: loading...</p>
+</header>
 
-  <div class="container" id="blogContent">
-    <h2>Create a Post</h2>
-    <input type="text" id="name" placeholder="Your Name" />
-    <textarea id="message" rows="4" placeholder="What's happening?"></textarea>
-    <label>Choose a category:</label>
-    <select id="category">
-      <option value="General">🧠 General</option>
-      <option value="Events">📅 Events</option>
-      <option value="Tips">💡 Tips & Advice</option>
-      <option value="Projects">🛠 Project Updates</option>
-      <option value="Spotlight">🌟 Student Spotlight</option>
-    </select>
-    <button onclick="submitPost()">Post</button>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="calendar.html">Events</a>
+  <a href="blog.html">Student Blog</a>
+  <a href="newsletter.html">Newsletter</a>
+</nav>
 
-    <h2>Latest Posts</h2>
-    <div id="postList"></div>
+<section id="password-section">
+  <h2>Enter Password</h2>
+  <form id="password-form">
+    <input type="password" id="password-input" placeholder="Enter password" required />
+    <button type="submit">Enter</button>
+  </form>
+  <p id="password-error" style="color:red;"></p>
+</section>
+
+<section id="blog-content" style="display:none;">
+  <h2>Create a Post</h2>
+  <input type="text" id="name" placeholder="Your Name" />
+  <textarea id="message" rows="4" placeholder="What's happening?"></textarea>
+  <label>Choose a category:</label>
+  <select id="category">
+    <option value="General">🧠 General</option>
+    <option value="Events">📅 Events</option>
+    <option value="Tips">💡 Tips & Advice</option>
+    <option value="Projects">🛠 Project Updates</option>
+    <option value="Spotlight">🌟 Student Spotlight</option>
+  </select><br>
+  <button onclick="submitPost()">Post</button>
+
+  <label for="searchInput">Search Posts:</label>
+  <input type="text" id="searchInput" placeholder="Search by name or content..." oninput="applyFilters()" />
+
+  <h2>Filter by Category</h2>
+  <div id="filterBar">
+    <button onclick="filterPosts('All')">All</button>
+    <button onclick="filterPosts('General')">🧠 General</button>
+    <button onclick="filterPosts('Events')">📅 Events</button>
+    <button onclick="filterPosts('Tips')">💡 Tips & Advice</button>
+    <button onclick="filterPosts('Projects')">🛠 Project Updates</button>
+    <button onclick="filterPosts('Spotlight')">🌟 Student Spotlight</button>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
-  </footer>
+  <div id="postList"></div>
+</section>
 
-  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const firebaseConfig = {
-        apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
-        authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
-        projectId: "hbacl-student-chapter-blog",
-        storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
-        messagingSenderId: "1099160172364",
-        appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
-      };
+<footer>
+  <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
+</footer>
 
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
-      const ref = db.collection("siteStats").doc("visitorCount");
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const firebaseConfig = {
+      apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+      authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+      projectId: "hbacl-student-chapter-blog",
+      storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+      messagingSenderId: "1099160172364",
+      appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+    };
 
-      ref.get().then(doc => {
-        const data = doc.exists ? doc.data() : {};
-        const newCount = (data.blog || 0) + 1;
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const ref = db.collection("siteStats").doc("visitorCount");
 
-        ref.set({ blog: newCount }, { merge: true }).then(() => {
-          document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
-        });
+    ref.get().then(doc => {
+      const data = doc.exists ? doc.data() : {};
+      const newCount = (data.blog || 0) + 1;
+
+      ref.set({ blog: newCount }, { merge: true }).then(() => {
+        document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
       });
+    });
 
-      window.submitPost = function () {
-        const name = document.getElementById('name').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const category = document.getElementById('category').value;
-        if (!name || !message) return alert("Please fill in all fields!");
+    const form = document.getElementById("password-form");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const input = document.getElementById("password-input").value;
+      if (input === "hbacl2025") {
+        document.getElementById("password-section").style.display = "none";
+        document.getElementById("blog-content").style.display = "block";
+        loadPosts();
+      } else {
+        document.getElementById("password-error").textContent = "Incorrect password.";
+      }
+    });
 
-        db.collection("posts").add({
-          name,
-          message,
-          category,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        }).then(() => {
-          document.getElementById('name').value = "";
-          document.getElementById('message').value = "";
-          loadPosts();
-        });
-      };
+    window.submitPost = function () {
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const category = document.getElementById('category').value;
+      if (!name || !message) return alert("Please fill in all fields!");
 
-      function loadPosts() {
-        const postList = document.getElementById('postList');
-        db.collection("posts").orderBy("timestamp", "desc").onSnapshot(snapshot => {
-          postList.innerHTML = "";
-          snapshot.forEach(doc => {
-            const data = doc.data();
+      db.collection("posts").add({
+        name,
+        message,
+        category,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        comments: [],
+        likeCount: 0,
+        lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    };
+
+    window.applyFilters = function() {
+      loadPosts();
+    }
+
+    window.filterPosts = function(category) {
+      window.activeCategory = category;
+      loadPosts();
+    }
+
+    window.likePost = function(postId) {
+      const liked = JSON.parse(localStorage.getItem("likedPosts") || "[]");
+      if (liked.includes(postId)) return alert("You already liked this post.");
+
+      const ref = db.collection("posts").doc(postId);
+      ref.get().then(doc => {
+        if (doc.exists) {
+          const count = doc.data().likeCount || 0;
+          ref.update({
+            likeCount: count + 1,
+            lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+          }).then(() => {
+            liked.push(postId);
+            localStorage.setItem("likedPosts", JSON.stringify(liked));
+            loadPosts();
+          });
+        }
+      });
+    };
+
+    window.addComment = function(postId) {
+      const commenter = prompt("Your Name:");
+      const commentText = prompt("Comment:");
+      if (!commenter || !commentText) return;
+
+      const ref = db.collection("posts").doc(postId);
+      ref.get().then(doc => {
+        if (doc.exists) {
+          const post = doc.data();
+          const comments = post.comments || [];
+          comments.push({ by: commenter, text: commentText });
+
+          ref.update({
+            comments,
+            lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+          }).then(() => loadPosts());
+        }
+      });
+    }
+
+    function loadPosts() {
+      const postList = document.getElementById('postList');
+      const searchTerm = document.getElementById('searchInput')?.value.trim().toLowerCase() || "";
+      const category = window.activeCategory || "All";
+
+      db.collection("posts").orderBy("lastUpdated", "desc").get().then(snapshot => {
+        postList.innerHTML = "";
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const match = (category === "All" || data.category === category) &&
+            (data.name.toLowerCase().includes(searchTerm) || data.message.toLowerCase().includes(searchTerm));
+
+          if (match) {
+            const newest = data.comments?.slice(-1)[0];
+            const older = data.comments?.slice(0, -1) || [];
+            const postId = doc.id;
+
             const post = document.createElement("div");
             post.className = "post";
             post.innerHTML = `
               <span class="category">${data.category}</span><br>
               <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
               <p>${data.message}</p>
+              <div class="comment-block" id="recent-comment-${postId}"></div>
+              <div class="comment-block" id="extra-comments-${postId}" style="display:none;"></div>
+              <button onclick="toggleComments('${postId}')">Toggle Comments</button>
+              <button onclick="addComment('${postId}')">Comment</button>
+              <button onclick="likePost('${postId}')">❤️ Like</button>
+              <span>${data.likeCount || 0} like(s)</span>
             `;
             postList.appendChild(post);
-          });
-        });
-      }
 
-      loadPosts();
-    });
-  </script>
+            if (newest) {
+              document.getElementById(`recent-comment-${postId}`).innerHTML = `<strong>${newest.by}</strong>: ${newest.text}`;
+            }
+            older.forEach(c => {
+              const p = document.createElement("p");
+              p.innerHTML = `<strong>${c.by}</strong>: ${c.text}`;
+              document.getElementById(`extra-comments-${postId}`).appendChild(p);
+            });
+          }
+        });
+      });
+    }
+
+    window.toggleComments = function(postId) {
+      const box = document.getElementById(`extra-comments-${postId}`);
+      box.style.display = box.style.display === "none" ? "block" : "none";
+    }
+  });
+</script>
 </body>
 </html>
