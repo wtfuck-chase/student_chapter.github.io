@@ -20,6 +20,11 @@
     .button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 5px; margin: 1rem 0; }
     input[type="password"] { padding: 0.5rem; font-size: 1rem; width: 300px; }
     #password-section { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center; }
+    #blog-form { display: grid; grid-template-columns: 1fr 2fr 1fr 1fr 1fr; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    #blog-form input, #blog-form textarea, #blog-form select { font-size: 1rem; padding: 0.5rem; width: 100%; box-sizing: border-box; }
+    #blog-form button { padding: 0.5rem 1rem; background-color: #4a90e2; border: none; color: white; border-radius: 5px; cursor: pointer; }
+    #blog-form label { white-space: nowrap; margin-bottom: 0; }
+    #searchInput { padding: 0.5rem; font-size: 1rem; width: 100%; }
   </style>
 </head>
 <body>
@@ -50,20 +55,19 @@
 
 <section id="blog-content" style="display:none;">
   <h2>Create a Post</h2>
-  <input type="text" id="name" placeholder="Your Name" />
-  <textarea id="message" rows="4" placeholder="What's happening?"></textarea>
-  <label>Choose a category:</label>
-  <select id="category">
-    <option value="General">🧠 General</option>
-    <option value="Events">📅 Events</option>
-    <option value="Tips">💡 Tips & Advice</option>
-    <option value="Projects">🛠 Project Updates</option>
-    <option value="Spotlight">🌟 Student Spotlight</option>
-  </select><br>
-  <button onclick="submitPost()">Post</button>
-
-  <label for="searchInput">Search Posts:</label>
-  <input type="text" id="searchInput" placeholder="Search by name or content..." oninput="applyFilters()" />
+  <div id="blog-form">
+    <input type="text" id="name" placeholder="Your Name" />
+    <textarea id="message" rows="2" placeholder="What's happening?"></textarea>
+    <select id="category">
+      <option value="General">🧠 General</option>
+      <option value="Events">📅 Events</option>
+      <option value="Tips">💡 Tips & Advice</option>
+      <option value="Projects">🛠 Project Updates</option>
+      <option value="Spotlight">🌟 Student Spotlight</option>
+    </select>
+    <button onclick="submitPost()">Post</button>
+    <input type="text" id="searchInput" placeholder="Search by name or content..." oninput="applyFilters()" />
+  </div>
 
   <h2>Filter by Category</h2>
   <div id="filterBar">
@@ -81,6 +85,10 @@
 <footer>
   <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
 </footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+<script>
 
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
