@@ -1,115 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Chapter Calendar – HBACL</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: white;
-      color: #1e1e2f;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header img {
-      max-width: 225px;
-      margin-bottom: 1rem;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin: 0;
-    }
-    header p {
-      margin-top: 0.5rem;
-      color: #555;
-    }
-    .nav-line {
-      background-color: #14141f;
-      height: 5px;
-      width: 100%;
-    }
-    .home-button {
-      text-align: center;
-      margin: 2rem 0 1rem;
-    }
-    .home-button a {
-      background-color: #4a90e2;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #1e1e2f;
-      margin-bottom: 1rem;
-    }
-    .event {
-      background: #ffffff;
-      border-left: 5px solid #4a90e2;
-      margin: 1rem 0;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .gold { border-left-color: gold; }
-    .silver { border-left-color: silver; }
-    .supporter { border-left-color: #999; }
-    .custom { border-left-color: #5c6bc0; }
-    .scholarship { border-left-color: #00b894; }
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background-color: #f4f4f4; }
+    header { background-color: white; color: #1e1e2f; padding: 2rem 1rem; text-align: center; }
+    header img { max-width: 225px; display: block; margin: 0 auto 1rem; }
+    header h1 { margin: 0; font-size: 2.5rem; color: #1e1e2f; }
+    header p { font-size: 1.2rem; margin-top: 0.5rem; color: #555; }
+    nav { background-color: #14141f; padding: 1rem; text-align: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+    section { padding: 3rem 1rem; max-width: 1000px; margin: auto; }
+    h2 { color: #1e1e2f; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
+    .event { background: white; border-left: 5px solid #4a90e2; margin: 1rem 0; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; }
+    .button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 5px; margin: 1rem 0; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo" />
-    <h1>Student Chapter Calendar</h1>
-    <p>Stay Up-to-Date with Our Events</p>
-  </header>
-  <div class="nav-line"></div>
 
-  <div class="home-button">
-    <a href="index.html">🏠 Back to Home</a>
-  </div>
+<header>
+  <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
+  <h1>Student Chapter Calendar</h1>
+  <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
+  <p>Keeping You Connected with Chapter Events</p>
+</header>
 
-  <div class="container">
-    <h2>2024–2025 Calendar of Events</h2>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="calendar.html">Events</a>
+  <a href="blog.html">Student Blog</a>
+  <a href="newsletter.html">Newsletter</a>
+</nav>
 
-    <div class="event"><strong>August 8 – Grant High School:</strong><br>Meet & Greet, new student sign-ups, and appointment of 1 committee seat.</div>
-    <div class="event"><strong>August 15 – Tioga High School:</strong><br>Meet & Greet, new student sign-ups, and appointment of 1 committee seat.</div>
-    <div class="event"><strong>September 20 – HBACL Annual Home Show:</strong><br>Students from both chapters will have their carpentry projects available for sale and pre-order.</div>
-    <div class="event"><strong>October 17 – Aim for Education Skeet Shoot:</strong><br>Hosted by HBACL, this annual skeet shoot raises scholarship funds to support the Student Chapter.</div>
-    <div class="event"><strong>November – SECO Expo:</strong><br>Students will participate in the Students Exploring Career Opportunities (SECO) Expo. <a href="https://www.theorchardfoundation.org/Our-Work/Career-Readiness/Students-Exploring-Career-Opportunities" target="_blank">Learn more</a>.</div>
-    <div class="event"><strong>December 19 – Grant High School:</strong><br>Student Chapter Bonfire event for community building and celebration.</div>
-    <div class="event"><strong>December 20 – Tioga High School:</strong><br>Student Chapter Bonfire event for community building and celebration.</div>
-    <div class="event"><strong>January 17 – Grant High School:</strong><br>Student Chapter Movie Night for relaxation, team-building, and fun.</div>
-    <div class="event"><strong>January 24 – Tioga High School:</strong><br>Student Chapter Movie Night for relaxation, team-building, and fun.</div>
-    <div class="event"><strong>February 17 – Alexandria Children's Mardi Gras Parade:</strong><br>Student Chapter participation in the local parade celebration.</div>
-    <div class="event"><strong>March 1 – HBACL Office:</strong><br>Scholarship projects and written portions are due.</div>
-    <div class="event"><strong>April 11 – HBACL Annual Golf Tournament:</strong><br>A fundraising event supporting local students and programs.</div>
-    <div class="event scholarship"><strong>April 15 – Scholarship Notifications:</strong><br>Students will be notified of scholarship award results.</div>
-    <div class="event"><strong>April (TBD) – Student Chapter Field Day:</strong><br>A hands-on activity and celebration day for both Grant and Tioga chapters. Final date to be announced.</div>
-    <div class="event"><strong>May 1 – End of Year Wrap-Up:</strong><br>Celebrate the close of the school year with a Student Chapter crawfish boil and wrap-up gathering.</div>
-    <div class="event"><strong>June – Summer Internships Begin:</strong><br>Student Chapter summer internships and job placements begin across participating organizations.</div>
-    <div class="event"><strong>July – Leadership Canoe Trip:</strong><br>Student Chapter members participate in a summer leadership development experience on the water.</div>
+<section id="calendar">
+  <h2>Calendar of Events</h2>
+  <div class="event"><strong>August 8 – Grant High School:</strong><br>Meet & Greet, new student sign-ups, and appointment of 1 committee seat.</div>
+  <div class="event"><strong>August 15 – Tioga High School:</strong><br>Meet & Greet, new student sign-ups, and appointment of 1 committee seat.</div>
+  <div class="event"><strong>September 20 – HBACL Annual Home Show:</strong><br>Students from both chapters will have their carpentry projects available for sale and pre-order.</div>
+  <div class="event"><strong>October 17 – Aim for Education Skeet Shoot:</strong><br>Annual skeet shoot raises scholarship funds for the Student Chapter.</div>
+  <div class="event"><strong>November – SECO Expo:</strong><br>Immersive career-readiness experience hosted by The Orchard Foundation.</div>
+  <div class="event"><strong>December 19 – Grant High School:</strong><br>Student Chapter Bonfire for community building and celebration.</div>
+  <div class="event"><strong>December 20 – Tioga High School:</strong><br>Student Chapter Bonfire for community building and celebration.</div>
+  <div class="event"><strong>January 17 – Grant High School:</strong><br>Student Chapter Movie Night for team-building and fun.</div>
+  <div class="event"><strong>January 24 – Tioga High School:</strong><br>Student Chapter Movie Night for team-building and fun.</div>
+  <div class="event"><strong>February 17 – Alexandria Children's Mardi Gras Parade:</strong><br>Student Chapter participation in the local parade.</div>
+  <div class="event"><strong>March 1 – HBACL Office:</strong><br>Scholarship projects and written portions due.</div>
+  <div class="event"><strong>April 11 – HBACL Annual Golf Tournament:</strong><br>Fundraising event supporting students and programs.</div>
+  <div class="event"><strong>April 15 – Scholarship Notifications:</strong><br>Scholarship award results announced.</div>
+  <div class="event"><strong>April (TBD) – Student Chapter Field Day:</strong><br>Hands-on activity and celebration day. Final date to be announced.</div>
+  <div class="event"><strong>May 1 – End of Year Wrap-Up:</strong><br>Crawfish boil and wrap-up gathering to close the school year.</div>
+  <div class="event"><strong>June – Summer Internships Begin:</strong><br>Student internships and job placements begin.</div>
+  <div class="event"><strong>July – Leadership Canoe Trip:</strong><br>Summer leadership development on the water.</div>
 
-    <a class="button" href="Student_Chapter_Calendar.docx" download style="display:inline-block; margin-top:2rem; background:#4a90e2; color:white; padding:0.7rem 1.5rem; text-decoration:none; border-radius:5px;">Download Full Calendar</a>
-  </div>
+  <a class="button" href="Student_Chapter_Calendar.docx" download>Download Full Calendar</a>
+</section>
 
-  <footer style="text-align:center; padding:2rem; background-color:#1e1e2f; color:white;">
-    <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+    authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+    projectId: "hbacl-student-chapter-blog",
+    storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+    messagingSenderId: "1099160172364",
+    appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  const ref = db.collection("siteStats").doc("visitorCount");
+
+  function incrementVisitorCount(page) {
+    ref.get().then(doc => {
+      if (doc.exists) {
+        const data = doc.data();
+        const newCount = (data[page] || 0) + 1;
+        ref.update({ [page]: newCount });
+        document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
+      }
+    });
+  }
+  window.onload = () => incrementVisitorCount("calendar");
+</script>
+
 </body>
 </html>
+
