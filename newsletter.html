@@ -1,4 +1,3 @@
-<!-- newsletter.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +62,18 @@
     .newsletter-link:hover {
       text-decoration: underline;
     }
+    .home-button {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .home-button a {
+      background-color: #4a90e2;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -73,15 +84,18 @@
   </header>
   <div class="nav-line"></div>
 
+  <div class="home-button">
+    <a href="index.html">🏠 Back to Home</a>
+  </div>
+
   <div class="container">
     <h2 class="section-title">Subscribe to Our Newsletter</h2>
     <!-- Begin Mailchimp Signup Form -->
     <div id="mc_embed_signup">
-      <form action="https://github.us16.list-manage.com/subscribe/post?u=5d8ba48ce69f929d821699cef&amp;id=54785c59f3&amp;f_id=000999e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-  <input type="email" value="" name="EMAIL" class="required email" placeholder="Enter your email address" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" required>
-  <input type="submit" value="Subscribe" name="subscribe" class="button" style="background-color: #4a90e2; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer;">
-</form>
-
+      <form action="https://YOUR_MAILCHIMP_URL" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <input type="email" value="" name="EMAIL" class="required email" placeholder="Enter your email address" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" required>
+        <input type="submit" value="Subscribe" name="subscribe" class="button" style="background-color: #4a90e2; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer;">
+      </form>
     </div>
     <!--End mc_embed_signup-->
   </div>
