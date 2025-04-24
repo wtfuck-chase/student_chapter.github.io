@@ -26,6 +26,7 @@
   <h1>Student Chapter Calendar</h1>
   <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
   <p>Keeping You Connected with Chapter Events</p>
+  <p id="visitor-count">Visitors: loading...</p>
 </header>
 
 <nav>
@@ -53,6 +54,7 @@
   <div class="event"><strong>April (TBD) – Student Chapter Field Day:</strong><br>Hands-on activity and celebration day. Final date to be announced.</div>
   <div class="event"><strong>May 1 – End of Year Wrap-Up:</strong><br>Crawfish boil and wrap-up gathering to close the school year.</div>
   <div class="event"><strong>June – Summer Internships Begin:</strong><br>Student internships and job placements begin.</div>
+  <div class="event"><strong>June 2–5 – Alexandria Convention Center:</strong><br>Louisiana FFA State Convention and Expo. Over 1,000 Louisiana FFA members will be in attendance. This is a great opportunity to meet with Louisiana’s future workforce.<br><a href="https://la-ffa.org/what-we-do/state-convention-expo.html" target="_blank">Learn more and register here.</a></div>
   <div class="event"><strong>July – Leadership Canoe Trip:</strong><br>Summer leadership development on the water.</div>
 
   <a class="button" href="Student_Chapter_Calendar.docx" download>Download Full Calendar</a>
@@ -65,32 +67,34 @@
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
 <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
-    authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
-    projectId: "hbacl-student-chapter-blog",
-    storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
-    messagingSenderId: "1099160172364",
-    appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
-  };
+  document.addEventListener("DOMContentLoaded", function () {
+    const firebaseConfig = {
+      apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+      authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+      projectId: "hbacl-student-chapter-blog",
+      storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+      messagingSenderId: "1099160172364",
+      appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+    };
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-  const ref = db.collection("siteStats").doc("visitorCount");
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const ref = db.collection("siteStats").doc("visitorCount");
 
-  function incrementVisitorCount(page) {
-    ref.get().then(doc => {
-      if (doc.exists) {
-        const data = doc.data();
-        const newCount = (data[page] || 0) + 1;
-        ref.update({ [page]: newCount });
-        document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
-      }
-    });
-  }
-  window.onload = () => incrementVisitorCount("calendar");
+    function incrementVisitorCount(page) {
+      ref.get().then(doc => {
+        if (doc.exists) {
+          const data = doc.data();
+          const newCount = (data[page] || 0) + 1;
+          ref.update({ [page]: newCount });
+          document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
+        }
+      });
+    }
+
+    incrementVisitorCount("calendar");
+  });
 </script>
 
 </body>
 </html>
-
