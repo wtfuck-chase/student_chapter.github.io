@@ -1,4 +1,3 @@
-<!-- blog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,99 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Student Chapter Blog – HBACL</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: white;
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-    }
-
-    header img {
-      max-width: 225px;
-      display: block;
-      margin: 0 auto 1rem;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: #1e1e2f;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-
-    .nav-line {
-      background-color: #14141f;
-      height: 6px;
-      width: 100%;
-      margin-bottom: 2rem;
-    }
-
-    .blog-wrapper {
-      background-color: #ffffff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-      margin: 2rem auto;
-      max-width: 800px;
-    }
-
-    button {
-      background: #4a90e2;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background: #357abd;
-    }
-
-    input[type="text"], input[type="password"], textarea, select {
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .post {
-      border-left: 5px solid #4a90e2;
-      background: #f9f9f9;
-      padding: 1rem;
-      margin-top: 1rem;
-    }
-
-    .category {
-      font-size: 0.8rem;
-      font-weight: bold;
-      color: #fff;
-      background: #4a90e2;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-
-    .comments {
-      margin-top: 0.5rem;
-      padding-left: 1rem;
-      font-size: 0.95rem;
-      color: #333;
-    }
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; color: #333; }
+    header { background-color: white; padding: 2rem 1rem; text-align: center; }
+    header img { max-width: 225px; display: block; margin: 0 auto 1rem; }
+    header h1 { margin: 0; font-size: 2.5rem; color: #1e1e2f; }
+    header p { font-size: 1.2rem; color: #555; margin-top: 0.5rem; }
+    nav { background-color: #14141f; padding: 1rem; text-align: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+    .container { max-width: 800px; margin: auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 2rem; }
+    h2 { color: #1e1e2f; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
+    input, textarea, select { width: 100%; margin: 0.5rem 0; padding: 0.5rem; font-size: 1rem; }
+    button { background: #4a90e2; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer; border-radius: 5px; }
+    .post { border-left: 5px solid #4a90e2; background: #f9f9f9; padding: 1rem; margin-top: 1rem; }
+    .category { font-size: 0.8rem; font-weight: bold; color: #fff; background: #4a90e2; padding: 0.2rem 0.5rem; border-radius: 4px; display: inline-block; margin-bottom: 0.5rem; }
+    .comments { margin-top: 0.5rem; padding-left: 1rem; font-size: 0.95rem; color: #333; }
+    footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; margin-top: 3rem; }
   </style>
 </head>
 <body>
@@ -106,249 +27,102 @@
     <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
     <h1>Student Chapter Blog</h1>
     <p>Connecting Students Across Chapters</p>
+    <p id="visitor-count">Visitors: loading...</p>
   </header>
-  <div class="nav-line"></div>
 
-  <div class="blog-wrapper">
-    <div id="passwordScreen">
-      <p>This area is for current and former students. Enter password to continue.</p>
-      <input type="password" id="passwordInput" placeholder="Enter password" />
-      <button onclick="checkPassword()">Enter</button>
-      <p id="errorMessage" style="color:red;"></p>
-    </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Events</a>
+    <a href="blog.html">Student Blog</a>
+    <a href="newsletter.html">Newsletter</a>
+  </nav>
 
-    <div id="blogContent" style="display: none;">
-      <div style="text-align:center; margin-bottom: 1rem;">
-        <a href="index.html" style="text-decoration: none;"><button>🏠 Back to Home</button></a>
-      </div>
+  <div class="container" id="blogContent">
+    <h2>Create a Post</h2>
+    <input type="text" id="name" placeholder="Your Name" />
+    <textarea id="message" rows="4" placeholder="What's happening?"></textarea>
+    <label>Choose a category:</label>
+    <select id="category">
+      <option value="General">🧠 General</option>
+      <option value="Events">📅 Events</option>
+      <option value="Tips">💡 Tips & Advice</option>
+      <option value="Projects">🛠 Project Updates</option>
+      <option value="Spotlight">🌟 Student Spotlight</option>
+    </select>
+    <button onclick="submitPost()">Post</button>
 
-      <h2>Create a Post</h2>
-      <input type="text" id="name" placeholder="Your Name" />
-      <textarea id="message" rows="4" placeholder="What's happening?"></textarea>
-      <label>Choose a category:</label>
-      <select id="category">
-        <option value="General">🧠 General</option>
-        <option value="Events">📅 Events</option>
-        <option value="Tips">💡 Tips & Advice</option>
-        <option value="Projects">🛠 Project Updates</option>
-        <option value="Spotlight">🌟 Student Spotlight</option>
-      </select>
-      <button onclick="submitPost()">Post</button>
-
-      <label for="searchInput">Search Posts:</label>
-      <input type="text" id="searchInput" placeholder="Search by name or content..." oninput="applyFilters()" />
-
-      <h2>Filter by Category</h2>
-      <div id="filterBar" style="margin-bottom: 1rem;">
-        <button onclick="filterPosts('All')">All</button>
-        <button onclick="filterPosts('General')">🧠 General</button>
-        <button onclick="filterPosts('Events')">📅 Events</button>
-        <button onclick="filterPosts('Tips')">💡 Tips & Advice</button>
-        <button onclick="filterPosts('Projects')">🛠 Project Updates</button>
-        <button onclick="filterPosts('Spotlight')">🌟 Student Spotlight</button>
-      </div>
-
-      <div id="postList"></div>
-    </div>
+    <h2>Latest Posts</h2>
+    <div id="postList"></div>
   </div>
-</body>
-</html>
 
-  <!-- Firebase Libraries -->
+  <footer>
+    <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
+  </footer>
+
   <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
-
   <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
-    authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
-    projectId: "hbacl-student-chapter-blog",
-    storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
-    messagingSenderId: "1099160172364",
-    appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
-  };
+    document.addEventListener("DOMContentLoaded", function () {
+      const firebaseConfig = {
+        apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+        authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+        projectId: "hbacl-student-chapter-blog",
+        storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+        messagingSenderId: "1099160172364",
+        appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+      };
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      const ref = db.collection("siteStats").doc("visitorCount");
 
-  function checkPassword() {
-    const input = document.getElementById('passwordInput').value;
-    if (input === "hbacl2025") {
-      document.getElementById('passwordScreen').style.display = 'none';
-      document.getElementById('blogContent').style.display = 'block';
+      ref.get().then(doc => {
+        const data = doc.exists ? doc.data() : {};
+        const newCount = (data.blog || 0) + 1;
+
+        ref.set({ blog: newCount }, { merge: true }).then(() => {
+          document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
+        });
+      });
+
+      window.submitPost = function () {
+        const name = document.getElementById('name').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const category = document.getElementById('category').value;
+        if (!name || !message) return alert("Please fill in all fields!");
+
+        db.collection("posts").add({
+          name,
+          message,
+          category,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(() => {
+          document.getElementById('name').value = "";
+          document.getElementById('message').value = "";
+          loadPosts();
+        });
+      };
+
+      function loadPosts() {
+        const postList = document.getElementById('postList');
+        db.collection("posts").orderBy("timestamp", "desc").onSnapshot(snapshot => {
+          postList.innerHTML = "";
+          snapshot.forEach(doc => {
+            const data = doc.data();
+            const post = document.createElement("div");
+            post.className = "post";
+            post.innerHTML = `
+              <span class="category">${data.category}</span><br>
+              <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
+              <p>${data.message}</p>
+            `;
+            postList.appendChild(post);
+          });
+        });
+      }
+
       loadPosts();
-    } else {
-      document.getElementById('errorMessage').textContent = "Incorrect password.";
-    }
-  }
-
-  function submitPost() {
-    const name = document.getElementById('name').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const category = document.getElementById('category').value;
-    if (!name || !message) return alert("Please fill in all fields!");
-
-    const now = firebase.firestore.FieldValue.serverTimestamp();
-
-    db.collection("posts").add({
-      name,
-      message,
-      category,
-      timestamp: now,
-      lastUpdated: now,
-      comments: []
-    }).then(() => {
-      document.getElementById('name').value = "";
-      document.getElementById('message').value = "";
     });
-  }
-
-let allPostData = []; // Store everything globally
-let activeCategory = "All";
-
-function loadPosts() {
-  const postList = document.getElementById('postList');
-  db.collection("posts").orderBy("lastUpdated", "desc").onSnapshot(snapshot => {
-    allPostData = []; // Reset list on new snapshot
-
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      data.id = doc.id;
-      allPostData.push(data);
-    });
-
-    renderPosts();
-  });
-}
-
-function renderPosts() {
-  const postList = document.getElementById('postList');
-  const searchTerm = document.getElementById('searchInput')?.value.trim().toLowerCase() || "";
-
-  postList.innerHTML = "";
-
-  const postsToShow = allPostData
-    .filter(p => activeCategory === "All" || p.category === activeCategory)
-    .filter(p =>
-      p.name?.toLowerCase().includes(searchTerm) ||
-      p.message?.toLowerCase().includes(searchTerm)
-    );
-
-  postsToShow.forEach(data => {
-    const postId = data.id;
-
-    const post = document.createElement("div");
-    post.className = "post";
-
-    post.innerHTML = `
-      <span class="category">${data.category}</span><br>
-      <strong>${data.name}</strong> <small>${data.timestamp?.toDate().toLocaleString() || ""}</small>
-      <p>${data.message}</p>
-      <div class="comments" id="comments-${postId}"></div>
-      <div id="extra-comments-${postId}" style="display: none; padding-left: 1rem;"></div>
-      <button id="toggle-btn-${postId}" onclick="toggleComments('${postId}')">Show all comments</button>
-      <input type="text" id="commenter-${postId}" placeholder="Your name" />
-      <input type="text" id="comment-${postId}" placeholder="Add a comment" />
-      <button onclick="addComment('${postId}')">Comment</button>
-      <p>
-        <button onclick="likePost('${postId}')" id="like-btn-${postId}">❤️ Like</button>
-        <span id="like-count-${postId}">${data.likeCount || 0} like(s)</span>
-      </p>
-    `;
-
-    postList.appendChild(post);
-
-    const allComments = data.comments || [];
-    const newest = allComments[allComments.length - 1];
-    const older = allComments.slice(0, -1);
-
-    const commentDisplay = document.getElementById(`comments-${postId}`);
-    const extraCommentBox = document.getElementById(`extra-comments-${postId}`);
-
-    if (newest) {
-      const p = document.createElement("p");
-      p.innerHTML = `<strong>${newest.by}:</strong> ${newest.text}`;
-      commentDisplay.appendChild(p);
-    }
-
-    if (older.length > 0) {
-      older.forEach(c => {
-        const p = document.createElement("p");
-        p.innerHTML = `<strong>${c.by}:</strong> ${c.text}`;
-        extraCommentBox.appendChild(p);
-      });
-    } else {
-      document.getElementById(`toggle-btn-${postId}`).style.display = "none";
-    }
-  });
-}
-
-
-function filterPosts(category) {
-  activeCategory = category;
-  renderPosts();
-}
-
-    function applyFilters() {
-  renderPosts();
-}
-
-
-
-  function toggleComments(postId) {
-    const section = document.getElementById(`extra-comments-${postId}`);
-    const button = document.getElementById(`toggle-btn-${postId}`);
-    const isHidden = section.style.display === "none";
-    section.style.display = isHidden ? "block" : "none";
-    button.textContent = isHidden ? "Hide comments" : "Show all comments";
-  }
-
-    function addComment(postId) {
-  const commenter = document.getElementById(`commenter-${postId}`).value.trim();
-  const commentText = document.getElementById(`comment-${postId}`).value.trim();
-  if (!commenter || !commentText) return;
-
-  const postRef = db.collection("posts").doc(postId);
-  postRef.get().then(doc => {
-    if (doc.exists) {
-      const data = doc.data();
-      const comments = data.comments || [];
-      comments.push({ by: commenter, text: commentText });
-
-      postRef.update({
-        comments: comments,
-        lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
-      });
-    }
-  });
-}
-
-window.likePost = function(postId) {
-  const likedPosts = JSON.parse(localStorage.getItem("likedPosts") || "[]");
-  if (likedPosts.includes(postId)) return alert("You already liked this post.");
-
-  const postRef = db.collection("posts").doc(postId);
-  postRef.get().then(doc => {
-    if (doc.exists) {
-      const data = doc.data();
-      const currentLikes = data.likeCount || 0;
-
-      postRef.update({
-        likeCount: currentLikes + 1
-      }).then(() => {
-        likedPosts.push(postId);
-        localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
-        const likeCountEl = document.getElementById(`like-count-${postId}`);
-        if (likeCountEl) likeCountEl.textContent = `${currentLikes + 1} like(s)`;
-      });
-    }
-  });
-};
-
-   
-
-
-</script>
-
+  </script>
 </body>
 </html>
