@@ -177,17 +177,10 @@ prevBtn.addEventListener('click', prevImage);
 
 </script>
 
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Donate CTA Preview</title>
-</head>
-<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; margin: 0; padding: 2rem;">
-
-<section style="background-color: #f9f9f9; border: 2px solid #1e1e2f; border-radius: 20px; padding: 2rem; max-width: 800px; margin: 2rem auto; text-align: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+ <!-- BEGIN: Donate CTA with Share Buttons -->
+<section style="background-color: #f9f9f9; border: 2px solid #1e1e2f; border-radius: 20px; padding: 2rem; max-width: 800px; margin: 3rem auto; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <h2 style="color: #1e1e2f; font-size: 2rem; margin-bottom: 1rem;">Help Us Build a Brighter Future – Donate Today</h2>
+  
   <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
     Every gift you make — no matter the size — helps unlock life-changing opportunities for students right here in our local community.
   </p>
@@ -200,61 +193,33 @@ prevBtn.addEventListener('click', prevImage);
   <p style="color: #777; font-style: italic; font-size: 1rem; margin-bottom: 2rem;">
     “Every nail they drive, every foundation they lay, and every dream they build is made possible by people like you.”
   </p>
-  <!-- BEGIN: Share with Friends Block -->
-<div class="share-buttons">
-  <p>Share with Friends:</p>
-  <div class="social-icons">
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.studentchapterofcenla.org" target="_blank" title="Share on Facebook">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
-    </a>
-    <a href="https://twitter.com/intent/tweet?url=https://www.studentchapterofcenla.org&text=Check%20out%20this%20amazing%20Student%20Chapter!" target="_blank" title="Share on Twitter">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter/X">
-    </a>
-    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.studentchapterofcenla.org" target="_blank" title="Share on LinkedIn">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
-    </a>
-    <a href="mailto:?subject=Check%20out%20the%20Student%20Chapter%20of%20Central%20Louisiana!&body=I%20found%20this%20great%20student%20leadership%20program.%20Take%20a%20look:%20https://www.studentchapterofcenla.org" title="Email a Friend">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email">
-    </a>
-  </div>
-</div>
 
-<!-- CSS for Share Buttons -->
-<style>
-.share-buttons {
-  text-align: center;
-  margin-top: 2rem;
-}
-.share-buttons p {
-  font-size: 1.2rem;
-  color: #1e1e2f;
-  margin-bottom: 1rem;
-}
-.social-icons a {
-  display: inline-block;
-  margin: 0 8px;
-}
-.social-icons img {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.3s, filter 0.3s;
-}
-.social-icons a:hover img {
-  transform: scale(1.1);
-  filter: brightness(1.2);
-}
-@media (max-width: 600px) {
-  .social-icons img {
-    width: 32px;
-    height: 32px;
-  }
-}
-</style>
-<!-- END: Share with Friends Block -->
-
-  <a href="#" target="_blank" style="background-color: #1e1e2f; color: white; padding: 0.8rem 2rem; font-size: 1.2rem; border-radius: 50px; text-decoration: none; transition: background-color 0.3s ease;">
+  <!-- Donate Now Button -->
+  <a href="#" target="_blank" style="display: inline-block; background-color: #1e1e2f; color: white; padding: 0.8rem 2.5rem; font-size: 1.2rem; border-radius: 50px; text-decoration: none; transition: background-color 0.3s ease;">
     Donate Now
   </a>
+
+  <!-- Share With Friends Section -->
+  <div style="margin-top: 2rem;">
+    <p style="font-size: 1.1rem; color: #1e1e2f;">Share with Friends:</p>
+    <div style="margin-top: 0.5rem;">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.studentchapterofcenla.org" target="_blank" title="Share on Facebook">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width: 40px; margin: 0 10px;">
+      </a>
+      <a href="https://twitter.com/intent/tweet?url=https://www.studentchapterofcenla.org&text=Check%20out%20this%20amazing%20Student%20Chapter!" target="_blank" title="Share on Twitter">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter/X" style="width: 40px; margin: 0 10px;">
+      </a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.studentchapterofcenla.org" target="_blank" title="Share on LinkedIn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width: 40px; margin: 0 10px;">
+      </a>
+      <a href="mailto:?subject=Check%20out%20the%20Student%20Chapter%20of%20Central%20Louisiana!&body=I%20found%20this%20great%20student%20leadership%20program.%20Take%20a%20look:%20https://www.studentchapterofcenla.org" title="Email a Friend">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" style="width: 40px; margin: 0 10px;">
+      </a>
+    </div>
+  </div>
+</section>
+<!-- END: Donate CTA with Share Buttons -->
+
 </section>
 
 </body>
