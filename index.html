@@ -51,18 +51,33 @@
 <section id="about">
   <h2>About the Chapter</h2>
   <p>We are the youth extension of the Home Builders Association of Central Louisiana, committed to providing safe, affordable housing and promoting the homebuilding industry. Our mission includes advocacy, education, and leadership development for high school students through real-world experiences and community involvement.</p>
+<!-- BEGIN: Carousel Section -->
 <div class="carousel-container">
   <div class="carousel-slide">
     <img src="photos/photo1.jpg" alt="Student Activity 1">
     <img src="photos/photo2.jpg" alt="Student Activity 2">
     <img src="photos/photo3.jpg" alt="Student Activity 3">
     <img src="photos/photo4.jpg" alt="Student Activity 4">
-    <!-- continue to photo18.jpg -->
+    <img src="photos/photo5.jpg" alt="Student Activity 5">
+    <img src="photos/photo6.jpg" alt="Student Activity 6">
+    <img src="photos/photo7.jpg" alt="Student Activity 7">
+    <img src="photos/photo8.jpg" alt="Student Activity 8">
+    <img src="photos/photo9.jpg" alt="Student Activity 9">
+    <img src="photos/photo10.jpg" alt="Student Activity 10">
+    <img src="photos/photo11.jpg" alt="Student Activity 11">
+    <img src="photos/photo12.jpg" alt="Student Activity 12">
+    <img src="photos/photo13.jpg" alt="Student Activity 13">
+    <img src="photos/photo14.jpg" alt="Student Activity 14">
+    <img src="photos/photo15.jpg" alt="Student Activity 15">
+    <img src="photos/photo16.jpg" alt="Student Activity 16">
+    <img src="photos/photo17.jpg" alt="Student Activity 17">
+    <img src="photos/photo18.jpg" alt="Student Activity 18">
   </div>
   <button class="prev">&#10094;</button>
   <button class="next">&#10095;</button>
 </div>
 
+<!-- BEGIN: Carousel Styles -->
 <style>
 .carousel-container {
   position: relative;
@@ -72,21 +87,25 @@
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   background: white;
+  text-align: center;
 }
 
 .carousel-slide {
   display: flex;
+  align-items: center;
   transition: transform 1s ease-in-out;
 }
 
 .carousel-slide img {
-  min-width: 100%;
-  height: 400px; /* NEW: limits size */
-  object-fit: cover; /* NEW: no funny stretching */
+  max-width: 100%;
+  max-height: 600px;
+  height: auto;
+  object-fit: contain; /* Shows the whole image without cropping */
+  margin: auto;
   border-radius: 15px;
 }
 
-/* Buttons */
+/* Navigation Buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -118,6 +137,7 @@
 }
 </style>
 
+<!-- BEGIN: Carousel Script -->
 <script>
 const carouselSlide = document.querySelector('.carousel-slide');
 const carouselImages = document.querySelectorAll('.carousel-slide img');
@@ -126,7 +146,7 @@ const nextBtn = document.querySelector('.next');
 
 let counter = 0;
 
-// Auto-play feature every 5 seconds
+// Auto-play: Move to next image every 5 seconds
 setInterval(() => {
   nextImage();
 }, 5000);
@@ -144,6 +164,9 @@ prevBtn.addEventListener('click', () => {
   counter--;
   carouselSlide.style.transform = 'translateX(' + (-counter * 100) + '%)';
 });
+</script>
+<!-- END: Carousel Section -->
+
 </script>
 
   <!DOCTYPE html>
