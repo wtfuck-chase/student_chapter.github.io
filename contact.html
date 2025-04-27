@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us – Student Chapter of Central Louisiana</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; color: #333; }
+    header { background-color: white; text-align: center; padding: 2rem 1rem; }
+    header img { max-width: 225px; margin-bottom: 1rem; }
+    header h1 { margin: 0; font-size: 2.5rem; color: #1e1e2f; }
+    header p { font-size: 1.2rem; margin-top: 0.5rem; color: #555; }
+    nav { background-color: #14141f; padding: 1rem; text-align: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+    section { padding: 3rem 1rem; max-width: 800px; margin: auto; text-align: center; }
+    form { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    input, select, textarea { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+    button { background-color: #4a90e2; color: white; border: none; padding: 0.75rem 2rem; border-radius: 50px; font-size: 1rem; cursor: pointer; }
+    button:hover { background-color: #357ABD; }
+    .quote { margin-top: 1rem; font-style: italic; color: #555; }
+    .contact-info { margin-top: 3rem; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; margin-top: 3rem; }
+    @media (max-width: 600px) {
+      nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
+  <h1>Contact Us / Submit a Story</h1>
+  <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
+  <p>We love hearing from you! Submit your success story, question, or idea below.</p>
+  <p id="visitor-count">Visitors: loading...</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="calendar.html">Events</a>
+  <a href="blog.html">Student Blog</a>
+  <a href="newsletter.html">Newsletter</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+  <form action="https://formspree.io/f/mvgagyqy" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="tel" name="phone" placeholder="Your Phone (optional)">
+    <select name="category" required>
+      <option value="">Select a Category</option>
+      <option value="Scholarship Story">Scholarship Story</option>
+      <option value="Career Success">Career Success</option>
+      <option value="General Question">General Question</option>
+      <option value="Newsletter Suggestion">Newsletter Suggestion</option>
+      <option value="Other">Other</option>
+    </select>
+    <textarea name="message" rows="6" placeholder="Your Story or Message" required></textarea>
+    <button type="submit">Submit</button>
+
+    <p class="quote">“Every story you share helps inspire the next generation of builders, dreamers, and leaders across Central Louisiana.”</p>
+  </form>
+
+    <div class="contact-info">
+    <h2>Contact & Socials</h2>
+    <p><strong>Location:</strong><br>
+    2017 MacArthur Drive<br>
+    Alexandria, LA 71301</p>
+
+    <p><strong>Student Chapter of Central Louisiana</strong><br>
+    📍 2017 MacArthur Dr., Alexandria, LA 71301<br>
+    📞 Michael Bolen – <a href="tel:3184513088">318-451-3088</a><br>
+    ✉️ <a href="mailto:michael@nextgenerationinsulation.com">michael@nextgenerationinsulation.com</a><br>
+    📞 Becki Hesni – <a href="tel:3184431902">318-443-1902</a><br>
+    ✉️ <a href="mailto:info@hbaofcenla.org">info@hbaofcenla.org</a></p>
+
+    <p><strong>Online:</strong><br>
+    🌐 <a href="https://hbaofcenla.org" target="_blank">hbaofcenla.org</a><br>
+    👍 <a href="https://facebook.com/hbacl" target="_blank">facebook.com/hbacl</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const firebaseConfig = {
+      apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+      authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+      projectId: "hbacl-student-chapter-blog",
+      storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+      messagingSenderId: "1099160172364",
+      appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const ref = db.collection("siteStats").doc("visitorCount");
+
+    function incrementVisitorCount(page) {
+      ref.get().then(doc => {
+        if (doc.exists) {
+          const data = doc.data();
+          const newCount = (data[page] || 0) + 1;
+          ref.update({ [page]: newCount });
+          document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
+        }
+      });
+    }
+
+    incrementVisitorCount("contact");
+  });
+</script>
+
+</body>
+</html>
