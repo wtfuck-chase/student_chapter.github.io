@@ -18,6 +18,14 @@
     .newsletter a { color: #4a90e2; text-decoration: none; }
     footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; }
     .button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 5px; margin: 1rem 0; }
+    .share-buttons { text-align: center; margin-top: 2rem; }
+    .share-buttons p { font-size: 1.1rem; color: #1e1e2f; margin-bottom: 1rem; }
+    .social-icons a { display: inline-block; margin: 0 8px; }
+    .social-icons img { width: 40px; height: 40px; transition: transform 0.3s, filter 0.3s; }
+    .social-icons a:hover img { transform: scale(1.1); filter: brightness(1.2); }
+    @media (max-width: 600px) {
+      .social-icons img { width: 32px; height: 32px; }
+    }
   </style>
 </head>
 <body>
@@ -45,6 +53,27 @@
       <input type="submit" value="Subscribe" class="button">
     </form>
   </div>
+
+  <!-- Share With Friends Block -->
+  <div class="share-buttons">
+    <p>Share with Friends:</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.studentchapterofcenla.org" target="_blank" title="Share on Facebook">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+      </a>
+      <a href="https://twitter.com/intent/tweet?url=https://www.studentchapterofcenla.org&text=Check%20out%20this%20amazing%20Student%20Chapter!" target="_blank" title="Tweet">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter/X">
+      </a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.studentchapterofcenla.org" target="_blank" title="Share on LinkedIn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="mailto:?subject=Check%20out%20the%20Student%20Chapter%20of%20Central%20Louisiana!&body=I%20found%20this%20great%20student%20leadership%20program.%20Take%20a%20look:%20https://www.studentchapterofcenla.org" title="Email a Friend">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email">
+      </a>
+    </div>
+  </div>
+  <!-- End Share With Friends Block -->
+
 </section>
 
 <section>
