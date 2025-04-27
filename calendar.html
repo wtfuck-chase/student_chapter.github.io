@@ -5,18 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Chapter Calendar – HBACL</title>
   <style>
-    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background-color: #f4f4f4; }
-    header { background-color: white; color: #1e1e2f; padding: 2rem 1rem; text-align: center; }
-    header img { max-width: 225px; display: block; margin: 0 auto 1rem; }
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; color: #333; }
+    header { background-color: white; text-align: center; padding: 2rem 1rem; }
+    header img { max-width: 225px; margin-bottom: 1rem; }
     header h1 { margin: 0; font-size: 2.5rem; color: #1e1e2f; }
     header p { font-size: 1.2rem; margin-top: 0.5rem; color: #555; }
     nav { background-color: #14141f; padding: 1rem; text-align: center; }
     nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
-    section { padding: 3rem 1rem; max-width: 1000px; margin: auto; }
-    h2 { color: #1e1e2f; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
-    .event { background: white; border-left: 5px solid #4a90e2; margin: 1rem 0; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-    footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; }
-    .button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 5px; margin: 1rem 0; }
+    section { padding: 3rem 1rem; max-width: 1100px; margin: auto; }
+    .calendar-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    h2 { color: #1e1e2f; margin: 0 1rem 1rem 0; }
+    .download-button { background: #4a90e2; color: white; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 5px; font-weight: bold; }
+    .month { font-size: 1.8rem; color: #1e1e2f; margin-top: 2rem; border-bottom: 2px solid #ccc; padding-bottom: 0.5rem; }
+    .event-card { background: white; margin: 1.5rem 0; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; color: white; margin-bottom: 1rem; }
+    .badge-tioga { background-color: #e30613; }
+    .badge-grant { background-color: #660000; }
+    .badge-hbacl { background-color: #4a90e2; }
+    .badge-student { background-color: #1e1e2f; }
+    .event-date { font-weight: bold; font-size: 1.2rem; color: #1e1e2f; }
+    .event-desc { margin-top: 0.5rem; font-size: 1rem; }
+    .share-event { margin-top: 1rem; }
+    .share-event a img { width: 24px; margin: 0 5px; vertical-align: middle; }
+    footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; margin-top: 3rem; }
+    @media (max-width: 600px) {
+      .calendar-header { flex-direction: column; align-items: flex-start; }
+      .download-button { margin-top: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -37,27 +52,52 @@
 </nav>
 
 <section id="calendar">
-  <h2>Calendar of Events</h2>
-  <div class="event"><strong>August 8 – Grant High School:</strong><br>Meet & Greet, new student sign-ups, and appointment of 1 committee seat.</div>
-  <div class="event"><strong>August 15 – Tioga High School:</strong><br>Meet & Greet, new student sign-ups, and appointment of 1 committee seat.</div>
-  <div class="event"><strong>September 20 – HBACL Annual Home Show:</strong><br>Students from both chapters will have their carpentry projects available for sale and pre-order.</div>
-  <div class="event"><strong>October 17 – Aim for Education Skeet Shoot:</strong><br>Annual skeet shoot raises scholarship funds for the Student Chapter.</div>
-  <div class="event"><strong>November – SECO Expo:</strong><br>Immersive career-readiness experience hosted by The Orchard Foundation.</div>
-  <div class="event"><strong>December 19 – Grant High School:</strong><br>Student Chapter Bonfire for community building and celebration.</div>
-  <div class="event"><strong>December 20 – Tioga High School:</strong><br>Student Chapter Bonfire for community building and celebration.</div>
-  <div class="event"><strong>January 17 – Grant High School:</strong><br>Student Chapter Movie Night for team-building and fun.</div>
-  <div class="event"><strong>January 24 – Tioga High School:</strong><br>Student Chapter Movie Night for team-building and fun.</div>
-  <div class="event"><strong>February 17 – Alexandria Children's Mardi Gras Parade:</strong><br>Student Chapter participation in the local parade.</div>
-  <div class="event"><strong>March 1 – HBACL Office:</strong><br>Scholarship projects and written portions due.</div>
-  <div class="event"><strong>April 11 – HBACL Annual Golf Tournament:</strong><br>Fundraising event supporting students and programs.</div>
-  <div class="event"><strong>April 15 – Scholarship Notifications:</strong><br>Scholarship award results announced.</div>
-  <div class="event"><strong>April (TBD) – Student Chapter Field Day:</strong><br>Hands-on activity and celebration day. Final date to be announced.</div>
-  <div class="event"><strong>May 1 – End of Year Wrap-Up:</strong><br>Crawfish boil and wrap-up gathering to close the school year.</div>
-  <div class="event"><strong>June – Summer Internships Begin:</strong><br>Student internships and job placements begin.</div>
-  <div class="event"><strong>June 2–5 – Alexandria Convention Center:</strong><br>Louisiana FFA State Convention and Expo. Over 1,000 Louisiana FFA members will be in attendance. This is a great opportunity to meet with Louisiana’s future workforce.<br><a href="https://la-ffa.org/what-we-do/state-convention-expo.html" target="_blank">Learn more and register here.</a></div>
-  <div class="event"><strong>July – Leadership Canoe Trip:</strong><br>Summer leadership development on the water.</div>
+  <div class="calendar-header">
+    <h2>Calendar of Events</h2>
+    <a href="Student_Chapter_Calendar.docx" download class="download-button">Download Full Calendar</a>
+  </div>
 
-  <a class="button" href="Student_Chapter_Calendar.docx" download>Download Full Calendar</a>
+  <div class="month">August 2025</div>
+
+  <div class="event-card">
+    <span class="badge badge-grant">Grant High</span>
+    <div class="event-date">August 8 – Meet & Greet</div>
+    <div class="event-desc">New student sign-ups and appointment of 1 committee seat.</div>
+    <div class="share-event">
+      <a href="#" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
+      <a href="#" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
+      <a href="#" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+      <a href="#" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
+    </div>
+  </div>
+  <div class="event-card">
+    <span class="badge badge-tioga">Tioga High</span>
+    <div class="event-date">August 15 – Meet & Greet</div>
+    <div class="event-desc">New student sign-ups and appointment of 1 committee seat.</div>
+    <div class="share-event">
+      <a href="#" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
+      <a href="#" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
+      <a href="#" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+      <a href="#" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
+    </div>
+  </div>
+
+  <!-- Repeat event cards for each event -->
+
+    <div class="month">September 2025</div>
+
+  <div class="event-card">
+    <span class="badge badge-hbacl">HBACL</span>
+    <div class="event-date">September 20 – Annual Home Show</div>
+    <div class="event-desc">Students from both chapters will have their carpentry projects available for sale and pre-order.</div>
+    <div class="share-event">
+      <a href="#" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
+      <a href="#" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
+      <a href="#" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+      <a href="#" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
+    </div>
+  </div>
+
 </section>
 
 <footer>
