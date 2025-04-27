@@ -51,7 +51,102 @@
 <section id="about">
   <h2>About the Chapter</h2>
   <p>We are the youth extension of the Home Builders Association of Central Louisiana, committed to providing safe, affordable housing and promoting the homebuilding industry. Our mission includes advocacy, education, and leadership development for high school students through real-world experiences and community involvement.</p>
-<!DOCTYPE html>
+<div class="carousel-container">
+  <div class="carousel-slide">
+    <img src="photos/photo1.jpg" alt="Student Activity 1">
+    <img src="photos/photo2.jpg" alt="Student Activity 2">
+    <img src="photos/photo3.jpg" alt="Student Activity 3">
+    <img src="photos/photo4.jpg" alt="Student Activity 4">
+    <!-- continue to photo18.jpg -->
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</div>
+
+<style>
+.carousel-container {
+  position: relative;
+  max-width: 90%;
+  margin: 3rem auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background: white;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+.carousel-slide img {
+  min-width: 100%;
+  height: 400px; /* NEW: limits size */
+  object-fit: cover; /* NEW: no funny stretching */
+  border-radius: 15px;
+}
+
+/* Buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #1e1e2f;
+  font-weight: bold;
+  font-size: 24px;
+  border: none;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+</style>
+
+<script>
+const carouselSlide = document.querySelector('.carousel-slide');
+const carouselImages = document.querySelectorAll('.carousel-slide img');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+let counter = 0;
+
+// Auto-play feature every 5 seconds
+setInterval(() => {
+  nextImage();
+}, 5000);
+
+function nextImage() {
+  if (counter >= carouselImages.length - 1) counter = -1;
+  counter++;
+  carouselSlide.style.transform = 'translateX(' + (-counter * 100) + '%)';
+}
+
+nextBtn.addEventListener('click', nextImage);
+
+prevBtn.addEventListener('click', () => {
+  if (counter <= 0) counter = carouselImages.length;
+  counter--;
+  carouselSlide.style.transform = 'translateX(' + (-counter * 100) + '%)';
+});
+</script>
+
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -96,109 +191,7 @@
     <p>We are currently accepting new schools to join our growing Student Chapter network! If you're an educator or administrator and would like to bring this opportunity to your students, we'd love to hear from you.</p>
     <p><strong>Email:</strong> <a href="mailto:michael@nextgenerationinsulation.com">michael@nextgenerationinsulation.com</a></p>
   </div>
-  <!-- Insert this code where you want the carousel (example: right after About section) -->
-
-<div class="carousel-container">
-  <div class="carousel-slide">
-    <img src="photos/photo1.jpg" alt="Student Activity 1">
-    <img src="photos/photo2.jpg" alt="Student Activity 2">
-    <img src="photos/photo3.jpg" alt="Student Activity 3">
-    <img src="photos/photo4.jpg" alt="Student Activity 4">
-    <img src="photos/photo5.jpg" alt="Student Activity 5">
-    <img src="photos/photo6.jpg" alt="Student Activity 6">
-    <img src="photos/photo7.jpg" alt="Student Activity 7">
-    <img src="photos/photo8.jpg" alt="Student Activity 8">
-    <img src="photos/photo9.jpg" alt="Student Activity 9">
-    <img src="photos/photo10.jpg" alt="Student Activity 10">
-    <img src="photos/photo11.jpg" alt="Student Activity 11">
-    <img src="photos/photo12.jpg" alt="Student Activity 12">
-    <img src="photos/photo13.jpg" alt="Student Activity 13">
-    <img src="photos/photo14.jpg" alt="Student Activity 14">
-    <img src="photos/photo15.jpg" alt="Student Activity 15">
-    <img src="photos/photo16.jpg" alt="Student Activity 16">
-    <img src="photos/photo17.jpg" alt="Student Activity 17">
-    <img src="photos/photo18.jpg" alt="Student Activity 18">
-  </div>
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
-</div>
-
-<!-- Carousel CSS -->
-<style>
-.carousel-container {
-  position: relative;
-  max-width: 90%;
-  margin: 3rem auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  background: white;
-}
-
-.carousel-slide {
-  display: flex;
-  transition: transform 0.8s ease-in-out;
-}
-
-.carousel-slide img {
-  min-width: 100%;
-  height: auto;
-  border-radius: 15px;
-}
-
-/* Buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: #1e1e2f;
-  font-weight: bold;
-  font-size: 24px;
-  border: none;
-  background-color: rgba(255,255,255,0.7);
-  border-radius: 50%;
-  user-select: none;
-  transition: 0.3s;
-}
-
-.prev:hover, .next:hover {
-  background-color: #4a90e2;
-  color: white;
-}
-
-.prev {
-  left: 15px;
-}
-
-.next {
-  right: 15px;
-}
-</style>
-
-<!-- Carousel JavaScript -->
-<script>
-const carouselSlide = document.querySelector('.carousel-slide');
-const carouselImages = document.querySelectorAll('.carousel-slide img');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-
-let counter = 0;
-
-nextBtn.addEventListener('click', () => {
-  if (counter >= carouselImages.length - 1) counter = -1;
-  counter++;
-  carouselSlide.style.transform = 'translateX(' + (-counter * 100) + '%)';
-});
-
-prevBtn.addEventListener('click', () => {
-  if (counter <= 0) counter = carouselImages.length;
-  counter--;
-  carouselSlide.style.transform = 'translateX(' + (-counter * 100) + '%)';
-});
-</script>
+ 
 
 </section>
 
