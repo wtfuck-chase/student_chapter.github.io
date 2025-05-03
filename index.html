@@ -83,17 +83,21 @@ nav ul li {
   <p id="visitor-count">Visitors: loading...</p>
 </header>
 
-<nav style="position: sticky; top: 0; background-color: #14141f; padding: 1rem; text-align: center; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-  <a href="#about">About</a>
-  <a href="#schools">Schools</a>
-  <a href="#join">Join</a>
-  <a href="calendar.html">Events</a>
-  <a href="#scholarships">Scholarships</a>
-  <a href="#sponsorships">Sponsorships</a>
-  <a href="blog.html">Student Blog</a>
-  <a href="newsletter.html">Newsletter</a>
-  <a href="contact.html">Contact Us</a>
+<nav>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <ul id="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="schools.html">Schools</a></li>
+    <li><a href="join.html">Join</a></li>
+    <li><a href="calendar.html">Events</a></li>
+    <li><a href="scholarships.html">Scholarships</a></li>
+    <li><a href="sponsorships.html">Sponsorships</a></li>
+    <li><a href="blog.html">Student Blog</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
 </nav>
+
 
 
 <section id="about">
@@ -267,6 +271,12 @@ prevBtn.addEventListener('click', prevImage);
   </div>
 </section>
 <!-- END: Donate CTA with Share Buttons -->
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("show");
+  }
+</script>
 
 </section>
 
