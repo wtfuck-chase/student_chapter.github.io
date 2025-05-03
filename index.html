@@ -126,18 +126,16 @@ nav ul li {
   <button class="next">&#10095;</button>
 </div>
 
+/* Carousel CSS */
 .carousel-container {
   position: relative;
   max-width: 90%;
   margin: 3rem auto;
   overflow: hidden;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  background-color: transparent; /* ✅ changed from white */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: transparent; /* made transparent */
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .carousel-track {
@@ -146,19 +144,18 @@ nav ul li {
 }
 
 .carousel-item {
-  min-width: 100%; /* SHOW ONLY ONE ITEM */
+  min-width: 100%; /* Show only one item */
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .carousel-item img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
   max-width: 100%;
   max-height: 600px;
   object-fit: contain;
-  margin: auto;
-  display: block;
   background: transparent;
   border-radius: 15px;
 }
