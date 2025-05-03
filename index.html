@@ -25,7 +25,6 @@
     a.button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; margin-top: 1rem; text-decoration: none; border-radius: 5px; }
     .spacer { height: 3rem; }
 
-    /* Hamburger menu base styles */
     .menu-toggle {
       display: none;
       background: none;
@@ -45,33 +44,15 @@
       margin: 0;
     }
 
-    nav ul li {
-      margin: 0 1rem;
-    }
+    nav ul li { margin: 0 1rem; }
 
     @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #14141f;
-        padding: 1rem 0;
-      }
-
-      nav ul.show {
-        display: flex;
-      }
-
-      nav ul li {
-        margin: 0.5rem 0;
-        text-align: center;
-      }
+      .menu-toggle { display: block; }
+      nav ul { display: none; flex-direction: column; background-color: #14141f; padding: 1rem 0; }
+      nav ul.show { display: flex; }
+      nav ul li { margin: 0.5rem 0; text-align: center; }
     }
 
-    /* Carousel */
     .carousel-container {
       position: relative;
       max-width: 90%;
@@ -83,10 +64,7 @@
       text-align: center;
     }
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.8s ease-in-out;
-    }
+    .carousel-track { display: flex; transition: transform 0.8s ease-in-out; }
 
     .carousel-item {
       min-width: 100%;
@@ -104,7 +82,6 @@
       border-radius: 15px;
     }
 
-    /* Navigation Buttons */
     .prev, .next {
       cursor: pointer;
       position: absolute;
@@ -122,17 +99,12 @@
       transition: 0.3s;
     }
 
-    .prev:hover, .next:hover {
-      background-color: #4a90e2;
-      color: white;
-    }
-
+    .prev:hover, .next:hover { background-color: #4a90e2; color: white; }
     .prev { left: 15px; }
     .next { right: 15px; }
   </style>
-<!-- CONTENT OMITTED FOR BREVITY -->
-</body>
-</html>
+</head>
+<body>
 
 <header>
   <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
@@ -153,12 +125,11 @@
   </ul>
 </nav>
 
-
-
-
 <section id="about">
   <h2>About the Chapter</h2>
   <p>We are the youth extension of the Home Builders Association of Central Louisiana, committed to providing safe, affordable housing and promoting the homebuilding industry. Our mission includes advocacy, education, and leadership development for high school students through real-world experiences and community involvement.</p>
+</section>
+
 <!-- BEGIN: Carousel Section -->
 <div class="carousel-container">
   <div class="carousel-track">
@@ -172,95 +143,15 @@
     <div class="carousel-item"><img src="photos/photo8.jpg" alt="Student Activity 8"></div>
     <div class="carousel-item"><img src="photos/photo9.jpg" alt="Student Activity 9"></div>
     <div class="carousel-item"><img src="photos/photo10.jpg" alt="Student Activity 10"></div>
-    <div class="carousel-item"><img src="photos/photo11.jpg" alt="Student Activity 11"></div>
-    <div class="carousel-item"><img src="photos/photo12.jpg" alt="Student Activity 12"></div>
-    <div class="carousel-item"><img src="photos/photo13.jpg" alt="Student Activity 13"></div>
-    <div class="carousel-item"><img src="photos/photo14.jpg" alt="Student Activity 14"></div>
-    <div class="carousel-item"><img src="photos/photo15.jpg" alt="Student Activity 15"></div>
-    <div class="carousel-item"><img src="photos/photo16.jpg" alt="Student Activity 16"></div>
-    <div class="carousel-item"><img src="photos/photo17.jpg" alt="Student Activity 17"></div>
-    <div class="carousel-item"><img src="photos/photo18.jpg" alt="Student Activity 18"></div>
   </div>
   <button class="prev">&#10094;</button>
   <button class="next">&#10095;</button>
 </div>
-
-<!-- Carousel CSS -->
-<style>
-.carousel-container {
-  position: relative;
-  max-width: 90%;
-  margin: 3rem auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  background-color: transparent; /* ✅ fix: remove white background */
-  text-align: center;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.8s ease-in-out;
-}
-
-.carousel-item {
-  min-width: 100%; /* Show only one item */
-  overflow: hidden;
-  display: flex;              /* ✅ fix: center images */
-  justify-content: center;    /* ✅ */
-  align-items: center;        /* ✅ */
-}
-
-.carousel-item img {
-  max-width: 100%;
-  max-height: 600px;
-  object-fit: contain;
-  background: transparent;
-  border-radius: 15px;
-}
-
-
-<!-- Carousel JavaScript -->
-<script>
-const track = document.querySelector('.carousel-track');
-const items = document.querySelectorAll('.carousel-item');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-
-let counter = 0;
-
-// Auto-play: Move to next image every 5 seconds
-setInterval(() => {
-  nextImage();
-}, 5000);
-
-function nextImage() {
-  counter++;
-  if (counter >= items.length) counter = 0;
-  updateCarousel();
-}
-
-function prevImage() {
-  counter--;
-  if (counter < 0) counter = items.length - 1;
-  updateCarousel();
-}
-
-function updateCarousel() {
-  track.style.transform = 'translateX(' + (-counter * 100) + '%)';
-}
-
-nextBtn.addEventListener('click', nextImage);
-prevBtn.addEventListener('click', prevImage);
-</script>
 <!-- END: Carousel Section -->
 
-</script>
-
- <!-- BEGIN: Donate CTA with Share Buttons -->
+<!-- BEGIN: Donate CTA -->
 <section style="background-color: #f9f9f9; border: 2px solid #1e1e2f; border-radius: 20px; padding: 2rem; max-width: 800px; margin: 3rem auto; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <h2 style="color: #1e1e2f; font-size: 2rem; margin-bottom: 1rem;">Help Us Build a Brighter Future – Donate Today</h2>
-  
   <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
     Every gift you make — no matter the size — helps unlock life-changing opportunities for students right here in our local community.
   </p>
@@ -273,65 +164,31 @@ prevBtn.addEventListener('click', prevImage);
   <p style="color: #777; font-style: italic; font-size: 1rem; margin-bottom: 2rem;">
     “Every nail they drive, every foundation they lay, and every dream they build is made possible by people like you.”
   </p>
-
-  <!-- Donate Now Button -->
   <a href="#" target="_blank" style="display: inline-block; background-color: #1e1e2f; color: white; padding: 0.8rem 2.5rem; font-size: 1.2rem; border-radius: 50px; text-decoration: none; transition: background-color 0.3s ease;">
     Donate Now
   </a>
-
-  <!-- Share With Friends Section -->
-  <div style="margin-top: 2rem;">
-    <p style="font-size: 1.1rem; color: #1e1e2f;">Share with Friends:</p>
-    <div style="margin-top: 0.5rem;">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.studentchapterofcenla.org" target="_blank" title="Share on Facebook">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width: 40px; margin: 0 10px;">
-      </a>
-      <a href="https://twitter.com/intent/tweet?url=https://www.studentchapterofcenla.org&text=Check%20out%20this%20amazing%20Student%20Chapter!" target="_blank" title="Share on Twitter">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter/X" style="width: 40px; margin: 0 10px;">
-      </a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.studentchapterofcenla.org" target="_blank" title="Share on LinkedIn">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width: 40px; margin: 0 10px;">
-      </a>
-      <a href="mailto:?subject=Check%20out%20the%20Student%20Chapter%20of%20Central%20Louisiana!&body=I%20found%20this%20great%20student%20leadership%20program.%20Take%20a%20look:%20https://www.studentchapterofcenla.org" title="Email a Friend">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" style="width: 40px; margin: 0 10px;">
-      </a>
-    </div>
-  </div>
 </section>
-<!-- END: Donate CTA with Share Buttons -->
-<script>
-  function toggleMenu() {
-    const navLinks = document.getElementById("nav-links");
-    navLinks.classList.toggle("show");
-  }
-</script>
+<!-- END: Donate CTA -->
 
-</section>
-
-</body>
-</html>
-
-</section>
-
+<!-- BEGIN: Schools Section -->
 <section id="schools">
   <h2>Our Schools</h2>
   <p>The Student Chapter currently operates in partnership with two high schools:</p>
   <ul>
-    <li><strong>Tioga High School</strong> – A leader in hands-on education and real-world skills development, Tioga High School’s career and technical education programs help students build confidence and prepare for life after graduation. Their participation in the Student Chapter enhances access to community service, career exploration, and leadership training through construction and agriculture pathways.</li>
-    <li><strong>Grant High School</strong> – Actively participating in chapter activities, events, and professional development through industry exposure.</li>
+    <li><strong>Tioga High School</strong> – Career and technical education programs building confidence and real-world skills. Students benefit from service, career, and leadership experiences in construction and agriculture.</li>
+    <li><strong>Grant High School</strong> – Actively engaged in student chapter activities, professional development, and industry networking.</li>
   </ul>
   <div style="background: #ffffff; border-left: 5px solid #00b894; padding: 1rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
     <h3 style="margin-top: 0;">Interested in Starting a Chapter at Your School?</h3>
-    <p>We are currently accepting new schools to join our growing Student Chapter network! If you're an educator or administrator and would like to bring this opportunity to your students, we'd love to hear from you.</p>
+    <p>If you're an educator or administrator and would like to bring this opportunity to your students, we'd love to hear from you.</p>
     <p><strong>Email:</strong> <a href="mailto:michael@nextgenerationinsulation.com">michael@nextgenerationinsulation.com</a></p>
   </div>
- 
-
 </section>
+<!-- END: Schools Section -->
 
+<!-- BEGIN: Join Section -->
 <section id="join">
   <h2>Join the Chapter</h2>
-  <p>Why Join the Student Chapter?</p>
   <ul>
     <li>Leadership, teamwork, and project experience</li>
     <li>Exposure to skilled trades, construction, and business careers</li>
@@ -343,14 +200,18 @@ prevBtn.addEventListener('click', prevImage);
   <a class="button" href="Permission_Slip.pdf" download>Download Permission Slip</a>
   <a class="button" href="Student_Chapter_Application.docx" download>Join Now</a>
 </section>
+<!-- END: Join Section -->
 
+<!-- BEGIN: Scholarships Section -->
 <section id="scholarships">
   <h2>Scholarships</h2>
   <p>Scholarship contributions start at $1,000 with a 2-year minimum commitment. Funds are paid directly to the student upon meeting all senior-year qualifications outlined in the application. Scholarships are awarded through local sponsorships and HBACL fundraising events, such as the annual Aim for Education Skeet Shoot.</p>
-  <p>To view all requirements, deadlines, eligibility guidelines, and expectations, please review the full <a href="2025_Student_Chapter_Scholarship_Guidelines.docx" download>2025 Student Chapter Scholarship Guidelines</a>.</p>
+  <p><a class="button" href="2025_Student_Chapter_Scholarship_Guidelines.docx" download>Scholarship Guidelines</a></p>
   <a class="button" href="2025_scholarship_application.docx" download>View Scholarship Application</a>
 </section>
+<!-- END: Scholarships Section -->
 
+<!-- BEGIN: Sponsorships Section -->
 <section id="sponsorships">
   <h2>Sponsorship Tiers</h2>
   <p>We offer several sponsorship levels with recognition and engagement opportunities for each tier.</p>
@@ -370,24 +231,29 @@ prevBtn.addEventListener('click', prevImage);
     <strong>Supporter – Under $500</strong><br>
     Website/Facebook thank you, and event invites.
   </div>
-<div style="text-align: center; margin: 2rem 0;">
-  <h2>Become a Sponsor</h2>
-  <p>Download and complete a sponsorship application form below:</p>
-  
-  <a href="Student_Chapter_Sponsorship_Application.docx" download style="display: inline-block; margin: 0.5rem; padding: 0.75rem 1.5rem; background-color: #4a90e2; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
-    Download .DOCX Form
-  </a>
-
-  <a href="sponsorship-application-fillable.pdf" download style="display: inline-block; margin: 0.5rem; padding: 0.75rem 1.5rem; background-color: #00b894; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
-    Download Fillable .PDF Form
-  </a>
-</div>
-
+  <div style="text-align: center; margin: 2rem 0;">
+    <h2>Become a Sponsor</h2>
+    <p>Download and complete a sponsorship application form below:</p>
+    <a href="Student_Chapter_Sponsorship_Application.docx" download style="display: inline-block; margin: 0.5rem; padding: 0.75rem 1.5rem; background-color: #4a90e2; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+      Download .DOCX Form
+    </a>
+    <a href="sponsorship-application-fillable.pdf" download style="display: inline-block; margin: 0.5rem; padding: 0.75rem 1.5rem; background-color: #00b894; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+      Download Fillable .PDF Form
+    </a>
+  </div>
 </section>
+<!-- END: Sponsorships Section -->
 
 <footer>
   <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
 </footer>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("show");
+  }
+</script>
 
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
@@ -415,7 +281,39 @@ prevBtn.addEventListener('click', prevImage);
       }
     });
   }
-  window.onload = () => incrementVisitorCount("main");
+
+  window.onload = () => {
+    incrementVisitorCount("main");
+
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let counter = 0;
+
+    function updateCarousel() {
+      track.style.transform = 'translateX(' + (-counter * 100) + '%)';
+    }
+
+    function nextImage() {
+      counter++;
+      if (counter >= items.length) counter = 0;
+      updateCarousel();
+    }
+
+    function prevImage() {
+      counter--;
+      if (counter < 0) counter = items.length - 1;
+      updateCarousel();
+    }
+
+    if (nextBtn && prevBtn) {
+      nextBtn.addEventListener('click', nextImage);
+      prevBtn.addEventListener('click', prevImage);
+    }
+
+    setInterval(nextImage, 5000);
+  }
 </script>
 
 </body>
