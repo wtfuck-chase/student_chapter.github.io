@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" href="student_chapter_favicon.png">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Chapter of Central Louisiana – HBACL</title>
@@ -25,55 +24,117 @@
     footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; }
     a.button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; margin-top: 1rem; text-decoration: none; border-radius: 5px; }
     .spacer { height: 3rem; }
+
     /* Hamburger menu base styles */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-}
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
 
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-nav ul li {
-  margin: 0 1rem;
-}
+    nav ul li {
+      margin: 0 1rem;
+    }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
 
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background-color: #14141f;
-    padding: 1rem 0;
-  }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #14141f;
+        padding: 1rem 0;
+      }
 
-  nav ul.show {
-    display: flex;
-  }
+      nav ul.show {
+        display: flex;
+      }
 
-  nav ul li {
-    margin: 0.5rem 0;
-    text-align: center;
-  }
-}
+      nav ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+      }
+    }
 
+    /* Carousel */
+    .carousel-container {
+      position: relative;
+      max-width: 90%;
+      margin: 3rem auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background-color: transparent;
+      text-align: center;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-item img {
+      max-width: 100%;
+      max-height: 600px;
+      object-fit: contain;
+      background: transparent;
+      border-radius: 15px;
+    }
+
+    /* Navigation Buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: #1e1e2f;
+      font-weight: bold;
+      font-size: 24px;
+      border: none;
+      background-color: rgba(255,255,255,0.7);
+      border-radius: 50%;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: #4a90e2;
+      color: white;
+    }
+
+    .prev { left: 15px; }
+    .next { right: 15px; }
   </style>
 </head>
 <body>
+<!-- CONTENT OMITTED FOR BREVITY -->
+</body>
+</html>
 
 <header>
   <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
@@ -159,41 +220,7 @@ nav ul li {
   background: transparent;
   border-radius: 15px;
 }
-</style>
 
-
-
-/* Navigation Buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: #1e1e2f;
-  font-weight: bold;
-  font-size: 24px;
-  border: none;
-  background-color: rgba(255,255,255,0.7);
-  border-radius: 50%;
-  user-select: none;
-  transition: 0.3s;
-}
-
-.prev:hover, .next:hover {
-  background-color: #4a90e2;
-  color: white;
-}
-
-.prev {
-  left: 15px;
-}
-
-.next {
-  right: 15px;
-}
-</style>
 
 <!-- Carousel JavaScript -->
 <script>
