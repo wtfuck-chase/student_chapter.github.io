@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Call to Action – Student Chapter of Central Louisiana</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,7 +14,7 @@
       color: #333;
     }
     nav {
-      background-color: #004aad;
+      background-color: #14141f;
       padding: 1rem;
       text-align: center;
     }
@@ -30,7 +29,7 @@
     }
     header {
       background-color: #ffffff;
-      padding: 2rem 1rem 1rem;
+      padding: 2rem 1rem 0.5rem;
       text-align: center;
       border-bottom: 2px solid #ccc;
     }
@@ -72,9 +71,21 @@
     .cta-buttons a:hover {
       background-color: #00367a;
     }
+    .visitor-count {
+      text-align: center;
+      margin-top: 1rem;
+      color: #555;
+    }
   </style>
 </head>
 <body>
+  <header>
+    <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
+    <h1>Call to Action</h1>
+    <div class="visitor-count">
+      Visitors: <span id="counter">Loading...</span>
+    </div>
+  </header>
   <nav>
     <a href="/index.html">Home</a>
     <a href="/about.html">About</a>
@@ -83,10 +94,6 @@
     <a href="/CTA.html">Call to Action</a>
     <a href="/contact.html">Contact</a>
   </nav>
-  <header>
-    <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
-    <h1>Call to Action</h1>
-  </header>
   <main>
     <p>
       Over the years, you’ve helped shape the strength of the Home Builders Association of Central Louisiana.
@@ -108,5 +115,13 @@
       Have questions or a custom idea for support? Contact us at <a href="mailto:info@hbaofcenla.org">info@hbaofcenla.org</a> or call 318-443-1902.
     </p>
   </main>
+  <script>
+    // Basic page view counter using localStorage (can be upgraded with server or third-party tool)
+    const countEl = document.getElementById('counter');
+    const views = localStorage.getItem('cta-views') || 0;
+    const newViews = parseInt(views) + 1;
+    localStorage.setItem('cta-views', newViews);
+    countEl.textContent = newViews;
+  </script>
 </body>
 </html>
