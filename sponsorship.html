@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsorship & Donation Form – Student Chapter</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; padding: 2rem; color: #333; }
+    form { background: white; max-width: 600px; margin: 2rem auto; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { text-align: center; color: #1e1e2f; }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    input, textarea, select { width: 100%; padding: 0.5rem; margin-top: 0.25rem; border: 1px solid #ccc; border-radius: 4px; }
+    button { margin-top: 1.5rem; background: #004aad; color: white; border: none; padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #00367a; }
+  </style>
+</head>
+<body>
+  <form action="https://formspree.io/f/mvgagyqy" method="POST">
+    <h1>Sponsorship & Donation Form</h1>
+    <p style="text-align:center">Please use the form below to express your interest in becoming a sponsor or donor to support our Student Chapter initiatives.</p>
+
+    <input type="hidden" name="form-type" value="Sponsorship Interest">
+
+    <label for="name">Your Name</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="organization">Business or Organization</label>
+    <input type="text" name="organization" id="organization">
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" name="phone" id="phone">
+
+    <label for="contribution">Type of Contribution</label>
+    <select name="contribution" id="contribution" required>
+      <option value="One-Time Donation">One-Time Donation</option>
+      <option value="Monthly Donation">Monthly Donation</option>
+      <option value="Scholarship Sponsor">Scholarship Sponsor</option>
+      <option value="Event Sponsorship">Event Sponsorship</option>
+      <option value="In-Kind Donation">In-Kind Donation</option>
+    </select>
+
+    <label for="details">Additional Information or Message</label>
+    <textarea name="details" id="details" rows="5" placeholder="If applicable, describe donation amount, frequency, or specific areas you'd like to support."></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
