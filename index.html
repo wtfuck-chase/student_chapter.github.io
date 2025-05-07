@@ -26,22 +26,23 @@
     footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; }
     a.button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; margin-top: 1rem; text-decoration: none; border-radius: 5px; }
 
-    /* Zeffy button styling */
-    zeffy-donate {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.8rem 2.5rem;
-      font-size: 1.2rem;
-      background-color: #1e1e2f;
-      color: white;
-      border-radius: 50px;
-      text-decoration: none;
+    .zeffy-link, button[zeffy-form-link] {
+      display: inline-block !important;
+      background-color: #1e1e2f !important;
+      color: #fff !important;
+      border: none !important;
+      padding: 0.8rem 2.5rem !important;
+      font-size: 1.2rem !important;
+      font-weight: bold;
+      border-radius: 50px !important;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      text-decoration: none !important;
+      transition: background-color 0.3s ease !important;
     }
-    zeffy-donate:hover {
-      background-color: #333;
+    .zeffy-link:hover, button[zeffy-form-link]:hover {
+      background-color: #333 !important;
     }
+    .zeffy-link:hover { background: #333; }
 
     .spacer { height: 3rem; }
 
