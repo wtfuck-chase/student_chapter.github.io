@@ -41,15 +41,18 @@
 </header>
 
 <nav>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="calendar.html">Events</a>
-    <a href="blog.html">Student Blog</a>
-    <a href="newsletter.html">Newsletter</a>
-  </div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <ul id="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="calendar.html">Events</a></li>
+    <li><a href="/CTA.html">Call to Action</a></li>
+    <li><a href="blog.html">Student Blog</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+    </div>
   <input type="text" id="searchInput" placeholder="Search posts..." oninput="applyFilters()" />
 </nav>
-
 <section id="password-section">
   <h2>Rules of Engagement</h2>
   <div class="rules">
