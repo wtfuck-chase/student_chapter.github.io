@@ -29,38 +29,29 @@
     #message { width: 100%; height: 100px; padding: 0.5rem; font-size: 1rem; }
     #blog-form button { width: 150px; padding: 0.5rem 1rem; background-color: #4a90e2; border: none; color: white; border-radius: 5px; cursor: pointer; }
     /* NAVIGATION TOGGLE STYLES */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
+nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  background-color: #14141f;
+  padding: 1rem;
 }
 
+/* your toggle button sits in column 1 */
+.menu-toggle { grid-column: 1; }
+
+/* the UL sits in column 2 and centers its contents */
 nav ul {
+  grid-column: 2;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  list-style: none;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-nav ul li { margin: 0 1rem; }
+/* if you had something on the right (e.g. a search icon), it’d go in column 3 */
 
-@media (max-width: 768px) {
-  .menu-toggle { display: block; }
-  nav ul { 
-    display: none;        /* hide by default on mobile */
-    flex-direction: column;
-    background-color: #14141f;
-    padding: 1rem 0;
-  }
-  nav ul.show { display: flex; }  /* show when “show” class is toggled */
-  nav ul li { margin: 0.5rem 0; }
-}
 
   </style>
 </head>
