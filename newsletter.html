@@ -27,6 +27,40 @@
     @media (max-width: 600px) {
       .social-icons img { width: 32px; height: 32px; }
     }
+    /* NAVIGATION TOGGLE STYLES */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li { margin: 0 1rem; }
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav ul { 
+    display: none;        /* hide by default on mobile */
+    flex-direction: column;
+    background-color: #14141f;
+    padding: 1rem 0;
+  }
+  nav ul.show { display: flex; }  /* show when “show” class is toggled */
+  nav ul li { margin: 0.5rem 0; }
+}
+
   </style>
 </head>
 <body>
@@ -40,10 +74,15 @@
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="calendar.html">Events</a>
-  <a href="blog.html">Student Blog</a>
-  <a href="newsletter.html">Newsletter</a>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <ul id="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="calendar.html">Events</a></li>
+    <li><a href="/CTA.html">Call to Action</a></li>
+    <li><a href="blog.html">Student Blog</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
 </nav>
 
   <section id="may-newsletter" style="padding: 2rem; background-color: #f9f9f9;">
