@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="student_chapter_favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Chapter of Central Louisiana – HBACL</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background-color: #f4f4f4; }
+    header { background-color: white; color: #1e1e2f; padding: 2rem 1rem; text-align: center; }
+    header img { max-width: 225px; display: block; margin: 0 auto 1rem; }
+    header h1 { margin: 0; font-size: 2.5rem; color: #1e1e2f; }
+    header p { font-size: 1.2rem; margin-top: 0.5rem; color: #555; }
+    nav { background-color: #14141f; padding: 1rem; text-align: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+    section { padding: 3rem 1rem; max-width: 1000px; margin: auto; }
+    h2 { color: #1e1e2f; border-bottom: 2px solid #ddd; padding-bottom: 0.5rem; }
+    .event { background: white; border-left: 5px solid #4a90e2; margin: 1rem 0; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .gold { border-left-color: gold; }
+    .silver { border-left-color: silver; }
+    .supporter { border-left-color: #999; }
+    .custom { border-left-color: #5c6bc0; }
+    .scholarship { border-left-color: #00b894; }
+    footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; }
+    a.button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; margin-top: 1rem; text-decoration: none; border-radius: 5px; }
+
+    /* Zeffy button styling */
+    zeffy-donate {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 2.5rem;
+      font-size: 1.2rem;
+      background-color: #1e1e2f;
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    zeffy-donate:hover {
+      background-color: #333;
+    }
+
+    .spacer { height: 3rem; }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+
+    nav ul li { margin: 0 1rem; }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      nav ul { display: none; flex-direction: column; background-color: #14141f; padding: 1rem 0; }
+      nav ul.show { display: flex; }
+      nav ul li { margin: 0.5rem 0; text-align: center; }
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 760px;
+      margin: 3rem auto;
+      overflow: hidden;
+      border-radius: 15px;
+      background-color: transparent;
+      text-align: center;
+    }
+
+    .carousel-track { display: flex; transition: transform 0.8s ease-in-out; }
+
+    .carousel-item {
+      min-width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-item img {
+      max-width: 100%;
+      max-height: 600px;
+      object-fit: contain;
+      background: transparent;
+      border-radius: 15px;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: #1e1e2f;
+      font-weight: bold;
+      font-size: 24px;
+      border: none;
+      background-color: rgba(255,255,255,0.7);
+      border-radius: 50%;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .prev:hover, .next:hover { background-color: #4a90e2; color: white; }
+    .prev { left: 15px; }
+    .next { right: 15px; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
+  <h1>Student Chapter of Central Louisiana – HBACL</h1>
+  <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
+  <p>Building the Future – One Student at a Time</p>
+  <p id="visitor-count">Visitors: loading...</p>
+</header>
+
+<nav>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <ul id="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="calendar.html">Events</a></li>
+    <li><a href="/CTA.html">Call to Action</a></li>
+    <li><a href="blog.html">Student Blog</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</nav>
+
+<section id="about">
+  <h2>About the Chapter</h2>
+  <p>We are the youth extension of the Home Builders Association of Central Louisiana, committed to providing safe, affordable housing and promoting the homebuilding industry. Our mission includes advocacy, education, and leadership development for high school students through real-world experiences and community involvement.</p>
+</section>
+
+<!-- BEGIN: Carousel Section -->
+<div class="carousel-container">
+  <div class="carousel-track">
+    <div class="carousel-item"><img src="photos/photo1.jpg" alt="Student Activity 1"></div>
+    <div class="carousel-item"><img src="photos/photo2.jpg" alt="Student Activity 2"></div>
+    <div class="carousel-item"><img src="photos/photo3.jpg" alt="Student Activity 3"></div>
+    <div class="carousel-item"><img src="photos/photo4.jpg" alt="Student Activity 4"></div>
+    <div class="carousel-item"><img src="photos/photo5.jpg" alt="Student Activity 5"></div>
+    <div class="carousel-item"><img src="photos/photo6.jpg" alt="Student Activity 6"></div>
+    <div class="carousel-item"><img src="photos/photo7.jpg" alt="Student Activity 7"></div>
+    <div class="carousel-item"><img src="photos/photo8.jpg" alt="Student Activity 8"></div>
+    <div class="carousel-item"><img src="photos/photo9.jpg" alt="Student Activity 9"></div>
+    <div class="carousel-item"><img src="photos/photo10.jpg" alt="Student Activity 10"></div>
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</div>
+<!-- END: Carousel Section -->
+
+<!-- BEGIN: Donate CTA -->
+<section style="background-color: #f9f9f9; border: 2px solid #1e1e2f; border-radius: 20px; padding: 2rem; max-width: 800px; margin: 3rem auto; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+  <h2 style="color: #1e1e2f; font-size: 2rem; margin-bottom: 1rem;">Help Us Build a Brighter Future – Donate Today</h2>
+  <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
+    Every gift you make — no matter the size — helps unlock life-changing opportunities for students right here in our local community.
+  </p>
+  <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
+    Through your generosity, young leaders from Tioga and Grant High Schools gain access to scholarships, real-world career experiences, mentorships, and service projects that shape their futures and strengthen Central Louisiana.
+  </p>
+  <p style="color: #555; font-size: 1.1rem; margin-bottom: 1rem;">
+    <strong>Your donation isn't just a contribution — it's an investment in a student's dream, a family's future, and our community's tomorrow.</strong>
+  </p>
+  <p style="color: #777; font-style: italic; font-size: 1rem; margin-bottom: 2rem;">
+    “Every nail they drive, every foundation they lay, and every dream they build is made possible by people like you.”
+  </p>
+  <!-- Zeffy widget script -->
+  <script src="https://donate.zeffy.com/v1/widget.js"></script>
+  <!-- Zeffy Donate Button -->
+  <zeffy-donate
+    z-button-style="gold"
+    z-embed
+    z-badge="false"
+    z-donation-target="cc552ba9-2731-4305-9bc5-cf481219f626">
+    Donate Monthly
+  </zeffy-donate>
+</section>
+<!-- END: Donate CTA -->
+
+<!-- BEGIN: Schools Section -->
+<section id="schools">
+  <h2>Our Schools</h2>
+  <p>The Student Chapter currently operates in partnership with two high schools:</p>
+  <ul>
+    <li><strong>Tioga High School</strong> – Career and technical education programs building confidence and real-world skills. Students benefit from service, career, and leadership experiences in construction and agriculture.</li>
+    <li><strong>Grant High School</strong> – Actively engaged in student chapter activities, professional development, and industry networking.</li>
+  </ul>
+  <div style="background: #ffffff; border-left: 5px solid #00b894; padding: 1rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+    <h3 style="margin-top: 0;">Interested in Starting a Chapter at Your School?</h3>
+    <p>If you're an educator or administrator and would like to bring this opportunity to your students, we'd love to hear from you.</p>
+    <p><strong>Email:</strong> <a href="mailto:michael@nextgenerationinsulation.com">michael@nextgenerationinsulation.com</a></p>
+  </div>
+</section>
+<!-- END: Schools Section -->
+
+<!-- BEGIN: Join Section -->
+<section id="join">
+  <h2>Join the Chapter</h2>
+  <ul>
+    <li>Leadership, teamwork, and project experience</li>
+    <li>Exposure to skilled trades, construction, and business careers</li>
+    <li>Community service and event planning</li>
+    <li>Networking with builders and local industry leaders</li>
+    <li>Scholarship eligibility and internship support</li>
+  </ul>
+  <p>Ready to join?</p>
+  <a class="button" href="Permission_Slip.pdf" download>Download Permission Slip</a>
+  <a class="button" href="Student_Chapter_Application.docx" download>Join Now</a>
+</section>
+<!-- END: Join Section -->
+
+<!-- BEGIN: Scholarships Section -->
+<section id="scholarships">
+  <h2>Scholarships</h2>
+  <p>Scholarship contributions start at $1,000 with a 2-year minimum commitment. Funds are paid directly to the student upon meeting all senior-year qualifications outlined in the application. Scholarships are awarded through local sponsorships and HBACL fundraising events, such as the annual Aim for Education Skeet Shoot.</p>
+  <p><a class="button" href="2025_Student_Chapter_Scholarship_Guidelines.docx" download>Scholarship Guidelines</a></p>
+  <a class="button" href="2025_scholarship_application.docx" download>View Scholarship Application</a>
+</section>
+<!-- END: Scholarships Section -->
+
+<!-- BEGIN: Sponsorships Section -->
+<section id="sponsorships">
+  <h2>Sponsorship Tiers</h2>
+  <p>We offer several sponsorship levels with recognition and engagement opportunities for each tier.</p>
+  <div class="event custom">
+    <strong>Platinum – $5,000+</strong><br>
+    Premier recognition on all platforms/media and at all events all year, scholarship presenter, VIP access to events, and much more!
+  </div>
+  <div class="event gold">
+    <strong>Gold – $2,500</strong><br>
+    Logo on select materials, social media features, event invitations, and much more!
+  </div>
+  <div class="event silver">
+    <strong>Silver – $1,000</strong><br>
+    Name/logo on select materials, student event invites.
+  </div>
+  <div class="event supporter">
+    <strong>Supporter – Under $500</strong><br>
+    Website/Facebook thank you, and event invites.
+  </div>
+  <div style="text-align: center; margin: 2rem 0;">
+    <h2>Become a Sponsor</h2>
+    <p>Download and complete a sponsorship application form below:</p>
+    <a href="Student_Chapter_Sponsorship_Application.docx" download style="display: inline-block; margin: 0.5rem; padding: 0.75rem 1.5rem; background-color: #4a90e2; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+      Download .DOCX Form
+    </a>
+    <a href="sponsorship-application-fillable.pdf" download style="display: inline-block; margin: 0.5rem; padding: 0.75rem 1.5rem; background-color: #00b894; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+      Download Fillable .PDF Form
+    </a>
+  </div>
+</section>
+<!-- END: Sponsorships Section -->
+
+<footer>
+  <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("show");
+  }
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+    authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+    projectId: "hbacl-student-chapter-blog",
+    storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+    messagingSenderId: "1099160172364",
+    appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  const ref = db.collection("siteStats").doc("visitorCount");
+
+  function incrementVisitorCount(page) {
+    ref.get().then(doc => {
+      if (doc.exists) {
+        const data = doc.data();
+        const newCount = (data[page] || 0) + 1;
+        ref.update({ [page]: newCount });
+        document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
+      }
+    });
+  }
+
+  window.onload = () => {
+    incrementVisitorCount("main");
+
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let counter = 0;
+
+    function updateCarousel() {
+      track.style.transform = 'translateX(' + (-counter * 100) + '%)';
+    }
+
+    function nextImage() {
+      counter++;
+      if (counter >= items.length) counter = 0;
+      updateCarousel();
+    }
+
+    function prevImage() {
+      counter--;
+      if (counter < 0) counter = items.length - 1;
+      updateCarousel();
+    }
+
+    if (nextBtn && prevBtn) {
+      nextBtn.addEventListener('click', nextImage);
+      prevBtn.addEventListener('click', prevImage);
+    }
+
+    setInterval(nextImage, 5000);
+  }
+</script>
+
+</body>
+</html>
