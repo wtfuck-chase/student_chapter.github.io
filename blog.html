@@ -29,28 +29,43 @@
     #message { width: 100%; height: 100px; padding: 0.5rem; font-size: 1rem; }
     #blog-form button { width: 150px; padding: 0.5rem 1rem; background-color: #4a90e2; border: none; color: white; border-radius: 5px; cursor: pointer; }
     /* NAVIGATION TOGGLE STYLES */
+
 nav {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   background-color: #14141f;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
 }
 
-/* your toggle button sits in column 1 */
-.menu-toggle { grid-column: 1; }
-
-/* the UL sits in column 2 and centers its contents */
+/*Links*/
 nav ul {
-  grid-column: 2;
   display: flex;
   justify-content: center;
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
+  gap: 1rem;
 }
 
-/* if you had something on the right (e.g. a search icon), it’d go in column 3 */
+/* Search field */
+#searchInput {
+  padding: 0.5rem;
+  font-size: 1rem;
+  max-width: 200px;
+}
+@media (max-width: 768px) {
+  #searchInput { display: none; }
+}
+
+/* Toggle button */
+.menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: white; }
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav ul { display: none; flex-direction: column; background: #14141f; padding: 1rem 0; }
+  nav ul.show { display: flex; }
+}
 
 
   </style>
@@ -66,18 +81,23 @@ nav ul {
 </header>
 
 <nav>
+  <!-- Column 1: toggle -->
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <!-- Column 2: centered links -->
   <ul id="nav-links">
     <li><a href="index.html">About</a></li>
     <li><a href="calendar.html">Events</a></li>
-    <li><a href="/CTA.html">Call to Action</a></li>
+    <li><a href="CTA.html">Call to Action</a></li>
     <li><a href="blog.html">Student Blog</a></li>
     <li><a href="newsletter.html">Newsletter</a></li>
     <li><a href="contact.html">Contact Us</a></li>
   </ul>
-    </div>
-  <input type="text" id="searchInput" placeholder="Search posts..." oninput="applyFilters()" />
+
+  <!-- Column 3: search input -->
+  <input type="text" id="searchInput" placeholder="Search posts…" oninput="applyFilters()">
 </nav>
+
 <section id="password-section">
   <h2>Rules of Engagement</h2>
   <div class="rules">
