@@ -23,6 +23,24 @@
     .scholarship { border-left-color: #00b894; }
     footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; }
     a.button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; margin-top: 1rem; text-decoration: none; border-radius: 5px; }
+
+    /* Zeffy button styling */
+    zeffy-donate {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 2.5rem;
+      font-size: 1.2rem;
+      background-color: #1e1e2f;
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    zeffy-donate:hover {
+      background-color: #333;
+    }
+
     .spacer { height: 3rem; }
 
     .menu-toggle {
@@ -41,7 +59,8 @@
       justify-content: center;
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 0 auto;
+      max-width: 1000px;
     }
 
     nav ul li { margin: 0 1rem; }
@@ -165,10 +184,16 @@
   <p style="color: #777; font-style: italic; font-size: 1rem; margin-bottom: 2rem;">
     “Every nail they drive, every foundation they lay, and every dream they build is made possible by people like you.”
   </p>
-  <a href="#"
-" target="_blank" style="display: inline-block; background-color: #1e1e2f; color: white; padding: 0.8rem 2.5rem; font-size: 1.2rem; border-radius: 50px; text-decoration: none; transition: background-color 0.3s ease;">
-    Donate Now
-  </a>
+  <!-- Zeffy widget script -->
+  <script src="https://donate.zeffy.com/v1/widget.js"></script>
+  <!-- Zeffy Donate Button -->
+  <zeffy-donate
+    z-button-style="gold"
+    z-embed
+    z-badge="false"
+    z-donation-target="cc552ba9-2731-4305-9bc5-cf481219f626">
+    Donate Monthly
+  </zeffy-donate>
 </section>
 <!-- END: Donate CTA -->
 
