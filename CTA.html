@@ -206,6 +206,11 @@ nav ul li { margin: 0 1rem; }
     const newViews = parseInt(views) + 1;
     localStorage.setItem('cta-views', newViews);
     countEl.textContent = newViews;
+
+      // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('show');
+    }
   </script>
 </body>
 </html>
