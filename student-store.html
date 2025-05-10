@@ -25,11 +25,29 @@
     nav {
       background-color: #14213d;
       padding: 1rem;
-      text-align: center;
     }
-    nav a {
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
       color: white;
+    }
+    #nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+    #nav-links li {
       margin: 0 1rem;
+      white-space: nowrap;
+    }
+    #nav-links a {
+      color: white;
       text-decoration: none;
     }
     .container {
@@ -70,24 +88,43 @@
       text-align: center;
       padding: 1rem;
     }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      #nav-links {
+        flex-direction: column;
+        display: none;
+        text-align: center;
+      }
+      #nav-links.show {
+        display: flex;
+      }
+    }
   </style>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("show");
+    }
+  </script>
 </head>
 <body>
   <header>
     <img src="/student_chapter_favicon.png" alt="Student Chapter Logo">
   </header>
-<nav>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <ul id="nav-links">
-    <li><a href="index.html">About</a></li>
-    <li><a href="calendar.html">Events</a></li>
-    <li><a href="/CTA.html">Call to Action</a></li>
-    <li><a href="blog.html">Student Blog</a></li>
-    <li><a href="newsletter.html">Newsletter</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-    <li><a href="/student-store.html">Student Store</a></li>
-  </ul>
-</nav>
+  <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/calendar.html">Calendar</a></li>
+      <li><a href="/CTA.html">Call to Action</a></li>
+      <li><a href="/blog.html">Student Blog</a></li>
+      <li><a href="/newsletter.html">Newsletter</a></li>
+      <li><a href="/contact.html">Contact Us</a></li>
+      <li><a href="/student-store.html">Student Store</a></li>
+    </ul>
+  </nav>
 
   <div class="container">
     <h1>Student Store</h1>
