@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<div class="share-icons">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.studentchapterofcenla.org/student-store.html" target="_blank">
-    <img src="/images/facebook-icon.png" alt="Share on Facebook" />
-  </a>
-  <a href="https://twitter.com/intent/tweet?url=https://www.studentchapterofcenla.org/student-store.html" target="_blank">
-    <img src="/images/twitter-icon.png" alt="Share on Twitter" />
-  </a>
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.studentchapterofcenla.org/student-store.html" target="_blank">
-    <img src="/images/linkedin-icon.png" alt="Share on LinkedIn" />
-  </a>
-  <a href="mailto:?subject=Support our Student Store&body=Check out this page: https://www.studentchapterofcenla.org/student-store.html">
-    <img src="/images/email-icon.png" alt="Share by Email" />
-  </a>
-</div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Student Store | Student Chapter of Central Louisiana</title>
   <link rel="icon" type="image/png" href="/student_chapter_favicon.png" />
   <link rel="stylesheet" href="/style.css" />
   <style>
+.share-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.share-icons a {
+  font-size: 1.5rem;
+  color: #000;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.share-icons a:hover {
+  transform: scale(1.15);
+}
+
+    
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -161,38 +168,42 @@
 
     <section>
       <h2 class="section-title">🛍️ Student & Department Listings</h2>
-      .share-icons {
-  text-align: center;
-  margin-top: 1rem;
-}
-.share-icons a img {
-  width: 40px;
-  height: 40px;
-  margin: 0 8px;
-  transition: transform 0.2s ease;
-}
-.share-icons a img:hover {
-  transform: scale(1.1);
-}
+    <div class="share-icons">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.studentchapterofcenla.org/student-store.html" target="_blank" aria-label="Share on Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?url=https://www.studentchapterofcenla.org/student-store.html" target="_blank" aria-label="Share on X (Twitter)">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.studentchapterofcenla.org/student-store.html" target="_blank" aria-label="Share on LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  <a href="mailto:?subject=Support our Student Store&body=Check out this page: https://www.studentchapterofcenla.org/student-store.html" aria-label="Share via Email">
+    <i class="fas fa-envelope"></i>
+  </a>
+</div>
+
 
       <p class="coming-soon">Items coming soon. Check back for handmade crafts, school merch, and student-led projects!</p>
     </section>
 
     <section>
       <h2 class="section-title">🎓 Student Chapter Listings</h2>
-      .share-icons {
-  text-align: center;
-  margin-top: 1rem;
-}
-.share-icons a img {
-  width: 40px;
-  height: 40px;
-  margin: 0 8px;
-  transition: transform 0.2s ease;
-}
-.share-icons a img:hover {
-  transform: scale(1.1);
-}
+  <div class="share-icons">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.studentchapterofcenla.org/student-store.html" target="_blank" aria-label="Share on Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?url=https://www.studentchapterofcenla.org/student-store.html" target="_blank" aria-label="Share on X (Twitter)">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.studentchapterofcenla.org/student-store.html" target="_blank" aria-label="Share on LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  <a href="mailto:?subject=Support our Student Store&body=Check out this page: https://www.studentchapterofcenla.org/student-store.html" aria-label="Share via Email">
+    <i class="fas fa-envelope"></i>
+  </a>
+</div>
+
 
       <p class="coming-soon">Items coming soon. Proceeds support student events, scholarships, and workforce initiatives.</p>
     </section>
