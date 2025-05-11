@@ -1,0 +1,65 @@
+<section>
+  <h2 class="section-title">📘 Digital Planners – Product Line Launch</h2>
+  <p style="margin-bottom: 1.5rem; font-style: italic; color: #555;">
+    Every planner sold helps fund scholarships, internships, and student-led initiatives across Central Louisiana.
+  </p>
+
+  <style>
+    .planner-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #0d1b2a;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .planner-button:hover {
+      background-color: #14213d;
+      transform: scale(1.05);
+    }
+  </style>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+
+    <!-- Professional Planner -->
+    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
+      <h3 style="color: #264653;">📊 Professional Planner</h3>
+      <p>Perfect for entrepreneurs, managers, and busy professionals. Includes KPIs, meeting notes, project tracking, and budget forecasting.</p>
+      <a href="https://www.zeffy.com/en-US/donation-form/your-link-here" target="_blank" class="planner-button">Buy Now – $9.99</a>
+    </div>
+
+    <!-- Minimalist Planner -->
+    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
+      <h3 style="color: #264653;">🧘 Minimalist Planner</h3>
+      <p>Clean, elegant, and simple. Focused layouts with minimal distractions for peace of mind and intentional living.</p>
+      <a href="https://www.zeffy.com/en-US/donation-form/your-link-here" target="_blank" class="planner-button">Buy Now – $9.99</a>
+    </div>
+
+    <!-- Student Planner -->
+    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
+      <h3 style="color: #264653;">🎒 Student Planner</h3>
+      <p>Track assignments, deadlines, class schedules, and goals. Designed for high school and college students alike.</p>
+      <p style="color: #fca311; font-weight: bold;">Regular Price: $9.99 → Now $4.99</p>
+      <p style="font-style: italic; color: #777;">Support students with every download.</p>
+      <a href="https://www.zeffy.com/en-US/donation-form/your-link-here" target="_blank" class="planner-button">Buy Now – $4.99</a>
+    </div>
+
+    <!-- Teacher Planner -->
+    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
+      <h3 style="color: #264653;">📚 Teacher Planner</h3>
+      <p>Lesson plans, class rosters, communication logs, and grading tools in one convenient planner.</p>
+      <p style="color: #fca311; font-weight: bold;">Regular Price: $9.99 → Now $4.99</p>
+      <p style="font-style: italic; color: #777;">Support educators while staying organized.</p>
+      <a href="https://www.zeffy.com/en-US/donation-form/your-link-here" target="_blank" class="planner-button">Buy Now – $4.99</a>
+    </div>
+
+    <!-- Everyday Planner -->
+    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
+      <h3 style="color: #264653;">🏡 Everyday Life Planner</h3>
+      <p>For anyone looking to manage meals, budgeting, home projects, and wellness with ease and style.</p>
+      <a href="https://www.zeffy.com/en-US/donation-form/your-link-here" target="_blank" class="planner-button">Buy Now – $9.99</a>
+    </div>
+  </div>
+</section>
