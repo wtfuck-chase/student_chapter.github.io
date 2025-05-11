@@ -1,14 +1,51 @@
-<section>
-  <h2 class="section-title">📘 Digital Planners – Product Line Launch</h2>
-  <p style="margin-bottom: 1.5rem; font-style: italic; color: #555;">
+<section style="background-color: #f8f9fa; padding: 2rem 1rem;">
+  <h1 style="font-size: 2.2rem; color: #0d1b2a; text-align: center; margin-bottom: 0.5rem;">Downloadable Digital Planners to Support Student Success</h1>
+  <h2 class="section-title" style="text-align: center;">📘 Digital Planners – Product Line Launch</h2>
+  <p style="margin-bottom: 2rem; font-style: italic; color: #555; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
     Every planner sold helps fund scholarships, internships, and student-led initiatives across Central Louisiana.
   </p>
 
   <style>
+    .planner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .planner-card {
+      background-color: #ffffff;
+      border: 1px solid #d1d1c7;
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease;
+    }
+    .planner-card:hover {
+      transform: translateY(-4px);
+    }
+    .planner-card img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .planner-card h3 {
+      color: #264653;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .planner-card p {
+      text-align: center;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
     .planner-button {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1.25rem;
       background-color: #0d1b2a;
       color: white;
       border-radius: 8px;
@@ -21,25 +58,28 @@
     }
   </style>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+  <div class="planner-grid">
 
     <!-- Professional Planner -->
-    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
-      <h3 style="color: #264653;">📊 Professional Planner</h3>
+    <div class="planner-card">
+      <img src="/images/planner-professional.png" alt="Professional digital planner preview">
+      <h3>📊 Professional Planner</h3>
       <p>Perfect for entrepreneurs, managers, and busy professionals. Includes KPIs, meeting notes, project tracking, and budget forecasting.</p>
       <a href="https://www.zeffy.com/en-US/donation-form/your-link-here" target="_blank" class="planner-button">Buy Now – $9.99</a>
     </div>
 
     <!-- Minimalist Planner -->
-    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
-      <h3 style="color: #264653;">🧘 Minimalist Planner</h3>
+    <div class="planner-card">
+      <img src="/images/planner-minimalist.png" alt="Minimalist digital planner preview">
+      <h3>🧘 Minimalist Planner</h3>
       <p>Clean, elegant, and simple. Focused layouts with minimal distractions for peace of mind and intentional living.</p>
       <a href="https://www.zeffy.com/en-US/donation-form/your-link-here" target="_blank" class="planner-button">Buy Now – $9.99</a>
     </div>
 
     <!-- Student Planner -->
-    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
-      <h3 style="color: #264653;">🎒 Student Planner</h3>
+    <div class="planner-card">
+      <img src="/images/planner-student.png" alt="Student digital planner preview">
+      <h3>🎒 Student Planner</h3>
       <p>Track assignments, deadlines, class schedules, and goals. Designed for high school and college students alike.</p>
       <p style="color: #fca311; font-weight: bold;">Regular Price: $9.99 → Now $4.99</p>
       <p style="font-style: italic; color: #777;">Support students with every download.</p>
@@ -47,8 +87,9 @@
     </div>
 
     <!-- Teacher Planner -->
-    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
-      <h3 style="color: #264653;">📚 Teacher Planner</h3>
+    <div class="planner-card">
+      <img src="/images/planner-teacher.png" alt="Teacher digital planner preview">
+      <h3>📚 Teacher Planner</h3>
       <p>Lesson plans, class rosters, communication logs, and grading tools in one convenient planner.</p>
       <p style="color: #fca311; font-weight: bold;">Regular Price: $9.99 → Now $4.99</p>
       <p style="font-style: italic; color: #777;">Support educators while staying organized.</p>
@@ -56,8 +97,9 @@
     </div>
 
     <!-- Everyday Planner -->
-    <div style="border: 2px solid #c7c7b7; border-radius: 12px; padding: 1rem; background-color: #fdfdfb;">
-      <h3 style="color: #264653;">🏡 Everyday Life Planner</h3>
+    <div class="planner-card">
+      <img src="/images/planner-everyday.png" alt="Everyday life digital planner preview">
+      <h3>🏡 Everyday Life Planner</h3>
       <p>For anyone looking to manage meals, budgeting, home projects, and wellness with ease and style.</p>
       <a href="https://www.zeffy.com/en-US/donation-form/your-link-here" target="_blank" class="planner-button">Buy Now – $9.99</a>
     </div>
