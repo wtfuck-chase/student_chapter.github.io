@@ -279,8 +279,11 @@ nav ul {
   }
 </script>
 
+<!-- Firebase SDK Scripts FIRST -->
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+<!-- Then your Firebase Configuration and Visitor Counter -->
 <script>
   const firebaseConfig = {
     apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
@@ -291,23 +294,43 @@ nav ul {
     appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
   };
 
+  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
   const ref = db.collection("siteStats").doc("visitorCount");
 
-function incrementVisitorCount(page) {
-  ref.get().then((doc) => {
-    if (doc.exists) {
-      const data = doc.data();
-      const newCount = (data[page] || 0) + 1;
-      ref.update({ [page]: newCount });
-      document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
-    }
-  });
-}
+  // Visitor Counter Function
+  function incrementVisitorCount(page) {
+    ref.get().then((doc) => {
+      if (doc.exists) {
+        const data = doc.data();
+        const newCount = (data[page] || 0) + 1;
+        ref.update({ [page]: newCount })
+          .then(() => {
+            document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
+          })
+          .catch((err) => {
+            console.error("Update failed:", err);
+          });
+      } else {
+        // If the document doesn't exist yet
+        const initial = {};
+        initial[page] = 1;
+        ref.set(initial).then(() => {
+          document.getElementById("visitor-count").textContent = `Visitors: 1`;
+        });
+      }
+    }).catch((err) => {
+      console.error("Failed to read visitor counter:", err);
+    });
+  }
 
+  // Wait until page loads to run
   window.onload = () => {
-    incrementVisitorCount("main");
+    incrementVisitorCount("main");  // Replace "main" with "blog", "calendar", etc. on other pages
+  };
+</script>
+
 
     const track = document.querySelector('.carousel-track');
     const items = document.querySelectorAll('.carousel-item');
