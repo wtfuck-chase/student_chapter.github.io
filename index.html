@@ -295,16 +295,16 @@ nav ul {
   const db = firebase.firestore();
   const ref = db.collection("siteStats").doc("visitorCount");
 
-  function incrementVisitorCount("main") {
-    ref.get().then(doc => {
-      if (doc.exists) {
-        const data = doc.data();
-        const newCount = (data[page] || 0) + 1;
-        ref.update({ [page]: newCount });
-        document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
-      }
-    });
-  }
+function incrementVisitorCount(page) {
+  ref.get().then((doc) => {
+    if (doc.exists) {
+      const data = doc.data();
+      const newCount = (data[page] || 0) + 1;
+      ref.update({ [page]: newCount });
+      document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
+    }
+  });
+}
 
   window.onload = () => {
     incrementVisitorCount("main");
