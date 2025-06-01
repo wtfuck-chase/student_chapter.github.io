@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Chapter of Central Louisiana – HBACL</title>
-   <!-- Zeffy Embed Script -->
   <script src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
   <style>
     body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background-color: #f4f4f4; }
@@ -25,7 +24,6 @@
     .scholarship { border-left-color: #00b894; }
     footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; }
     a.button { display: inline-block; background: #4a90e2; color: white; padding: 0.7rem 1.5rem; margin-top: 1rem; text-decoration: none; border-radius: 5px; }
-
     .zeffy-link, button[zeffy-form-link] {
       display: inline-block !important;
       background-color: #1e1e2f !important;
@@ -39,43 +37,25 @@
       text-decoration: none !important;
       transition: background-color 0.3s ease !important;
     }
-    .zeffy-link:hover, button[zeffy-form-link]:hover {
-      background-color: #333 !important;
-    }
-    .zeffy-link:hover { background: #333; }
-
+    .zeffy-link:hover, button[zeffy-form-link]:hover { background-color: #333 !important; }
     .spacer { height: 3rem; }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      padding: 0.5rem 1rem;
+    .menu-toggle { display: none; background: none; border: none; font-size: 2rem; color: white; cursor: pointer; padding: 0.5rem 1rem; }
+    nav ul {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      overflow-x: auto;
     }
-
-nav ul {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  overflow-x: auto;
-}
-
-
     nav ul li { margin: 0 1rem; }
-
     @media (max-width: 768px) {
       .menu-toggle { display: block; }
       nav ul { display: none; flex-direction: column; background-color: #14141f; padding: 1rem 0; }
       nav ul.show { display: flex; }
       nav ul li { margin: 0.5rem 0; text-align: center; }
     }
-
     .carousel-container {
       position: relative;
       max-width: 760px;
@@ -85,9 +65,7 @@ nav ul {
       background-color: transparent;
       text-align: center;
     }
-
     .carousel-track { display: flex; transition: transform 0.8s ease-in-out; }
-
     .carousel-item {
       min-width: 100%;
       overflow: hidden;
@@ -95,7 +73,6 @@ nav ul {
       justify-content: center;
       align-items: center;
     }
-
     .carousel-item img {
       max-width: 100%;
       max-height: 600px;
@@ -103,7 +80,6 @@ nav ul {
       background: transparent;
       border-radius: 15px;
     }
-
     .prev, .next {
       cursor: pointer;
       position: absolute;
@@ -120,58 +96,51 @@ nav ul {
       user-select: none;
       transition: 0.3s;
     }
-
     .prev:hover, .next:hover { background-color: #4a90e2; color: white; }
     .prev { left: 15px; }
     .next { right: 15px; }
   </style>
 </head>
-
 <body>
-
-<header>
-  <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
-  <h1>Student Chapter of Central Louisiana – HBACL</h1>
-  <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
-  <p>Building the Future – One Student at a Time</p>
-  <p id="visitor-count">Visitors: loading...</p>
-</header>
-
-<nav>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <ul id="nav-links">
-    <li><a href="index.html">About</a></li>
-    <li><a href="calendar.html">Events</a></li>
-    <li><a href="/CTA.html">Call to Action</a></li>
-    <li><a href="blog.html">Student Blog</a></li>
-    <li><a href="newsletter.html">Newsletter</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-    <li><a href="/student-store.html">Student Store</a></li>
-  </ul>
-</nav>
-
-<section id="about">
-  <h2>About the Chapter</h2>
-  <p>We are the youth extension of the Home Builders Association of Central Louisiana, committed to providing safe, affordable housing and promoting the homebuilding industry. Our mission includes advocacy, education, and leadership development for high school students through real-world experiences and community involvement.</p>
-</section>
-
-<!-- BEGIN: Carousel Section -->
-<div class="carousel-container">
-  <div class="carousel-track">
-    <div class="carousel-item"><img src="photos/photo1.jpg" alt="Student Activity 1"></div>
-    <div class="carousel-item"><img src="photos/photo2.jpg" alt="Student Activity 2"></div>
-    <div class="carousel-item"><img src="photos/photo3.jpg" alt="Student Activity 3"></div>
-    <div class="carousel-item"><img src="photos/photo4.jpg" alt="Student Activity 4"></div>
-    <div class="carousel-item"><img src="photos/photo5.jpg" alt="Student Activity 5"></div>
-    <div class="carousel-item"><img src="photos/photo6.jpg" alt="Student Activity 6"></div>
-    <div class="carousel-item"><img src="photos/photo7.jpg" alt="Student Activity 7"></div>
-    <div class="carousel-item"><img src="photos/photo8.jpg" alt="Student Activity 8"></div>
-    <div class="carousel-item"><img src="photos/photo9.jpg" alt="Student Activity 9"></div>
-    <div class="carousel-item"><img src="photos/photo10.jpg" alt="Student Activity 10"></div>
+  <header>
+    <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
+    <h1>Student Chapter of Central Louisiana – HBACL</h1>
+    <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
+    <p>Building the Future – One Student at a Time</p>
+    <p id="visitor-count">Visitors: loading...</p>
+  </header>
+  <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="calendar.html">Events</a></li>
+      <li><a href="/CTA.html">Call to Action</a></li>
+      <li><a href="blog.html">Student Blog</a></li>
+      <li><a href="newsletter.html">Newsletter</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="/student-store.html">Student Store</a></li>
+    </ul>
+  </nav>
+  <section id="about">
+    <h2>About the Chapter</h2>
+    <p>We are the youth extension of the Home Builders Association of Central Louisiana, committed to providing safe, affordable housing and promoting the homebuilding industry. Our mission includes advocacy, education, and leadership development for high school students through real-world experiences and community involvement.</p>
+  </section>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="carousel-item"><img src="photos/photo1.jpg" alt="Student Activity 1"></div>
+      <div class="carousel-item"><img src="photos/photo2.jpg" alt="Student Activity 2"></div>
+      <div class="carousel-item"><img src="photos/photo3.jpg" alt="Student Activity 3"></div>
+      <div class="carousel-item"><img src="photos/photo4.jpg" alt="Student Activity 4"></div>
+      <div class="carousel-item"><img src="photos/photo5.jpg" alt="Student Activity 5"></div>
+      <div class="carousel-item"><img src="photos/photo6.jpg" alt="Student Activity 6"></div>
+      <div class="carousel-item"><img src="photos/photo7.jpg" alt="Student Activity 7"></div>
+      <div class="carousel-item"><img src="photos/photo8.jpg" alt="Student Activity 8"></div>
+      <div class="carousel-item"><img src="photos/photo9.jpg" alt="Student Activity 9"></div>
+      <div class="carousel-item"><img src="photos/photo10.jpg" alt="Student Activity 10"></div>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
-</div>
 <!-- END: Carousel Section -->
 
 <!-- BEGIN: Donate CTA -->
@@ -278,90 +247,79 @@ nav ul {
     navLinks.classList.toggle("show");
   }
 </script>
-
-<!-- Firebase SDK Scripts FIRST -->
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
-
-<!-- Then your Firebase Configuration and Visitor Counter -->
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
-    authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
-    projectId: "hbacl-student-chapter-blog",
-    storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
-    messagingSenderId: "1099160172364",
-    appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-  const ref = db.collection("siteStats").doc("visitorCount");
-
-  // Visitor Counter Function
-  function incrementVisitorCount(page) {
-    ref.get().then((doc) => {
-      if (doc.exists) {
-        const data = doc.data();
-        const newCount = (data[page] || 0) + 1;
-        ref.update({ [page]: newCount })
-          .then(() => {
-            document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
-          })
-          .catch((err) => {
-            console.error("Update failed:", err);
-          });
-      } else {
-        // If the document doesn't exist yet
-        const initial = {};
-        initial[page] = 1;
-        ref.set(initial).then(() => {
-          document.getElementById("visitor-count").textContent = `Visitors: 1`;
-        });
+  
+  <footer>
+    <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("show");
+    }
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+      authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+      projectId: "hbacl-student-chapter-blog",
+      storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+      messagingSenderId: "1099160172364",
+      appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const ref = db.collection("siteStats").doc("visitorCount");
+    window.onload = () => {
+      incrementVisitorCount("main");
+      const track = document.querySelector('.carousel-track');
+      const items = document.querySelectorAll('.carousel-item');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      let counter = 0;
+      function updateCarousel() {
+        track.style.transform = 'translateX(' + (-counter * 100) + '%)';
       }
-    }).catch((err) => {
-      console.error("Failed to read visitor counter:", err);
-    });
-  }
-
-  // Wait until page loads to run
-  window.onload = () => {
-    incrementVisitorCount("main");  // Replace "main" with "blog", "calendar", etc. on other pages
-  };
-</script>
-
-
-    const track = document.querySelector('.carousel-track');
-    const items = document.querySelectorAll('.carousel-item');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let counter = 0;
-
-    function updateCarousel() {
-      track.style.transform = 'translateX(' + (-counter * 100) + '%)';
+      function nextImage() {
+        counter++;
+        if (counter >= items.length) counter = 0;
+        updateCarousel();
+      }
+      function prevImage() {
+        counter--;
+        if (counter < 0) counter = items.length - 1;
+        updateCarousel();
+      }
+      if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', nextImage);
+        prevBtn.addEventListener('click', prevImage);
+      }
+      setInterval(nextImage, 5000);
+    };
+    function incrementVisitorCount(page) {
+      ref.get().then((doc) => {
+        if (doc.exists) {
+          const data = doc.data();
+          const newCount = (data[page] || 0) + 1;
+          ref.update({ [page]: newCount })
+            .then(() => {
+              document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
+            })
+            .catch((err) => {
+              console.error("Update failed:", err);
+            });
+        } else {
+          const initial = {};
+          initial[page] = 1;
+          ref.set(initial).then(() => {
+            document.getElementById("visitor-count").textContent = `Visitors: 1`;
+          });
+        }
+      }).catch((err) => {
+        console.error("Failed to read visitor counter:", err);
+      });
     }
-
-    function nextImage() {
-      counter++;
-      if (counter >= items.length) counter = 0;
-      updateCarousel();
-    }
-
-    function prevImage() {
-      counter--;
-      if (counter < 0) counter = items.length - 1;
-      updateCarousel();
-    }
-
-    if (nextBtn && prevBtn) {
-      nextBtn.addEventListener('click', nextImage);
-      prevBtn.addEventListener('click', prevImage);
-    }
-
-    setInterval(nextImage, 5000);
-  }
-</script>
-
+  </script>
 </body>
 </html>
