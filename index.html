@@ -295,7 +295,7 @@ nav ul {
   const db = firebase.firestore();
   const ref = db.collection("siteStats").doc("visitorCount");
 
-  function incrementVisitorCount(page) {
+  function incrementVisitorCount("main") {
     ref.get().then(doc => {
       if (doc.exists) {
         const data = doc.data();
