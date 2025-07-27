@@ -62,12 +62,13 @@
       margin: 0;
       display: flex;
       justify-content: center;
-      flex-wrap: nowrap;
-      overflow-x: auto;
+      flex-wrap: wrap;
+      overflow-x: hidden;
     }
     #nav-links li {
       margin: 0 1rem;
       white-space: nowrap;
+      position: relative;
     }
     #nav-links a {
       color: white;
@@ -130,16 +131,11 @@
         display: flex;
       }
     }
-
-        #student-hub {
-  position: relative;
-}
 .student-hub-dropdown {
   display: none;
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0; /* aligns left under the parent item */
   background-color: #1e1e2f;
   border-radius: 10px;
   padding: 0.5rem 0;
@@ -147,9 +143,11 @@
   min-width: 200px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 #student-hub.show .student-hub-dropdown {
   display: block;
 }
+
 .student-hub-dropdown a {
   display: block;
   color: white;
