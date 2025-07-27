@@ -102,64 +102,45 @@
 
 .nav-dropdown {
   position: relative;
+  display: inline-block;
 }
 
 .dropdown-toggle {
-  background: none;
-  border: none;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  font-size: 1rem;
+  text-decoration: none;
   padding: 0.5rem 1rem;
 }
 
-.dropdown-content {
+.dropdown-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #14141f;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 999;
   min-width: 180px;
   border-radius: 0 0 6px 6px;
   padding: 0;
   margin: 0;
-  max-height: 300px; /* Prevent vertical scroll */
-  overflow-y: hidden;
 }
 
-.dropdown-content li {
+.dropdown-menu li {
   list-style: none;
 }
 
-.dropdown-content a {
+.dropdown-menu a {
   display: block;
+  padding: 0.75rem 1rem;
   color: white;
   text-decoration: none;
-  padding: 0.75rem 1rem;
   white-space: nowrap;
 }
 
-.dropdown-content a:hover {
+.dropdown-menu a:hover {
   background-color: #333;
-}
-
-/* Mobile-safe fallback */
-@media (max-width: 768px) {
-  .dropdown-content {
-    position: absolute;
-    left: auto;
-    right: 0;
-    min-width: 180px;
-    max-height: none;
-  }
-
-  .dropdown-toggle {
-    width: auto;
-    text-align: left;
-  }
 }
 
 
@@ -183,14 +164,14 @@
       <li><a href="/CTA.html">Call to Action</a></li>
       <li><a href="newsletter.html">Newsletter</a></li>
       <li><a href="contact.html">Contact Us</a></li>
-      <li class="nav-dropdown">
-      <button onclick="toggleDropdown()" class="dropdown-toggle">Student Hub ▾</button>
-      <ul id="student-hub-menu" class="dropdown-content">
-      <li><a href="blog.html">Student Blog</a></li>
-      <li><a href="student-store.html">Student Store</a></li>
-      <li><a href="student-learning.html">Student Learning</a></li>
-    </ul>
-  </li>
+    <li class="nav-dropdown">
+  <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event)">Student Hub ▾</a>
+  <ul class="dropdown-menu" id="studentHubDropdown">
+    <li><a href="blog.html">Student Blog</a></li>
+    <li><a href="student-store.html">Student Store</a></li>
+    <li><a href="student-learning.html">Student Learning</a></li>
+  </ul>
+</li>
 
 
 
@@ -322,22 +303,21 @@
     navLinks.classList.toggle("show");
   }
 
- <script>
-function toggleDropdown() {
-  const dropdown = document.getElementById("student-hub-menu");
-  const isVisible = dropdown.style.display === "block";
-  dropdown.style.display = isVisible ? "none" : "block";
+function toggleDropdown(event) {
+  event.preventDefault();
+  const dropdown = document.getElementById('studentHubDropdown');
+  dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
 }
 
-// Close dropdown if clicked outside
-document.addEventListener("click", function (e) {
-  const menu = document.getElementById("student-hub-menu");
-  const toggle = document.querySelector(".dropdown-toggle");
+// Optional: close dropdown if clicked outside
+document.addEventListener('click', function (e) {
+  const toggle = document.querySelector('.dropdown-toggle');
+  const menu = document.getElementById('studentHubDropdown');
   if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-    menu.style.display = "none";
+    menu.style.display = 'none';
   }
 });
-</script>
+
 
 
 </script>
