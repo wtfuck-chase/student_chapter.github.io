@@ -100,48 +100,49 @@
     .prev { left: 15px; }
     .next { right: 15px; }
 
-.nav-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-toggle {
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-}
-
-.dropdown-menu {
-  display: none;
+.hub-dropdown {
   position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #14141f;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 999;
-  min-width: 180px;
-  border-radius: 0 0 6px 6px;
-  padding: 0;
-  margin: 0;
+  top: 85px; /* adjust to sit just under nav bar */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1e1e2f;
+  border-radius: 12px;
+  padding: 1rem;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  display: none;
+  min-width: 220px;
 }
 
-.dropdown-menu li {
+.hub-dropdown ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.dropdown-menu a {
-  display: block;
-  padding: 0.75rem 1rem;
+.hub-dropdown li {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.hub-dropdown a {
   color: white;
   text-decoration: none;
-  white-space: nowrap;
+  font-weight: bold;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.3s;
 }
 
-.dropdown-menu a:hover {
+.hub-dropdown a:hover {
   background-color: #333;
 }
+
+.hidden {
+  display: none;
+}
+
 
 
 
@@ -156,22 +157,27 @@
     <p>Building the Future – One Student at a Time</p>
     <p id="visitor-count">Visitors: loading...</p>
   </header>
-  <nav>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <ul id="nav-links">
-      <li><a href="index.html">About</a></li>
-      <li><a href="calendar.html">Events</a></li>
-      <li><a href="/CTA.html">Call to Action</a></li>
-      <li><a href="newsletter.html">Newsletter</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    <li class="nav-dropdown">
-  <a href="#" class="dropdown-toggle" onclick="toggleDropdown(event)">Student Hub ▾</a>
-  <ul class="dropdown-menu" id="studentHubDropdown">
+ <nav>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <ul id="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="calendar.html">Events</a></li>
+    <li><a href="CTA.html">Call to Action</a></li>
+    <li><a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- Floating Student Hub Panel -->
+<div id="student-hub-dropdown" class="hub-dropdown hidden">
+  <ul>
     <li><a href="blog.html">Student Blog</a></li>
     <li><a href="student-store.html">Student Store</a></li>
     <li><a href="student-learning.html">Student Learning</a></li>
   </ul>
-</li>
+</div>
+
 
 
 
@@ -302,24 +308,6 @@
     const navLinks = document.getElementById("nav-links");
     navLinks.classList.toggle("show");
   }
-
-function toggleDropdown(event) {
-  event.preventDefault();
-  const dropdown = document.getElementById('studentHubDropdown');
-  dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-}
-
-// Optional: close dropdown if clicked outside
-document.addEventListener('click', function (e) {
-  const toggle = document.querySelector('.dropdown-toggle');
-  const menu = document.getElementById('studentHubDropdown');
-  if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-    menu.style.display = 'none';
-  }
-});
-
-
-
 </script>
   
   <footer>
@@ -395,5 +383,21 @@ document.addEventListener('click', function (e) {
       });
     }
   </script>
+  <script>
+function toggleStudentHub(e) {
+  e.preventDefault();
+  const dropdown = document.getElementById("student-hub-dropdown");
+  dropdown.classList.toggle("hidden");
+}
+
+document.addEventListener("click", function(e) {
+  const trigger = e.target.closest("a[href='#']");
+  const dropdown = document.getElementById("student-hub-dropdown");
+  if (!trigger && !e.target.closest("#student-hub-dropdown")) {
+    dropdown.classList.add("hidden");
+  }
+});
+</script>
+
 </body>
 </html>
