@@ -100,59 +100,68 @@
     .prev { left: 15px; }
     .next { right: 15px; }
 
- .dropdown {
+.nav-dropdown {
   position: relative;
-  display: inline-block;
 }
 
-.dropbtn {
+.dropdown-toggle {
   background: none;
   border: none;
   color: white;
   font-weight: bold;
-  padding: 0.5rem 1rem;
   cursor: pointer;
   font-size: 1rem;
+  padding: 0.5rem 1rem;
 }
 
-.dropdown-menu {
+.dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #14141f;
-  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 999;
+  min-width: 180px;
+  border-radius: 0 0 6px 6px;
   padding: 0;
   margin: 0;
-  list-style: none;
-  z-index: 1000;
-  min-width: 180px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  max-height: 300px; /* Prevent vertical scroll */
+  overflow-y: hidden;
 }
 
-.dropdown-menu li a {
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content a {
   display: block;
   color: white;
-  padding: 0.7rem 1rem;
   text-decoration: none;
+  padding: 0.75rem 1rem;
   white-space: nowrap;
 }
 
-.dropdown-menu li a:hover {
+.dropdown-content a:hover {
   background-color: #333;
 }
 
+/* Mobile-safe fallback */
 @media (max-width: 768px) {
-  .dropdown-menu {
-    position: static;
-    box-shadow: none;
+  .dropdown-content {
+    position: absolute;
+    left: auto;
+    right: 0;
+    min-width: 180px;
+    max-height: none;
   }
 
-  .dropbtn {
-    width: 100%;
+  .dropdown-toggle {
+    width: auto;
     text-align: left;
   }
 }
+
 
 
 
@@ -161,7 +170,7 @@
 <body>
   <header>
     <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
-    <h1>Student Chapter of Central Louisiana – HBACL</h1>
+    <h1>Student Chapter of Central Louisiana</h1>
     <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
     <p>Building the Future – One Student at a Time</p>
     <p id="visitor-count">Visitors: loading...</p>
@@ -174,15 +183,15 @@
       <li><a href="/CTA.html">Call to Action</a></li>
       <li><a href="newsletter.html">Newsletter</a></li>
       <li><a href="contact.html">Contact Us</a></li>
-      <li class="dropdown">
- <li class="dropdown">
-  <button class="dropbtn" onclick="toggleDropdown()">Student Hub ▾</button>
-  <ul id="student-dropdown" class="dropdown-menu">
-    <li><a href="blog.html">Student Blog</a></li>
-    <li><a href="student-store.html">Student Store</a></li>
-    <li><a href="student-learning.html">Student Learning</a></li>
-  </ul>
-</li>
+      <li class="nav-dropdown">
+      <button onclick="toggleDropdown()" class="dropdown-toggle">Student Hub ▾</button>
+      <ul id="student-hub-menu" class="dropdown-content">
+      <li><a href="blog.html">Student Blog</a></li>
+      <li><a href="student-store.html">Student Store</a></li>
+      <li><a href="student-learning.html">Student Learning</a></li>
+    </ul>
+  </li>
+
 
 
     </ul>
@@ -313,10 +322,23 @@
     navLinks.classList.toggle("show");
   }
 
-  function toggleDropdown() {
-  const menu = document.getElementById("student-dropdown");
-  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+ <script>
+function toggleDropdown() {
+  const dropdown = document.getElementById("student-hub-menu");
+  const isVisible = dropdown.style.display === "block";
+  dropdown.style.display = isVisible ? "none" : "block";
 }
+
+// Close dropdown if clicked outside
+document.addEventListener("click", function (e) {
+  const menu = document.getElementById("student-hub-menu");
+  const toggle = document.querySelector(".dropdown-toggle");
+  if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+    menu.style.display = "none";
+  }
+});
+</script>
+
 
 </script>
   
