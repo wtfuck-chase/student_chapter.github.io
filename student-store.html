@@ -188,25 +188,7 @@ footer {
   }
 
   </style>
-  <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById("nav-links");
-      navLinks.classList.toggle("show");
-    }
-    function toggleStudentHub(event) {
-  event.preventDefault();
-  const hub = document.getElementById("student-hub");
-  hub.classList.toggle("show");
-}
-document.addEventListener("click", function (e) {
-  const hub = document.getElementById("student-hub");
-  if (!hub.contains(e.target)) {
-    hub.classList.remove("show");
-  }
-});
 
-
-  </script>
 </head>
 <body>
   <header>
@@ -320,6 +302,26 @@ document.addEventListener("click", function (e) {
     incrementVisitorCount("student-store");
   };
 </script>
+
+    <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("show");
+    }
+    function toggleStudentHub(event) {
+  event.preventDefault();
+  const hub = document.getElementById("student-hub");
+  hub.classList.toggle("show");
+}
+document.addEventListener("click", function (e) {
+  const hub = document.getElementById("student-hub");
+  if (!hub.contains(e.target)) {
+    hub.classList.remove("show");
+  }
+});
+
+
+  </script>
 
 </body>
 </html>
