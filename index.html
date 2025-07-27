@@ -100,49 +100,31 @@
     .prev { left: 15px; }
     .next { right: 15px; }
 
-.hub-dropdown {
+.student-hub-dropdown {
+  display: none;
   position: absolute;
-  top: 85px; /* adjust to sit just under nav bar */
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #1e1e2f;
-  border-radius: 12px;
-  padding: 1rem;
+  border-radius: 10px;
+  padding: 0.5rem 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  display: none;
-  min-width: 220px;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-.hub-dropdown ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.hub-dropdown li {
-  margin: 0.5rem 0;
-  text-align: center;
-}
-
-.hub-dropdown a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+.student-hub-dropdown a {
   display: block;
-  padding: 0.5rem;
-  border-radius: 6px;
-  transition: background-color 0.3s;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
 }
-
-.hub-dropdown a:hover {
+.student-hub-dropdown a:hover {
   background-color: #333;
 }
+.show-dropdown { display: block; }
 
-.hidden {
-  display: none;
-}
-</style>
 
 
 </head>
@@ -160,25 +142,21 @@
     <li><a href="index.html">About</a></li>
     <li><a href="calendar.html">Events</a></li>
     <li><a href="CTA.html">Call to Action</a></li>
-    <li><a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a></li>
+    <li id="student-hub">
+  <a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a>
+  <div id="student-hub-dropdown" class="student-hub-dropdown">
+    <a href="blog.html">Student Blog</a>
+    <a href="student-store.html">Student Store</a>
+    <a href="student-learning.html">Student Learning</a>
+  </div>
+</li>
+
     <li><a href="newsletter.html">Newsletter</a></li>
     <li><a href="contact.html">Contact Us</a></li>
   </ul>
 </nav>
 
-<!-- Floating Student Hub Panel -->
-<div id="student-hub-dropdown" class="hub-dropdown hidden">
-  <ul>
-    <li><a href="blog.html">Student Blog</a></li>
-    <li><a href="student-store.html">Student Store</a></li>
-    <li><a href="student-learning.html">Student Learning</a></li>
-  </ul>
-</div>
 
-
-
-
-    </ul>
   </nav>
   <section id="about">
     <h2>About the Chapter</h2>
@@ -310,21 +288,21 @@
   <footer>
     <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
   </footer>
-    <script>
-function toggleStudentHub(e) {
-  e.preventDefault();
-  const dropdown = document.getElementById("student-hub-dropdown");
-  dropdown.classList.toggle("hidden");
-}
 
-document.addEventListener("click", function(e) {
-  const trigger = e.target.closest("a[href='#']");
-  const dropdown = document.getElementById("student-hub-dropdown");
-  if (!trigger && !e.target.closest("#student-hub-dropdown")) {
-    dropdown.classList.add("hidden");
+  <script>
+  function toggleStudentHub(event) {
+    event.preventDefault();
+    const dropdown = document.getElementById("student-hub-dropdown");
+    dropdown.classList.toggle("show-dropdown");
   }
-});
+  document.addEventListener("click", function(e) {
+    const hub = document.getElementById("student-hub");
+    if (!hub.contains(e.target)) {
+      document.getElementById("student-hub-dropdown").classList.remove("show-dropdown");
+    }
+  });
 </script>
+  
   
   <script>
     function toggleMenu() {
