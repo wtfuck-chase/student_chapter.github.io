@@ -44,7 +44,41 @@
     .row-top input, .row-top select { flex: 1; padding: 0.5rem; font-size: 1rem; }
     #message { width: 100%; height: 100px; padding: 0.5rem; font-size: 1rem; }
     #blog-form button { width: 150px; padding: 0.5rem 1rem; background-color: #4a90e2; border: none; color: white; border-radius: 5px; cursor: pointer; }
-    
+
+    #student-hub {
+  position: relative;
+}
+.student-hub-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1e1e2f;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  z-index: 1000;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+#student-hub.show .student-hub-dropdown {
+  display: block;
+}
+.student-hub-dropdown a {
+  display: block;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+.student-hub-dropdown a:hover {
+  background-color: #333;
+}
+/* Optional: Hide dropdown on mobile */
+@media (max-width: 768px) {
+  .student-hub-dropdown {
+    display: none !important;
+  }
   </style>
 </head>
 <body>
@@ -62,11 +96,17 @@
   <ul id="nav-links">
     <li><a href="index.html">About</a></li>
     <li><a href="calendar.html">Events</a></li>
-    <li><a href="/CTA.html">Call to Action</a></li>
-    <li><a href="blog.html">Student Blog</a></li>
+    <li><a href="CTA.html">Call to Action</a></li>
+    <li id="student-hub">
+      <a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a>
+      <div class="student-hub-dropdown">
+        <a href="blog.html">Student Blog</a>
+        <a href="student-store.html">Student Store</a>
+        <a href="student-learning.html">Student Learning</a>
+      </div>
+    </li>
     <li><a href="newsletter.html">Newsletter</a></li>
     <li><a href="contact.html">Contact Us</a></li>
-    <li><a href="/student-store.html">Student Store</a></li>
   </ul>
 </nav>
 
@@ -291,6 +331,17 @@
     function toggleMenu() {
       document.getElementById('nav-links').classList.toggle('show');
     }
+  function toggleStudentHub(event) {
+  event.preventDefault();
+  const hub = document.getElementById("student-hub");
+  hub.classList.toggle("show");
+}
+document.addEventListener("click", function (e) {
+  const hub = document.getElementById("student-hub");
+  if (!hub.contains(e.target)) {
+    hub.classList.remove("show");
+  }
+});
 </script>
 </body>
 </html>
