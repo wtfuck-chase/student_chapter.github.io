@@ -144,21 +144,7 @@
 }
 </style>
 
-    <script>
-function toggleStudentHub(e) {
-  e.preventDefault();
-  const dropdown = document.getElementById("student-hub-dropdown");
-  dropdown.classList.toggle("hidden");
-}
 
-document.addEventListener("click", function(e) {
-  const trigger = e.target.closest("a[href='#']");
-  const dropdown = document.getElementById("student-hub-dropdown");
-  if (!trigger && !e.target.closest("#student-hub-dropdown")) {
-    dropdown.classList.add("hidden");
-  }
-});
-</script>
 </head>
 <body>
   <header>
@@ -324,6 +310,22 @@ document.addEventListener("click", function(e) {
   <footer>
     <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
   </footer>
+    <script>
+function toggleStudentHub(e) {
+  e.preventDefault();
+  const dropdown = document.getElementById("student-hub-dropdown");
+  dropdown.classList.toggle("hidden");
+}
+
+document.addEventListener("click", function(e) {
+  const trigger = e.target.closest("a[href='#']");
+  const dropdown = document.getElementById("student-hub-dropdown");
+  if (!trigger && !e.target.closest("#student-hub-dropdown")) {
+    dropdown.classList.add("hidden");
+  }
+});
+</script>
+  
   <script>
     function toggleMenu() {
       const navLinks = document.getElementById("nav-links");
