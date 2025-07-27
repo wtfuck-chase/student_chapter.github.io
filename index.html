@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="student_chapter_favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Chapter of Central Louisiana – HBACL</title>
+  <title>Student Chapter of Central Louisiana</title>
   <script src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
   <style>
     body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background-color: #f4f4f4; }
@@ -100,77 +100,60 @@
     .prev { left: 15px; }
     .next { right: 15px; }
 
-   /* Dropdown wrapper */
-.dropdown {
+ .dropdown {
   position: relative;
+  display: inline-block;
 }
 
-/* Top-level menu item */
 .dropbtn {
-  display: inline-block;
+  background: none;
+  border: none;
   color: white;
-  text-decoration: none;
   font-weight: bold;
   padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-/* Dropdown menu styles */
 .dropdown-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #14141f;
-  min-width: 180px;
+  border-radius: 6px;
   padding: 0;
   margin: 0;
-  border-radius: 6px;
   list-style: none;
-  z-index: 999;
+  z-index: 1000;
+  min-width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Menu item */
-.dropdown-menu li {
-  width: 100%;
-}
-
-.dropdown-menu a {
+.dropdown-menu li a {
+  display: block;
   color: white;
   padding: 0.7rem 1rem;
   text-decoration: none;
-  display: block;
   white-space: nowrap;
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu li a:hover {
   background-color: #333;
 }
 
-/* Show dropdown on hover (desktop) */
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-/* Mobile fix for dropdown inside toggle menu */
 @media (max-width: 768px) {
   .dropdown-menu {
     position: static;
-    background-color: #14141f;
+    box-shadow: none;
   }
 
-  .dropdown:hover .dropdown-menu {
-    display: none; /* prevent accidental hover on mobile */
-  }
-
-  .dropdown .dropbtn::after {
-    content: '';
-  }
-
-  .dropdown .dropbtn:focus + .dropdown-menu,
-  .dropdown .dropbtn:active + .dropdown-menu {
-    display: block;
+  .dropbtn {
+    width: 100%;
+    text-align: left;
   }
 }
+
 
 
   </style>
@@ -192,13 +175,15 @@
       <li><a href="newsletter.html">Newsletter</a></li>
       <li><a href="contact.html">Contact Us</a></li>
       <li class="dropdown">
-  <a href="#">Student Hub ▾</a>
-  <ul class="dropdown-menu">
+ <li class="dropdown">
+  <button class="dropbtn" onclick="toggleDropdown()">Student Hub ▾</button>
+  <ul id="student-dropdown" class="dropdown-menu">
     <li><a href="blog.html">Student Blog</a></li>
     <li><a href="student-store.html">Student Store</a></li>
     <li><a href="student-learning.html">Student Learning</a></li>
   </ul>
 </li>
+
 
     </ul>
   </nav>
@@ -327,6 +312,12 @@
     const navLinks = document.getElementById("nav-links");
     navLinks.classList.toggle("show");
   }
+
+  function toggleDropdown() {
+  const menu = document.getElementById("student-dropdown");
+  menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
 </script>
   
   <footer>
