@@ -283,5 +283,38 @@ document.addEventListener("click", function (e) {
   <footer>
     <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL</p>
   </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
+    authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
+    projectId: "hbacl-student-chapter-blog",
+    storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
+    messagingSenderId: "1099160172364",
+    appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  const ref = db.collection("siteStats").doc("visitorCount");
+
+  function incrementVisitorCount(page) {
+    ref.get().then(doc => {
+      if (doc.exists) {
+        const data = doc.data();
+        const newCount = (data[page] || 0) + 1;
+        ref.update({ [page]: newCount });
+        document.getElementById("visitor-counter").textContent = `Visitors: ${newCount}`;
+      }
+    });
+  }
+
+  window.onload = () => {
+    incrementVisitorCount("student-store");
+  };
+</script>
+
 </body>
 </html>
