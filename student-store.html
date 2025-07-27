@@ -130,25 +130,8 @@
         display: flex;
       }
     }
-  </style>
-  <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById("nav-links");
-      navLinks.classList.toggle("show");
-    }
-    function toggleStudentHub(event) {
-  event.preventDefault();
-  const hub = document.getElementById("student-hub");
-  hub.classList.toggle("show");
-}
-document.addEventListener("click", function (e) {
-  const hub = document.getElementById("student-hub");
-  if (!hub.contains(e.target)) {
-    hub.classList.remove("show");
-  }
-});
 
-    #student-hub {
+        #student-hub {
   position: relative;
 }
 .student-hub-dropdown {
@@ -182,6 +165,25 @@ document.addEventListener("click", function (e) {
   .student-hub-dropdown {
     display: none !important;
   }
+  </style>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("show");
+    }
+    function toggleStudentHub(event) {
+  event.preventDefault();
+  const hub = document.getElementById("student-hub");
+  hub.classList.toggle("show");
+}
+document.addEventListener("click", function (e) {
+  const hub = document.getElementById("student-hub");
+  if (!hub.contains(e.target)) {
+    hub.classList.remove("show");
+  }
+});
+
+
   </script>
 </head>
 <body>
