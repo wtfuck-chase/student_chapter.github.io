@@ -142,12 +142,23 @@
 .hidden {
   display: none;
 }
+</style>
 
+    <script>
+function toggleStudentHub(e) {
+  e.preventDefault();
+  const dropdown = document.getElementById("student-hub-dropdown");
+  dropdown.classList.toggle("hidden");
+}
 
-
-
-
-  </style>
+document.addEventListener("click", function(e) {
+  const trigger = e.target.closest("a[href='#']");
+  const dropdown = document.getElementById("student-hub-dropdown");
+  if (!trigger && !e.target.closest("#student-hub-dropdown")) {
+    dropdown.classList.add("hidden");
+  }
+});
+</script>
 </head>
 <body>
   <header>
@@ -383,21 +394,7 @@
       });
     }
   </script>
-  <script>
-function toggleStudentHub(e) {
-  e.preventDefault();
-  const dropdown = document.getElementById("student-hub-dropdown");
-  dropdown.classList.toggle("hidden");
-}
 
-document.addEventListener("click", function(e) {
-  const trigger = e.target.closest("a[href='#']");
-  const dropdown = document.getElementById("student-hub-dropdown");
-  if (!trigger && !e.target.closest("#student-hub-dropdown")) {
-    dropdown.classList.add("hidden");
-  }
-});
-</script>
 
 </body>
 </html>
