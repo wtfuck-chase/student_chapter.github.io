@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
+
   <link rel="icon" type="image/png" href="student_chapter_favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -238,14 +240,15 @@
   </p>
   <!-- Zeffy widget script -->
   <script src="https://donate.zeffy.com/v1/widget.js"></script>
-  <!-- Zeffy Donate Button -->
-  <zeffy-donate
-    z-button-style="gold"
-    z-embed
-    z-badge="false"
-    z-donation-target="cc552ba9-2731-4305-9bc5-cf481219f626">
-    Donate Monthly
-  </zeffy-donate>
+<button
+  zeffy-form-link="https://www.zeffy.com/embed/donation-form/student-toolbox-fund?modal=true"
+  style="background-color: #fca311; color: white; font-weight: bold; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s ease;"
+  onmouseover="this.style.transform='scale(1.05)'"
+  onmouseout="this.style.transform='scale(1)'"
+>
+  Donate Monthly
+</button>
+
 </section>
 <!-- END: Donate CTA -->
 
