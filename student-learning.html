@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Learning | Student Chapter of Central Louisiana</title>
+  <link rel="icon" type="image/png" href="/student_chapter_favicon.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: white;
+      padding: 1rem;
+    }
+
+    header img {
+      max-height: 150px;
+    }
+
+    nav {
+      background-color: #0d1b2a;
+      padding: 1rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    #nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #nav-links li {
+      margin: 0 1rem;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    #nav-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    #student-hub {
+      position: relative;
+    }
+
+    .student-hub-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1e1e2f;
+      border-radius: 10px;
+      padding: 0.5rem 0;
+      z-index: 1000;
+      min-width: 200px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    #student-hub.show .student-hub-dropdown {
+      display: block;
+    }
+
+    .student-hub-dropdown a {
+      display: block;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .student-hub-dropdown a:hover {
+      background-color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      #nav-links {
+        flex-direction: column;
+        display: none;
+        text-align: center;
+      }
+      #nav-links.show {
+        display: flex;
+      }
+      .student-hub-dropdown {
+        display: none !important;
+      }
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #14213d;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    blockquote {
+      font-style: italic;
+      color: #555;
+      border-left: 4px solid #fca311;
+      padding-left: 1rem;
+      margin: 1rem auto;
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    .section-title {
+      color: #fca311;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    ul.course-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.course-list li {
+      background-color: #e7f5e9;
+      color: #2f4f2f;
+      padding: 1rem;
+      margin: 0.5rem auto;
+      border-radius: 8px;
+      max-width: 600px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+    }
+
+    ul.course-list li::before {
+      content: "✔️";
+      margin-right: 0.75rem;
+      color: green;
+    }
+
+    .cta-buttons {
+      margin-top: 2rem;
+    }
+
+    .cta-buttons a {
+      display: inline-block;
+      background-color: #fca311;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s ease, background-color 0.3s;
+    }
+
+    .cta-buttons a:hover {
+      transform: scale(1.05);
+      background-color: #d48806;
+    }
+
+    .partner-logo {
+      margin-top: 2rem;
+    }
+
+    .partner-logo img {
+      max-width: 200px;
+      height: auto;
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("show");
+    }
+    function toggleStudentHub(event) {
+      event.preventDefault();
+      const hub = document.getElementById("student-hub");
+      hub.classList.toggle("show");
+    }
+    document.addEventListener("click", function (e) {
+      const hub = document.getElementById("student-hub");
+      if (!hub.contains(e.target)) {
+        hub.classList.remove("show");
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <img src="/student_chapter_favicon.png" alt="Student Chapter Logo">
+  </header>
+  <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul id="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="calendar.html">Events</a></li>
+      <li><a href="CTA.html">Call to Action</a></li>
+      <li id="student-hub">
+        <a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a>
+        <div class="student-hub-dropdown">
+          <a href="blog.html">Student Blog</a>
+          <a href="student-store.html">Student Store</a>
+          <a href="student-learning.html">Student Learning</a>
+        </div>
+      </li>
+      <li><a href="newsletter.html">Newsletter</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Student Learning</h1>
+    <blockquote>
+      “Success is built on knowledge — your future starts here.”
+    </blockquote>
+
+    <section>
+      <h2 class="section-title">About NAHB E-Learning</h2>
+      <p>
+        The National Association of Home Builders (NAHB) offers an extensive library of webinars, certification courses,
+        and business education exclusively for members. These online resources are designed to help students and
+        professionals in the building industry gain practical skills and credentials recognized nationwide.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Who Can Access</h2>
+      <p>
+        All active NAHB members have full access to NAHB’s e-learning platform. If you are a Student Chapter member,
+        your membership includes NAHB benefits — so you already have access!
+      </p>
+      <p>
+        If you're not yet a member but would like access, you can apply to join the Home Builders Association of Central
+        Louisiana (HBACL), and we will set up your NAHB membership and PIN.
+      </p>
+    </section>
+
+    <div class="cta-buttons">
+      <a href="https://www.nahb.org/education-and-events/education/course-overview" target="_blank">Access Learning</a>
+      <a href="https://www.hbaofcenla.org/join" target="_blank">Join the Student Chapter</a>
+      <a href="https://www.hbaofcenla.org/" target="_blank">Join HBACL as a Member</a>
+    </div>
+
+    <section>
+      <h2 class="section-title">Sample Courses Available</h2>
+      <ul class="course-list">
+        <li>Financial Management</li>
+        <li>Project Management</li>
+        <li>Business Accounting – A Road Map to Profitability</li>
+        <li>Business Management for Building Professionals</li>
+        <li>Selling Strategies / Techniques and Tips</li>
+      </ul>
+    </section>
+
+    <div class="partner-logo">
+      <p>In partnership with:</p>
+      <img src="/assets/nahb-logo.png" alt="NAHB Logo">
+    </div>
+  </main>
+</body>
+</html>
