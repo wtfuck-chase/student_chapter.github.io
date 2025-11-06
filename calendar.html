@@ -22,6 +22,14 @@
     .accent-text {color:#c4a44d;}
     .classic-font {font-family:'Great Vibes', cursive; font-weight:400; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); font-size:1.2em;}
 
+    /* Logo glow / highlight */
+.hero-logo {
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.55))
+          drop-shadow(0 0 25px rgba(255, 255, 255, 0.25))
+          drop-shadow(0 0 40px rgba(255, 255, 255, 0.1));
+  transition: filter 0.3s ease;
+}
+
   </style>
 </head>
 <body class="bg-[#f8fafc] text-[#0b1c2c]">
@@ -38,11 +46,11 @@
         <!-- Left: Logo (slightly larger, no border) -->
         <div class="shrink-0">
           <img
-            src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo"
-            alt="Student Chapter of Central Louisiana"
-            class="w-48 sm:w-56 md:w-64 object-contain"
-            style="filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));"
-          />
+  src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo"
+  alt="Student Chapter of Central Louisiana"
+  class="hero-logo w-48 sm:w-56 md:w-64 object-contain"
+/>
+
         </div>
 
         <!-- Right: Event info -->
