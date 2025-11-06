@@ -22,37 +22,6 @@
     .accent-text {color:#c4a44d;}
     .classic-font {font-family:'Great Vibes', cursive; font-weight:400; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); font-size:1.2em;}
 
-/* Smooth fade-in animation for hero content */
-.fade-in {
-  opacity: 0;
-  transform: translateY(15px);
-  animation: fadeInUp 1.2s ease-out forwards;
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Optional subtle drop-shadow for logo and title */
-.fade-in img, .fade-in h1 {
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
-}
-    <style>
-/* Logo glow / highlight */
-.hero-logo {
-  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.55))
-          drop-shadow(0 0 25px rgba(255, 255, 255, 0.25))
-          drop-shadow(0 0 40px rgba(255, 255, 255, 0.1));
-  transition: filter 0.3s ease;
-}
-
-/* Slight hover lift for subtle motion (optional) */
-.hero-logo:hover {
-  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.65))
-          drop-shadow(0 0 50px rgba(255, 255, 255, 0.3))
-          drop-shadow(0 0 80px rgba(255, 255, 255, 0.15));
-  transform: translateY(-2px);
-}
   </style>
 </head>
 <body class="bg-[#f8fafc] text-[#0b1c2c]">
