@@ -24,17 +24,60 @@
   </style>
 </head>
 <body class="bg-[#f8fafc] text-[#0b1c2c]">
-<!-- ===== Site Sub-Nav (under hero) ===== -->
+
+
+<header class="relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1520975847890-2f2be3174b63?q=80&w=1600&auto=format&fit=crop')] bg-center bg-cover">
+  <div class="backdrop-brightness-50">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:py-16 text-white">
+      <!-- Side-by-side layout: logo left, info right -->
+      <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 sm:gap-12">
+        
+        <!-- Left: Logo (slightly larger, no border) -->
+        <div class="shrink-0">
+          <img
+            src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo"
+            alt="Student Chapter of Central Louisiana"
+            class="w-48 sm:w-56 md:w-64 object-contain"
+            style="filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));"
+          />
+        </div>
+
+        <!-- Right: Event info -->
+        <div class="flex-1 text-center sm:text-left">
+          <p class="uppercase tracking-widest text-[#c4a44d] font-semibold text-sm sm:text-base">1st Annual</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-white drop-shadow">
+            Skeet & Scholars <span class="classic-font text-[#c4a44d]">Classic</span>
+          </h1>
+          <p class="text-[#c4a44d] italic mt-2 text-base sm:text-lg">Where Aim Meets Ambition</p>
+          <p class="mt-3 max-w-xl text-gray-200 text-base sm:text-lg">
+            All proceeds support local Student Chapter High School programs &amp; scholarships!
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
+            <a href="#register" class="inline-flex items-center rounded-2xl px-5 py-3 bg-[#c4a44d] text-white font-semibold shadow hover:bg-[#a68c3d] transition">
+              Register — $25/person
+            </a>
+            <a href="#sponsor" class="inline-flex items-center rounded-2xl px-5 py-3 bg-white/10 ring-1 ring-white/40 font-semibold hover:bg-white/20 transition">
+              Sponsor the event
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Sticky sub-nav under hero -->
 <nav id="site-subnav" class="bg-[#0b1c2c] text-white sticky top-0 z-40 shadow">
   <div class="mx-auto max-w-6xl px-4">
     <div class="h-14 flex items-center justify-between">
-      <!-- Left: Brand/Home -->
+      <!-- Home/brand -->
       <a href="/" class="font-extrabold text-[#c4a44d] hover:text-white transition">Home</a>
 
-      <!-- Mobile menu button -->
+      <!-- Mobile button -->
       <button id="navToggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 ring-1 ring-white/20 hover:bg-white/10" aria-controls="navMenu" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <!-- hamburger icon -->
+        <span class="sr-only">Open menu</span>
         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
         </svg>
@@ -42,15 +85,11 @@
 
       <!-- Desktop links -->
       <div id="navMenu" class="hidden sm:flex items-center gap-6 text-sm">
-        <!-- Global links (adjust paths as needed) -->
         <a href="/about.html" class="hover:text-[#c4a44d]">About</a>
         <a href="/CTA.html" class="hover:text-[#c4a44d]">Call to Action</a>
         <a href="/newsletter.html" class="hover:text-[#c4a44d]">Newsletter</a>
         <a href="/contact.html" class="hover:text-[#c4a44d]">Contact</a>
-
         <span class="opacity-40">|</span>
-
-        <!-- Page anchors -->
         <a href="#details" class="hover:text-[#c4a44d]">Details</a>
         <a href="#register" class="text-[#c4a44d] font-semibold hover:text-white">Register</a>
         <a href="#sponsor" class="hover:text-[#c4a44d]">Sponsor</a>
@@ -73,34 +112,19 @@
   </div>
 </nav>
 
-
-<header class="relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1520975847890-2f2be3174b63?q=80&w=1600&auto=format&fit=crop')] bg-center bg-cover">
-  <div class="backdrop-brightness-50">
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:py-24 text-white flex flex-col items-center text-center">
-
-      <!-- Centered logo inside same flex container -->
-      <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo"
-           alt="Student Chapter of Central Louisiana"
-           class="w-56 sm:w-64 md:w-72 lg:w-80 object-contain mb-8"
-           style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));" />
-
-      <p class="uppercase tracking-widest text-[#c4a44d] font-semibold mt-2">1st Annual</p>
-      <h1 class="text-4xl sm:text-6xl font-extrabold text-white drop-shadow-lg">
-        Skeet & Scholars <span class="classic-font text-[#c4a44d]">Classic</span>
-      </h1>
-      <p class="text-lg italic text-[#c4a44d] mt-2">Where Aim Meets Ambition</p>
-      <p class="mt-3 max-w-2xl text-lg sm:text-xl text-gray-200">
-        All proceeds support local Student Chapter High School programs & scholarships.
-      </p>
-
-      <div class="mt-7 flex flex-wrap gap-3 justify-center">
-        <a href="#register" class="inline-flex items-center rounded-2xl px-5 py-3 bg-[#c4a44d] text-white font-semibold shadow hover:bg-[#a68c3d] transition">Register — $25/person</a>
-        <a href="#sponsor" class="inline-flex items-center rounded-2xl px-5 py-3 bg-white/10 ring-1 ring-white/40 font-semibold hover:bg-white/20 transition">Sponsor the event</a>
-      </div>
-
-    </div>
-  </div>
-</header>
+<script>
+  // Mobile nav toggle
+  (function () {
+    const btn = document.getElementById('navToggle');
+    const mob = document.getElementById('navMenuMobile');
+    if (!btn || !mob) return;
+    btn.addEventListener('click', () => {
+      const open = !mob.classList.contains('hidden');
+      mob.classList.toggle('hidden', open);
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  })();
+</script>
 
 
 
