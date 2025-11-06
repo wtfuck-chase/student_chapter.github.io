@@ -1,419 +1,583 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PTGYPKB0TY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PTGYPKB0TY');
-</script>
-  <link rel="icon" type="image/png" href="student_chapter_favicon.png?v=2">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Chapter Calendar – HBACL</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skeet & Scholars Classic | Student Chapter of Central Louisiana</title>
+  <meta name="description" content="Join us for the Skeet & Scholars Classic — a clay shooting competition supporting local high school programs and scholarships.">
+  <meta property="og:title" content="Skeet & Scholars Classic">
+  <meta property="og:description" content="Where Aim Meets Ambition — a high-energy clay shoot benefiting education and workforce development in Central Louisiana.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.studentchapterofcenla.org/skeet_shoot.html">
+  <meta property="og:image" content="https://www.studentchapterofcenla.org/assets/skeet_og.jpg">
+  <link rel="canonical" href="https://www.studentchapterofcenla.org/skeet_shoot.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; color: #333; }
-    header { background-color: white; text-align: center; padding: 2rem 1rem; }
-    header img { max-width: 225px; margin-bottom: 1rem; }
-    header h1 { margin: 0; font-size: 2.5rem; color: #1e1e2f; }
-    header p { font-size: 1.2rem; margin-top: 0.5rem; color: #555; }
-    nav { background-color: #14141f; padding: 1rem; text-align: center; position: relative; }
-    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
-    nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      max-width: 1000px;
-    }
-    nav ul li { margin: 0 1rem; position: relative; }
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-    }
-    @media (max-width: 768px) {
-      .menu-toggle { display: block; }
-      nav ul { display: none; flex-direction: column; background-color: #14141f; padding: 1rem 0; }
-      nav ul.show { display: flex; }
-      nav ul li { margin: 0.5rem 0; text-align: center; }
-      .student-hub-dropdown { display: none !important; }
-    }
-    #student-hub { position: relative; }
-    .student-hub-dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #1e1e2f;
-      border-radius: 10px;
-      padding: 0.5rem 0;
-      z-index: 1000;
-      min-width: 200px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-    #student-hub.show .student-hub-dropdown { display: block; }
-    .student-hub-dropdown a {
-      display: block;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-align: center;
-      text-decoration: none;
-    }
-    .student-hub-dropdown a:hover { background-color: #333; }
-    section { padding: 3rem 1rem; max-width: 1100px; margin: auto; }
-    .calendar-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    h2 { color: #1e1e2f; margin: 0 1rem 1rem 0; }
-    .download-button { background: #4a90e2; color: white; padding: 0.7rem 1.5rem; text-decoration: none; border-radius: 5px; font-weight: bold; }
-    .month { font-size: 1.8rem; color: #1e1e2f; margin-top: 2rem; border-bottom: 2px solid #ccc; padding-bottom: 0.5rem; }
-    .event-card { background: white; margin: 1.5rem 0; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; color: white; margin-bottom: 1rem; }
-    .badge-tioga { background-color: #e30613; }
-    .badge-grant { background-color: #660000; }
-    .badge-hbacl { background-color: #4a90e2; }
-    .badge-student { background-color: #1e1e2f; }
-    .event-date { font-weight: bold; font-size: 1.2rem; color: #1e1e2f; }
-    .event-desc { margin-top: 0.5rem; font-size: 1rem; }
-    .share-event { margin-top: 1rem; }
-    .share-event a img { width: 24px; margin: 0 5px; vertical-align: middle; }
-    footer { background: #1e1e2f; color: white; text-align: center; padding: 2rem 1rem; margin-top: 3rem; }
+    body{font-family:Archivo,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    .primary-bg {background-color:#0b1c2c;} /* dark navy */
+    .primary-text {color:#0b1c2c;}
+    .accent-bg {background-color:#c4a44d;} /* gold accent */
+    .accent-text {color:#c4a44d;}
+    .classic-font {font-family:'Great Vibes', cursive; font-weight:400; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); font-size:1.2em;}
   </style>
 </head>
-<body>
-  <!-- Your full page body remains the same, no changes needed below -->
+<body class="bg-[#f8fafc] text-[#0b1c2c]">
+<!-- ===== Site Sub-Nav (under hero) ===== -->
+<nav id="site-subnav" class="bg-[#0b1c2c] text-white sticky top-0 z-40 shadow">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="h-14 flex items-center justify-between">
+      <!-- Left: Brand/Home -->
+      <a href="/" class="font-extrabold text-[#c4a44d] hover:text-white transition">Home</a>
 
+      <!-- Mobile menu button -->
+      <button id="navToggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 ring-1 ring-white/20 hover:bg-white/10" aria-controls="navMenu" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <!-- hamburger icon -->
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
 
-<header>
-  <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
-  <h1>Student Chapter Calendar</h1>
-  <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
-  <p>Keeping You Connected with Chapter Events</p>
-  <p id="visitor-count">Visitors: loading...</p>
-</header>
+      <!-- Desktop links -->
+      <div id="navMenu" class="hidden sm:flex items-center gap-6 text-sm">
+        <!-- Global links (adjust paths as needed) -->
+        <a href="/about.html" class="hover:text-[#c4a44d]">About</a>
+        <a href="/CTA.html" class="hover:text-[#c4a44d]">Call to Action</a>
+        <a href="/newsletter.html" class="hover:text-[#c4a44d]">Newsletter</a>
+        <a href="/contact.html" class="hover:text-[#c4a44d]">Contact</a>
 
-<nav>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <ul id="nav-links">
-    <li><a href="index.html">About</a></li>
-    <li><a href="calendar.html">Events</a></li>
-    <li><a href="CTA.html">Call to Action</a></li>
-    <li id="student-hub">
-      <a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a>
-      <div class="student-hub-dropdown">
-        <a href="blog.html">Student Blog</a>
-        <a href="student-store.html">Student Store</a>
-        <a href="student-learning.html">Student Learning</a>
+        <span class="opacity-40">|</span>
+
+        <!-- Page anchors -->
+        <a href="#details" class="hover:text-[#c4a44d]">Details</a>
+        <a href="#register" class="text-[#c4a44d] font-semibold hover:text-white">Register</a>
+        <a href="#sponsor" class="hover:text-[#c4a44d]">Sponsor</a>
+        <a href="#faq" class="hover:text-[#c4a44d]">FAQ</a>
       </div>
-    </li>
-    <li><a href="newsletter.html">Newsletter</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-  </ul>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="navMenuMobile" class="sm:hidden hidden pb-3 space-y-2 text-sm">
+      <a href="/about.html" class="block hover:text-[#c4a44d]">About</a>
+      <a href="/CTA.html" class="block hover:text-[#c4a44d]">Call to Action</a>
+      <a href="/newsletter.html" class="block hover:text-[#c4a44d]">Newsletter</a>
+      <a href="/contact.html" class="block hover:text-[#c4a44d]">Contact</a>
+      <div class="opacity-40">────────</div>
+      <a href="#details" class="block hover:text-[#c4a44d]">Details</a>
+      <a href="#register" class="block text-[#c4a44d] font-semibold">Register</a>
+      <a href="#sponsor" class="block hover:text-[#c4a44d]">Sponsor</a>
+      <a href="#faq" class="block hover:text-[#c4a44d]">FAQ</a>
+    </div>
+  </div>
 </nav>
 
 
-<section id="calendar">
-  <div class="calendar-header">
-    <h2>Calendar of Events</h2>
-    <a href="Student_Chapter_Calendar.docx" download class="download-button">Download Full Calendar</a>
-  </div>
+<header class="relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1520975847890-2f2be3174b63?q=80&w=1600&auto=format&fit=crop')] bg-center bg-cover">
+  <div class="backdrop-brightness-50">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:py-24 flex flex-col sm:flex-row items-center justify-between text-white">
+      
+      <!-- Left Side: Logo -->
+      <div class="flex-shrink-0 mb-8 sm:mb-0 sm:mr-8">
+        <img src="https://www.studentchapterofcenla.org/assets/logo.png" alt="Student Chapter of Central Louisiana Logo"
+             class="w-32 sm:w-40 md:w-48 drop-shadow-lg rounded-lg border-2 border-white/20">
+      </div>
 
-  <div class="month">August 2025</div>
+      <!-- Right Side: Event Info -->
+      <div class="text-center sm:text-right">
+        <p class="uppercase tracking-widest text-[#c4a44d] font-semibold">1st Annual</p>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-white drop-shadow-lg">
+          Skeet & Scholars <span class="classic-font text-[#c4a44d]">Classic</span>
+        </h1>
+        <p class="text-lg italic text-[#c4a44d] mt-2">Where Aim Meets Ambition</p>
+        <p class="mt-3 max-w-2xl text-lg sm:text-xl text-gray-200">
+          All proceeds support local Student Chapter High School programs & Scholarships!
+        </p>
+        <div class="mt-7 flex flex-wrap justify-center sm:justify-end gap-3">
+          <a href="#register" class="inline-flex items-center rounded-2xl px-5 py-3 bg-[#c4a44d] text-white font-semibold shadow hover:bg-[#a68c3d] transition">Register — $25/person</a>
+          <a href="#sponsor" class="inline-flex items-center rounded-2xl px-5 py-3 bg-white/10 ring-1 ring-white/40 font-semibold hover:bg-white/20 transition">Sponsor the event</a>
+        </div>
+      </div>
 
-  <div class="event-card" id="aug8-grant">
-    <span class="badge badge-grant">Grant High</span>
-    <div class="event-date">August 8 – Meet & Greet</div>
-    <div class="event-desc">New student sign-ups and appointment of 1 committee seat.</div>
-    <div class="share-event">
-       <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#aug8-grant" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#aug8-grant" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#aug8-grant" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#aug8-grant" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
     </div>
   </div>
-  <div class="event-card" id="aug15-tioga">
-    <span class="badge badge-tioga">Tioga High</span>
-    <div class="event-date">August 15 – Meet & Greet</div>
-    <div class="event-desc">New student sign-ups and appointment of 1 committee seat.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#aug15-tioga" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#aug15-tioga" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#aug15-tioga" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#aug15-tioga" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
+</header>
+
+
+    <section id="details" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl p-6 shadow">
+        <p class="text-sm uppercase tracking-wide text-gray-500">Date</p>
+        <p class="mt-1 text-xl font-bold text-[#0b1c2c]">Saturday, April 18</p>
+        <p class="text-sm text-gray-600">Check-in 8:00 AM • Safety brief 8:30 • First shots 9:00</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow">
+        <p class="text-sm uppercase tracking-wide text-gray-500">Location</p>
+        <p class="mt-1 text-xl font-bold text-[#0b1c2c]">Michael D. Burns Public Shooting Complex</p>
+        <p class="text-sm text-gray-600">Free parking • Concessions available</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow">
+        <p class="text-sm uppercase tracking-wide text-gray-500">Entry</p>
+        <p class="mt-1 text-xl font-bold text-[#0b1c2c]">$25 per person</p>
+        <p class="text-sm text-gray-600">Teams of 4 ($100) or individuals welcome • Awards & prizes</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Repeat event cards for each event -->
+  <section id="register" class="mx-auto max-w-6xl px-4 pb-16">
+    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow border-t-4 border-[#c4a44d]">
+      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Shooter Registration</h2>
+      <p class="mt-1 text-gray-600">Complete the form; you’ll automatically receive a secure QuickBooks payment link.</p>
+      <!-- Shooter Registration Form (Make-connected) -->
+<form id="regForm"
+      action="https://hook.us2.make.com/8jbnw2wnwo74dy857q989qtew8s761e8"
+      method="POST"
+      class="mt-6 grid grid-cols-1 gap-6">
 
-    <div class="month">September 2025</div>
+  <!-- Hidden routing info for Make -->
+  <input type="hidden" name="submission_type" value="shooter_registration">
+  <input type="hidden" name="event" value="Skeet & Scholars Classic">
+  <input type="hidden" name="event_date" value="2026-04-18">
+  <input type="hidden" id="calc_total" name="calc_total" value="25" />
+  <input type="hidden" id="calc_qty" name="calc_qty" value="1" />
 
-  <div class="event-card" id="sept20-home-show">
-    <span class="badge badge-hbacl">HBACL</span>
-    <div class="event-date">September 20 – Annual Home Show</div>
-    <div class="event-desc">Students from both chapters will have their carpentry projects available for sale and pre-order.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#sept20-home-show" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#sept20-home-show" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#sept20-home-show" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#sept20-home-show" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
+          <div>
+            <label class="block text-sm font-semibold">Contact Name</label>
+            <input name="contact_name" required class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold">Email</label>
+            <input type="email" name="email" required class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+          </div>
+        <div>
+          <label class="block text-sm font-semibold">Phone</label>
+          <input name="phone" required class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold">Registration Type</label>
+          <select id="regType" name="registration_type" 
+          class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+            <option value="individual" selected>Individual ($25)</option>
+            <option value="team">Team of 4 ($100)</option>
+          </select>
+        </div>
+        <div id="teamNameWrap" class="hidden">
+          <label class="block text-sm font-semibold">Team Name</label>
+          <input id="teamName" name="team_name" class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+        </div>
+        <div id="rosterWrap" class="hidden">
+          <label class="block text-sm font-semibold">Team Roster</label>
+          <textarea name="roster" rows="3" class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"></textarea>
+        </div>
+        <div>
+          <label class="flex items-start gap-3">
+            <input type="checkbox" required class="mt-1 accent-[#c4a44d]">
+            <span class="text-sm text-gray-700">I acknowledge all participants will sign a waiver and follow safety rules.</span>
+          </label>
+        </div>
+        <div class="flex items-center justify-between">
+          <p class="text-lg font-bold text-[#0b1c2c]">Total: <span id="priceText">$25</span></p>
+          <button class="rounded-2xl bg-[#c4a44d] px-6 py-3 font-semibold text-white shadow hover:bg-[#a68c3d]" type="submit">Submit</button>
+        </div>
+        <p class="text-sm text-green-700 hidden" id="successMsg">Thanks! Check your email for the payment link.</p>
+      </form>
     </div>
-  </div>
+  </section>
 
-      <div class="month">October 2025</div>
-
-  <div class="event-card" id="oct17-skeet-shoot">
-    <span class="badge badge-hbacl">HBACL</span>
-    <div class="event-date">October 17 – Aim for Education Skeet Shoot</div>
-    <div class="event-desc">Annual skeet shoot raising scholarship funds for the Student Chapter.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#oct17-skeet-shoot" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#oct17-skeet-shoot" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#oct17-skeet-shoot" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#oct17-skeet-shoot" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
+  <section id="sponsor" class="mx-auto max-w-6xl px-4 pb-20">
+    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow">
+      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Sponsor the Classic</h2>
+      <p class="mt-2 text-gray-600">We’re assembling prize packages and corporate tiers now. Interested? Leave your info in the registration form’s notes field or email <span class="text-[#c4a44d] font-semibold">info@studentchapterofcenla.org</span> and we’ll send the sponsor packet.</p>
     </div>
+  </section>
+  
+  <!-- ================= Food Truck Application ================= -->
+<section id="foodtrucks" class="mx-auto max-w-6xl px-4 pb-20">
+  <div class="bg-white rounded-2xl p-6 sm:p-8 shadow border-t-4 border-[#c4a44d]">
+    <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Food Truck Application</h2>
+    <p class="mt-2 text-gray-600">
+      We’re curating a small lineup of food trucks for the Skeet & Scholars Classic. Slots are limited.
+      If you’re interested, apply below—approved vendors will receive full details by email.
+    </p>
+
+    <ul class="mt-4 space-y-2 text-gray-700 list-disc list-inside">
+      <li>Spaces are limited and subject to approval.</li>
+      <li>Self-contained power/water preferred (generator friendly).</li>
+      <li>Local health permit and proof of insurance required.</li>
+      <li>Setup target: <strong>7:00 AM</strong>; service during competition hours.</li>
+    </ul>
+
+    <!-- Food Truck Application Form (Make-connected) -->
+<form id="vendorForm"
+      action="https://hook.us2.make.com/8jbnw2wnwo74dy857q989qtew8s761e8"
+      method="POST"
+      class="mt-6 grid grid-cols-1 gap-6">
+
+  <!-- Hidden routing info for Make -->
+  <input type="hidden" name="submission_type" value="food_truck_application">
+  <input type="hidden" name="event" value="Skeet & Scholars Classic">
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-semibold">Business / Truck Name</label>
+          <input name="business_name" required
+                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold">Cuisine / Specialty</label>
+          <input name="cuisine" required
+                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <label class="block text-sm font-semibold">Contact Name</label>
+          <input name="contact_name" required
+                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold">Email</label>
+          <input type="email" name="email" required
+                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold">Phone</label>
+          <input name="phone" required
+                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <label class="block text-sm font-semibold">Truck Size (length)</label>
+          <input name="truck_size"
+                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"
+                 placeholder="e.g., 20 ft">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold">Power</label>
+          <select name="power" class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+            <option value="self-contained">Self-contained (generator)</option>
+            <option value="shore-if-available">Prefer shore power if available</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold">Service Window</label>
+          <select name="service_window" class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
+            <option value="breakfast">Breakfast / Early AM</option>
+            <option value="lunch" selected>Mid-morning through Awards</option>
+            <option value="full-day">Full Event</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-semibold">Permits / Insurance</label>
+          <input name="permits"
+                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"
+                 placeholder="Health permit #, insurance carrier, etc.">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold">Website / Social (optional)</label>
+          <input name="links"
+                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"
+                 placeholder="Instagram, Facebook, or site URL">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold">Menu Highlights & Notes</label>
+        <textarea name="notes" rows="3"
+                  class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
+                         focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"
+                  placeholder="Top sellers, special requests, logistics needs…"></textarea>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <p class="text-sm text-gray-600">
+          No fees are published here; approved vendors will receive details by email.
+        </p>
+        <button class="rounded-2xl bg-[#c4a44d] px-6 py-3 font-semibold text-white shadow hover:bg-[#a68c3d]" type="submit">
+          Apply to Serve
+        </button>
+      </div>
+
+      <p class="text-sm text-green-700 hidden" id="vendorSuccess">Thanks! We received your application.</p>
+    </form>
   </div>
-
-       <div class="month">November 2025</div>
-
-  <div class="event-card" id="nov-seco-expo">
-    <span class="badge badge-student">Student Chapter</span>
-    <div class="event-date">November 19-20 – SECO Expo</div>
-    <div class="event-desc">Students Exploring Career Opportunities hosted by The Orchard Foundation.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#nov-seco-expo" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#nov-seco-expo" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#nov-seco-expo" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#nov-seco-expo" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-
-          <div class="month">December 2025</div>
-
-  <div class="event-card" id="dec19-grant-bonfire">
-    <span class="badge badge-grant">Grant High</span>
-    <div class="event-date">December 19 – Bonfire</div>
-    <div class="event-desc">Student Chapter Bonfire for community building and celebration.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#dec19-grant-bonfire" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#dec19-grant-bonfire" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#dec19-grant-bonfire" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#dec19-grant-bonfire" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-    <div class="event-card" id="dec20-tioga-bonfire">
-    <span class="badge badge-tioga">Tioga High</span>
-    <div class="event-date">December 20 – Bonfire</div>
-    <div class="event-desc">Student Chapter Bonfire for community building and celebration.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#dec20-tioga-bonfire" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#dec20-tioga-bonfire" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#dec20-tioga-bonfire" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#dec20-tioga-bonfire" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-
-          <div class="month">January 2026</div>
-
-  <div class="event-card" id="jan17-grant-movie">
-    <span class="badge badge-grant">Grant High</span>
-    <div class="event-date">January 17 – Movie Night</div>
-    <div class="event-desc">Student Chapter Movie Night for team-building and fun.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#jan17-grant-movie" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#jan17-grant-movie" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#jan17-grant-movie" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#jan17-grant-movie" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-    <div class="event-card" id="jan24-tioga-movie">
-    <span class="badge badge-tioga">Tioga High</span>
-    <div class="event-date">January 24 – Movie Night</div>
-    <div class="event-desc">Student Chapter Movie Night for team-building and fun.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#jan24-tioga-movie" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#jan24-tioga-movie" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#jan24-tioga-movie" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#jan24-tioga-movie" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-          <div class="month">February 2026</div>
-
-  <div class="event-card" id="feb17-mardi">
-    <span class="badge badge-student">Student Chapter</span>
-    <div class="event-date">February 17 – Alexandria Children's Mardi Gras Parade</div>
-    <div class="event-desc">Student Chapter participation in the local parade.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#feb17-mardi" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#feb17-mardi" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#feb17-mardi" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#feb17-mardi" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-            <div class="month">March 2026</div>
-
-  <div class="event-card" id="mar1-deadlines">
-    <span class="badge badge-student">Student Chapter</span>
-    <div class="event-date">March 1 – Scholarship Deadlines</div>
-    <div class="event-desc">Scholarship projects and written portions due at the HBACL office.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#mar1-deadlines" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#mar1-deadlines" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#mar1-deadlines" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#mar1-deadlines" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-              <div class="month">April 2026</div>
-
-  <div class="event-card" id="apr11-hbacl">
-    <span class="badge badge-hbacl">HBACL</span>
-    <div class="event-date">April 11 – HBACL Annual Golf Tournament</div>
-    <div class="event-desc">Fundraising event supporting students and programs.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#apr11-hbacl" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#apr11-hbacl" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#apr11-hbacl" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#apr11-hbacl" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-    <div class="event-card" id="apr15-notification">
-    <span class="badge badge-student">Student Chapter</span>
-    <div class="event-date">April 15 – Scholarship Notifications</div>
-    <div class="event-desc">Scholarship award results will be announced to students receiving awards and accompanying schools.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#apr15-notification" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#apr15-notification" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#apr15-notification" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#apr15-notification" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-      <div class="event-card" id="apr-field">
-    <span class="badge badge-student">Student Chapter</span>
-    <div class="event-date">April (TBD) – Field Day</div>
-    <div class="event-desc">Hands-on activity and celebration day. Final date to be announced.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#apr-field" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#apr-field" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#apr-field" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#apr-field" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-
-                <div class="month">May 2026</div>
-
-  <div class="event-card" id="may-EOY">
-    <span class="badge badge-student">Student Chapter</span>
-    <div class="event-date">May 1 – End of Year Wrap-Up</div>
-    <div class="event-desc">Crawfish boil and wrap-up gathering to close the school year.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#may-EOY" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#may-EOY" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#may-EOY" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#may-EOY" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-
-                  <div class="month">June 2026</div>
-
-  <div class="event-card" id="jun-int">
-    <span class="badge badge-student">Student Chapter</span>
-    <div class="event-date">June – Summer Internships Begin</div>
-    <div class="event-desc">Student internships and job placements begin.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#jun-int" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#jun-int" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#jun-int" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#jun-int" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-    <div class="event-card" id="jun-ffa">
-    <span class="badge badge-student">Student Chapter</span>
-    <div class="event-date">June 2-5 – State FFA Convention and Expo</div>
-    <div class="event-desc">Louisiana FFA State Convention and Expo. Over 1,000 Louisiana FFA members will be in attendance. This is a great opportunity to meet with Louisiana’s future workforce.<br><a href="https://la-ffa.org/what-we-do/state-convention-expo.html" target="_blank">Learn more and register here.</a></div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#jun-ffa" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#jun-ffa" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#jun-ffa" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#jun-ffa" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-
-                    <div class="month">July 2026</div>
-
-  <div class="event-card" id="jul-canoe">
-    <span class="badge badge-student">Student Chapter</span>
-    <div class="event-date">July – Leadership Canoe Trip</div>
-    <div class="event-desc">Summer leadership development on the water.</div>
-    <div class="share-event">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://studentchapterofcenla.org/calendar.html#jul-canoe" title="Share on Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-      <a href="https://twitter.com/intent/tweet?url=https://studentchapterofcenla.org/calendar.html#jul-canoe" title="Share on Twitter"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"></a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://studentchapterofcenla.org/calendar.html#jul-canoe" title="Share on LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
-      <a href="mailto:?subject=Check%20out%20this%20Student%20Chapter%20event!&body=See%20this%20event:%20https://studentchapterofcenla.org/calendar.html#jul-canoe" title="Email a Friend"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></a>
-    </div>
-  </div>
-
 </section>
 
-<footer>
-  <p>&copy; 2025 Student Chapter of Central Louisiana – HBACL. All rights reserved.</p>
-</footer>
+<section id="partners" class="mx-auto max-w-6xl px-4 pb-20">
+  <div class="bg-white rounded-2xl shadow border-t-4 border-[#c4a44d]">
+    <div class="p-6 sm:p-8">
+      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Friends, Partners & Sponsors — Live Updates</h2>
+      <p class="mt-2 text-gray-600">
+        Organizations and agencies planning to attend or support the Skeet & Scholars Classic.
+        This section will be updated as confirmations and sponsors are received.
+      </p>
 
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const firebaseConfig = {
-      apiKey: "AIzaSyAwTYJFljKyzx2vEW5Z2hJ514AKW_fxBPU",
-      authDomain: "hbacl-student-chapter-blog.firebaseapp.com",
-      projectId: "hbacl-student-chapter-blog",
-      storageBucket: "hbacl-student-chapter-blog.firebasestorage.app",
-      messagingSenderId: "1099160172364",
-      appId: "1:1099160172364:web:1a379b865e35d1f26ac1e9"
-    };
+      <!-- Legend -->
+      <div class="mt-4 flex flex-wrap gap-3 text-sm">
+        <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-emerald-700 ring-1 ring-emerald-200">
+          <span class="h-2 w-2 rounded-full bg-emerald-600"></span> Confirmed
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-amber-700 ring-1 ring-amber-200">
+          <span class="h-2 w-2 rounded-full bg-amber-500"></span> Verbal Yes
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-slate-600 ring-1 ring-slate-200">
+          <span class="h-2 w-2 rounded-full bg-slate-400"></span> Soft Yes / Pending
+        </span>
+      </div>
 
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const ref = db.collection("siteStats").doc("visitorCount");
+      <!-- Partner Grid -->
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between">
+          <div>
+            <p class="font-semibold text-[#0b1c2c]">LaSalle Parish Sheriff’s Office</p>
+            <p class="text-sm text-gray-600">Range support / presence</p>
+          </div>
+          <span class="status-pill">Soft Yes</span>
+        </div>
 
-    function incrementVisitorCount(page) {
-      ref.get().then(doc => {
-        if (doc.exists) {
-          const data = doc.data();
-          const newCount = (data[page] || 0) + 1;
-          ref.update({ [page]: newCount });
-          document.getElementById("visitor-count").textContent = `Visitors: ${newCount}`;
-        }
-      });
-    }
+        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between">
+          <div>
+            <p class="font-semibold text-[#0b1c2c]">Rapides Parish Sheriff’s Office</p>
+            <p class="text-sm text-gray-600">Community support</p>
+          </div>
+          <span class="status-pill">Soft Yes</span>
+        </div>
 
-    incrementVisitorCount("calendar");
+        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between">
+          <div>
+            <p class="font-semibold text-[#0b1c2c]">Grant Parish Sheriff’s Office</p>
+            <p class="text-sm text-gray-600">Event presence</p>
+          </div>
+          <span class="status-pill">Soft Yes</span>
+        </div>
+
+        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between sm:col-span-2">
+          <div>
+            <p class="font-semibold text-[#0b1c2c]">Louisiana Dept. of Wildlife & Fisheries</p>
+            <p class="text-sm text-gray-600">Education, gun safety, and student safety</p>
+          </div>
+          <span class="status-pill">Soft Yes</span>
+        </div>
+      </div>
+
+      <!-- Sponsors list -->
+      <div class="mt-10">
+        <h3 class="text-xl font-bold text-[#0b1c2c] mb-2">Confirmed Sponsors</h3>
+        <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-gray-700">
+          <li class="rounded-xl border border-gray-200 p-4">Coming Soon — sponsor updates will appear here.</li>
+        </ul>
+      </div>
+
+      <p class="mt-6 text-xs text-gray-500">Last updated: <span id="partners-updated"></span></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="mx-auto max-w-6xl px-4 pb-20">
+  <div class="bg-white rounded-2xl shadow border-t-4 border-[#c4a44d]">
+    <div class="p-6 sm:p-8">
+      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">FAQ</h2>
+      <p class="mt-2 text-gray-600">Quick answers about the Skeet & Scholars Classic.</p>
+
+      <div class="mt-6 divide-y divide-gray-200" role="region" aria-labelledby="faq-heading">
+        <!-- Item -->
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold text-[#0b1c2c]">Who can compete?</span>
+            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
+          </summary>
+          <div class="mt-3 text-gray-700">
+            Individuals and teams of four are welcome. Novice through experienced shooters may participate.
+          </div>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold text-[#0b1c2c]">Are minors allowed?</span>
+            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
+          </summary>
+          <div class="mt-3 text-gray-700">
+            Yes, with a parent/guardian on site and signed waiver. All youth must follow range safety rules and staff directions.
+          </div>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold text-[#0b1c2c]">What equipment do I need?</span>
+            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
+          </summary>
+          <div class="mt-3 text-gray-700">
+            A shotgun (12/20 gauge recommended), eye/ear protection, and ammo. Limited loaner gear may be available—ask at check-in.
+          </div>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold text-[#0b1c2c]">How do payments work?</span>
+            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
+          </summary>
+          <div class="mt-3 text-gray-700">
+            After you submit the form, you’ll receive a secure QuickBooks payment link by email. Pay online to confirm your spot.
+          </div>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold text-[#0b1c2c]">What’s the schedule?</span>
+            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
+          </summary>
+          <div class="mt-3 text-gray-700">
+            Check-in 8:00 AM · Safety brief 8:30 · First shots 9:00 AM · Awards immediately after rounds conclude.
+          </div>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold text-[#0b1c2c]">Rain or refund policy?</span>
+            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
+          </summary>
+          <div class="mt-3 text-gray-700">
+            The event is rain-or-shine unless the range closes for safety. If postponed, all registrations roll to the new date.
+          </div>
+        </details>
+
+        <details class="group py-4">
+          <summary class="flex cursor-pointer list-none items-center justify-between">
+            <span class="font-semibold text-[#0b1c2c]">How do I sponsor or donate prizes?</span>
+            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
+          </summary>
+          <div class="mt-3 text-gray-700">
+            Email <a href="mailto:info@studentchapterofcenla.org" class="text-[#c4a44d] font-semibold">info@studentchapterofcenla.org</a> and we’ll send the sponsor packet with levels and prize needs.
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="bg-[#0b1c2c] text-white">
+    <div class="mx-auto max-w-6xl px-4 py-10">
+      <p class="font-extrabold text-[#c4a44d]">Student Chapter of Central Louisiana</p>
+      <p class="text-sm">PO Box 11684, Alexandria, LA 71315</p>
+      <p class="text-sm">info@studentchapterofcenla.org</p>
+    </div>
+  </footer>
+
+  <script>
+      
+  (function () {
+    const btn = document.getElementById('navToggle');
+    const desk = document.getElementById('navMenu');
+    const mob = document.getElementById('navMenuMobile');
+    if (!btn || !desk || !mob) return;
+    btn.addEventListener('click', () => {
+      const open = mob.classList.contains('hidden') === false;
+      mob.classList.toggle('hidden', open);
+      btn.setAttribute('aria-expanded', (!open).toString());
+    });
+  })();
+
+(function () {
+  // ===== Partners status auto-styling =====
+  const CLASS_BASE =
+    "ml-4 shrink-0 rounded-full px-3 py-1 text-xs font-semibold ";
+  const STATUS_MAP = {
+    confirmed: "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200",
+    verbal: "bg-amber-50 text-amber-700 ring-1 ring-amber-200",
+    soft: "bg-slate-100 text-slate-700 ring-1 ring-slate-200",
+  };
+
+  // Style each status pill based on its text (or data-status if you add it)
+  document.querySelectorAll("#partners .status-pill").forEach((pill) => {
+    const raw = (pill.dataset.status || pill.textContent || "")
+      .toLowerCase()
+      .trim();
+
+    let key = "soft";
+    if (raw.startsWith("confirm")) key = "confirmed";
+    else if (raw.startsWith("verbal")) key = "verbal";
+    else if (raw.startsWith("soft")) key = "soft";
+
+    pill.className = CLASS_BASE + (STATUS_MAP[key] || STATUS_MAP.soft);
+
+    // Normalize visible text
+    pill.textContent =
+      key === "confirmed" ? "Confirmed" : key === "verbal" ? "Verbal Yes" : "Soft Yes";
   });
 
-    // Mobile menu toggle
-    function toggleMenu() {
-      document.getElementById('nav-links').classList.toggle('show');
-    }
-
-  function toggleStudentHub(event) {
-  event.preventDefault();
-  const hub = document.getElementById("student-hub");
-  hub.classList.toggle("show");
-}
-document.addEventListener("click", function (e) {
-  const hub = document.getElementById("student-hub");
-  if (!hub.contains(e.target)) {
-    hub.classList.remove("show");
+  // Update "Last updated" stamp
+  const stamp = document.getElementById("partners-updated");
+  if (stamp) {
+    stamp.textContent = new Date().toLocaleString([], {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
   }
-});
-</script>
 
-</body>
-</html>
+  // ===== Registration price logic =====
+  const regType = document.getElementById("regType");
+  const teamNameWrap = document.getElementById("teamNameWrap");
+  const rosterWrap = document.getElementById("rosterWrap");
+  const priceText = document.getElementById("priceText");
+  const calcTotal = document.getElementById("calc_total");
+  const calcQty = document.getElementById("calc_qty");
+
+  function renderPrice() {
+    if (!regType) return;
+    const isTeam = regType.value === "team";
+    const total = isTeam ? 100 : 25;
+    if (priceText) priceText.textContent = `$${total}`;
+    if (calcTotal) calcTotal.value = total;
+    if (calcQty) calcQty.value = isTeam ? 4 : 1;
+    if (teamNameWrap) teamNameWrap.classList.toggle("hidden", !isTeam);
+    if (rosterWrap) rosterWrap.classList.toggle("hidden", !isTeam);
+  }
+
+  if (regType) {
+    regType.addEventListener("change", renderPrice);
+    renderPrice();
+  }
+
+  // ===== Registration form submit =====
+  const form = document.getElementById("regForm");
+  const success = document.getElementById("successMsg");
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const resp = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (resp.ok) {
+        if (success) success.classList.remove("hidden");
+        form.reset();
+        renderPrice();
+      } else {
+        alert("There was a problem submitting. Please try again or email us.");
+      }
+    });
+  }
+})();
+</script>
