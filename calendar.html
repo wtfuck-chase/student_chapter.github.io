@@ -21,16 +21,34 @@
     .accent-bg {background-color:#c4a44d;} /* gold accent */
     .accent-text {color:#c4a44d;}
     .classic-font {font-family:'Great Vibes', cursive; font-weight:400; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); font-size:1.2em;}
+
+/* Smooth fade-in animation for hero content */
+.fade-in {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Optional subtle drop-shadow for logo and title */
+.fade-in img, .fade-in h1 {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+}
   </style>
 </head>
 <body class="bg-[#f8fafc] text-[#0b1c2c]">
 
 
 <header class="relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1520975847890-2f2be3174b63?q=80&w=1600&auto=format&fit=crop')] bg-center bg-cover">
-  <div class="backdrop-brightness-50">
-    <div class="mx-auto max-w-6xl px-4 py-12 sm:py-16 text-white">
-      <!-- Side-by-side layout: logo left, info right -->
-      <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 sm:gap-12">
+  <!-- Soft gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#0b1c2c]/70 via-[#0b1c2c]/50 to-[#0b1c2c]/70"></div>
+
+  <div class="relative backdrop-brightness-50">
+    <div class="mx-auto max-w-6xl px-4 py-12 sm:py-16 text-white fade-in flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 sm:gap-12">
+
         
         <!-- Left: Logo (slightly larger, no border) -->
         <div class="shrink-0">
