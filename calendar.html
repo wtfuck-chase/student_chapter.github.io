@@ -545,56 +545,29 @@
   </div>
 </div>
 
-
-  <script>
-      
-  (function () {
-    const btn = document.getElementById('navToggle');
-    const desk = document.getElementById('navMenu');
-    const mob = document.getElementById('navMenuMobile');
-    if (!btn || !desk || !mob) return;
-    btn.addEventListener('click', () => {
-      const open = mob.classList.contains('hidden') === false;
-      mob.classList.toggle('hidden', open);
-      btn.setAttribute('aria-expanded', (!open).toString());
-    });
-  })();
-
+<script>
 (function () {
   // ===== Partners status auto-styling =====
-  const CLASS_BASE =
-    "ml-4 shrink-0 rounded-full px-3 py-1 text-xs font-semibold ";
+  const CLASS_BASE = "ml-4 shrink-0 rounded-full px-3 py-1 text-xs font-semibold ";
   const STATUS_MAP = {
     confirmed: "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200",
     verbal: "bg-amber-50 text-amber-700 ring-1 ring-amber-200",
     soft: "bg-slate-100 text-slate-700 ring-1 ring-slate-200",
   };
 
-  // Style each status pill based on its text (or data-status if you add it)
   document.querySelectorAll("#partners .status-pill").forEach((pill) => {
-    const raw = (pill.dataset.status || pill.textContent || "")
-      .toLowerCase()
-      .trim();
-
+    const raw = (pill.dataset.status || pill.textContent || "").toLowerCase().trim();
     let key = "soft";
     if (raw.startsWith("confirm")) key = "confirmed";
     else if (raw.startsWith("verbal")) key = "verbal";
     else if (raw.startsWith("soft")) key = "soft";
-
     pill.className = CLASS_BASE + (STATUS_MAP[key] || STATUS_MAP.soft);
-
-    // Normalize visible text
-    pill.textContent =
-      key === "confirmed" ? "Confirmed" : key === "verbal" ? "Verbal Yes" : "Soft Yes";
+    pill.textContent = key === "confirmed" ? "Confirmed" : key === "verbal" ? "Verbal Yes" : "Soft Yes";
   });
 
-  // Update "Last updated" stamp
   const stamp = document.getElementById("partners-updated");
   if (stamp) {
-    stamp.textContent = new Date().toLocaleString([], {
-      dateStyle: "medium",
-      timeStyle: "short",
-    });
+    stamp.textContent = new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" });
   }
 
   // ===== Registration price logic =====
@@ -620,77 +593,81 @@
     regType.addEventListener("change", renderPrice);
     renderPrice();
   }
-  // ---------- Modal helpers (unchanged if you already have them) ----------
-  const modal = document.getElementById('successModal');
-  const modalText = document.getElementById('successText');
-  const modalClose = document.getElementById('modalClose');
-  function openModal(msg){
-    if (msg) modalText.textContent = msg;
-    modal.classList.remove('hidden'); modal.classList.add('flex');
-  }
-  function closeModal(){
-    modal.classList.add('hidden'); modal.classList.remove('flex');
-  }
-  modalClose?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
+})(); // <-- properly closes the IIFE
+</script>
 
-  // ---------- Utility ----------
-  function setSubmittingState(btn, isSubmitting){
-    if (!btn) return;
-    btn.disabled = isSubmitting;
-    if (isSubmitting) {
-      btn.dataset._label = btn.textContent;
-      btn.textContent = 'Submitting…';
-      btn.classList.add('opacity-80','cursor-not-allowed');
+  <script>
+// ---------- Modal helpers ----------
+const modal = document.getElementById('successModal');
+const modalText = document.getElementById('successText');
+const modalClose = document.getElementById('modalClose');
+
+function openModal(msg){
+  if (msg) modalText.textContent = msg;
+  modal.classList.remove('hidden'); modal.classList.add('flex');
+}
+function closeModal(){
+  modal.classList.add('hidden'); modal.classList.remove('flex');
+}
+modalClose?.addEventListener('click', closeModal);
+modal?.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
+
+// ---------- Button state ----------
+function setSubmittingState(btn, isSubmitting){
+  if (!btn) return;
+  btn.disabled = isSubmitting;
+  if (isSubmitting) {
+    btn.dataset._label = btn.textContent;
+    btn.textContent = 'Submitting…';
+    btn.classList.add('opacity-80','cursor-not-allowed');
+  } else {
+    if (btn.dataset._label) btn.textContent = btn.dataset._label;
+    btn.classList.remove('opacity-80','cursor-not-allowed');
+  }
+}
+
+// ---------- POST helper with CORS fallback ----------
+async function postForm(url, data){
+  try {
+    const resp = await fetch(url, { method:'POST', body:data, headers:{ 'Accept':'application/json' } });
+    if (resp.ok) return true;
+  } catch(_) {}
+  try {
+    await fetch(url, { method:'POST', body:data, mode:'no-cors' });
+    return true;
+  } catch(_) { return false; }
+}
+
+// ---------- SINGLE handler for all ajax forms ----------
+document.querySelectorAll('form.ajax-form').forEach(form => {
+  if (form.dataset.bound === '1') return;
+  form.dataset.bound = '1';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.dataset.submitting === '1') return;
+    form.dataset.submitting = '1';
+
+    const submitBtn = form.querySelector('button[type="submit"], [data-submit]');
+    setSubmittingState(submitBtn, true);
+
+    const data = new FormData(form);
+    const ok = await postForm(form.action, data);
+
+    setSubmittingState(submitBtn, false);
+    form.dataset.submitting = '0';
+
+    if (ok) {
+      const msg = form.getAttribute('data-success') ||
+        'Thanks! We’ve received your submission. We’ll be in touch shortly.';
+      openModal(msg);
+      form.reset?.();
+      if (typeof renderPrice === 'function') { try { renderPrice(); } catch(_){} }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      if (btn.dataset._label) btn.textContent = btn.dataset._label;
-      btn.classList.remove('opacity-80','cursor-not-allowed');
+      alert('We had trouble submitting. Please email info@studentchapterofcenla.org and we’ll get you registered.');
     }
-  }
+  }, { passive:false });
+});
+</script>
 
-  async function postForm(url, data){
-    try {
-      const resp = await fetch(url, { method:'POST', body:data, headers:{'Accept':'application/json'} });
-      if (resp.ok) return true;
-    } catch(_) {}
-    try {
-      await fetch(url, { method:'POST', body:data, mode:'no-cors' });
-      return true;
-    } catch(_) { return false; }
-  }
-
-  // ---------- ONE handler to rule them all ----------
-  document.querySelectorAll('form.ajax-form').forEach(form => {
-    // prevent double-binding if this script is included twice
-    if (form.dataset.bound === '1') return;
-    form.dataset.bound = '1';
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // prevent double-clicks / duplicate submits
-      if (form.dataset.submitting === '1') return;
-      form.dataset.submitting = '1';
-
-      const submitBtn = form.querySelector('button[type="submit"], [data-submit]');
-      setSubmittingState(submitBtn, true);
-
-      const data = new FormData(form);
-      const ok = await postForm(form.action, data);
-
-      setSubmittingState(submitBtn, false);
-      form.dataset.submitting = '0';
-
-      if (ok) {
-        const msg = form.getAttribute('data-success') ||
-          'Thanks! We’ve received your submission. We’ll be in touch shortly.';
-        openModal(msg);
-        form.reset?.();
-        if (typeof renderPrice === 'function') { try { renderPrice(); } catch(_){} }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        alert('We had trouble submitting. Please email info@studentchapterofcenla.org and we’ll get you registered.');
-      }
-    }, { passive:false });
-  });
-</script>-
