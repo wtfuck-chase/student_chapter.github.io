@@ -164,9 +164,10 @@
       <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Shooter Registration</h2>
       <p class="mt-1 text-gray-600">Complete the form; you’ll automatically receive a secure QuickBooks payment link.</p>
       <!-- Shooter Registration Form (Make-connected) -->
-<form id="regForm"
+<form id="regForm" class="ajax-form"
       action="https://hook.us2.make.com/8jbnw2wnwo74dy857q989qtew8s761e8"
       method="POST"
+   data-success="Thanks! We’ve received your registration. Check your email soon for payment details."
       class="mt-6 grid grid-cols-1 gap-6">
 
   <!-- Hidden routing info for Make -->
@@ -243,9 +244,10 @@
     </ul>
 
     <!-- Food Truck Application Form (Make-connected) -->
-<form id="vendorForm"
+<form id="vendorForm" class="ajax-form"
       action="https://hook.us2.make.com/8jbnw2wnwo74dy857q989qtew8s761e8"
       method="POST"
+  data-success="Thanks! Your application is in. We’ll review and email you next steps."
       class="mt-6 grid grid-cols-1 gap-6">
 
   <!-- Hidden routing info for Make -->
@@ -529,6 +531,20 @@
       <p class="text-sm">info@studentchapterofcenla.org</p>
     </div>
   </footer>
+  <!-- Success Modal -->
+<div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="relative mx-4 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+    <h3 class="text-lg font-semibold text-[#0b1c2c]">Thanks for applying!</h3>
+    <p id="successText" class="mt-2 text-sm text-gray-700">
+      Someone will reach out to you shortly at the email you provided to complete registration and payment.
+    </p>
+    <div class="mt-5 flex justify-end gap-2">
+      <button id="modalClose" class="rounded-xl bg-[#0b1c2c] px-4 py-2 text-white hover:bg-[#132a40]">Close</button>
+    </div>
+  </div>
+</div>
+
 
   <script>
       
@@ -627,4 +643,86 @@
     });
   }
 })();
+     // ---------- Modal helpers ----------
+  const modal = document.getElementById('successModal');
+  const modalText = document.getElementById('successText');
+  const modalClose = document.getElementById('modalClose');
+  function openModal(msg){
+    if (msg) modalText.textContent = msg;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+  function closeModal(){
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+  modalClose?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
+
+  // ---------- AJAX submit for any .ajax-form ----------
+  async function postForm(form){
+    const data = new FormData(form);
+    const url  = form.action;
+    // Try normal CORS first
+    try {
+      const resp = await fetch(url, { method:'POST', body:data, headers:{ 'Accept':'application/json' } });
+      // Some webhooks don’t send CORS or any body; treat 2xx as success
+      if (resp.ok) return true;
+      // If response is opaque or blocked, fall through to no-cors
+    } catch (_) { /* ignore and try no-cors */ }
+
+    // Fallback: no-cors (can’t read response, but request is sent)
+    try {
+      await fetch(url, { method:'POST', body:data, mode:'no-cors' });
+      return true;
+    } catch (err) {
+      console.error('Submit failed:', err);
+      return false;
+    }
+  }
+
+  function setSubmittingState(btn, isSubmitting){
+    if (!btn) return;
+    btn.disabled = isSubmitting;
+    if (isSubmitting) {
+      btn.dataset._label = btn.textContent;
+      btn.textContent = 'Submitting…';
+      btn.classList.add('opacity-80', 'cursor-not-allowed');
+    } else {
+      if (btn.dataset._label) btn.textContent = btn.dataset._label;
+      btn.classList.remove('opacity-80', 'cursor-not-allowed');
+    }
+  }
+
+  // Hook up all forms with class="ajax-form"
+  document.querySelectorAll('form.ajax-form').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"], [data-submit]');
+      setSubmittingState(submitBtn, true);
+
+      const ok = await postForm(form);
+
+      setSubmittingState(submitBtn, false);
+
+      if (ok) {
+        // Show friendly modal (custom per-form message if provided)
+        const msg = form.getAttribute('data-success') ||
+          'Thanks! We’ve received your submission. We’ll be in touch shortly.';
+        openModal(msg);
+
+        // Reset form + re-run any price logic if present
+        form.reset?.();
+        // If you have a registration price renderer (from earlier), call it:
+        if (typeof renderPrice === 'function') { try { renderPrice(); } catch(_){} }
+
+        // Scroll to top for context on mobile
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert('We had trouble submitting. Please email info@studentchapterofcenla.org and we’ll get you registered.');
+        // Optional: open mailto as a fallback
+        // window.location.href = 'mailto:info@studentchapterofcenla.org?subject=Skeet%20Shoot%20Registration%20Help';
+      }
+    }, { passive:false });
+  });
 </script>
