@@ -162,11 +162,12 @@
       <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Shooter Registration</h2>
       <p class="mt-1 text-gray-600">Complete the form; you’ll automatically receive a secure QuickBooks payment link.</p>
       <!-- Shooter Registration Form (Make-connected) -->
-<form id="regForm" class="ajax-form"
+<form id="regForm"
+      class="ajax-form mt-6 grid grid-cols-1 gap-6"
       action="https://hook.us2.make.com/8jbnw2wnwo74dy857q989qtew8s761e8"
       method="POST"
-   data-success="Thanks! We’ve received your registration. Check your email soon for payment details."
-  class="mt-6 grid grid-cols-1 gap-6">
+      data-success="Thanks! We’ve received your registration. Check your email soon for payment details.">
+
 
   <!-- Hidden routing info for Make -->
   <input type="hidden" name="submission_type" value="shooter_registration">
@@ -242,11 +243,12 @@
     </ul>
 
     <!-- Food Truck Application Form (Make-connected) -->
-<form id="vendorForm" class="ajax-form"
+<form id="vendorForm"
+      class="ajax-form mt-6 grid grid-cols-1 gap-6"
       action="https://hook.us2.make.com/8jbnw2wnwo74dy857q989qtew8s761e8"
       method="POST"
-  data-success="Thanks! Your application is in. We’ll review and email you next steps."
-  class="mt-6 grid grid-cols-1 gap-6">
+      data-success="Thanks! Your application is in. We’ll review and email you next steps.">
+
 
   <!-- Hidden routing info for Make -->
   <input type="hidden" name="submission_type" value="food_truck_application">
@@ -618,7 +620,6 @@
     regType.addEventListener("change", renderPrice);
     renderPrice();
   }
-<script>
   // ---------- Modal helpers (unchanged if you already have them) ----------
   const modal = document.getElementById('successModal');
   const modalText = document.getElementById('successText');
