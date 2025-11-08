@@ -725,4 +725,12 @@
       }
     }, { passive:false });
   });
+    // Auto-close after 4 seconds
+function openModal(msg){
+  if (msg) modalText.textContent = msg;
+  modal.classList.remove('hidden'); modal.classList.add('flex');
+  clearTimeout(openModal._t);
+  openModal._t = setTimeout(closeModal, 4000);
+}
+
 </script>
