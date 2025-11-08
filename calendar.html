@@ -620,117 +620,80 @@
     regType.addEventListener("change", renderPrice);
     renderPrice();
   }
-
-  // ===== Registration form submit =====
-  const form = document.getElementById("regForm");
-  const success = document.getElementById("successMsg");
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const resp = await fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-      if (resp.ok) {
-        if (success) success.classList.remove("hidden");
-        form.reset();
-        renderPrice();
-      } else {
-        alert("There was a problem submitting. Please try again or email us.");
-      }
-    });
-  }
-})();
-     // ---------- Modal helpers ----------
+<script>
+  // ---------- Modal helpers (unchanged if you already have them) ----------
   const modal = document.getElementById('successModal');
   const modalText = document.getElementById('successText');
   const modalClose = document.getElementById('modalClose');
   function openModal(msg){
     if (msg) modalText.textContent = msg;
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    modal.classList.remove('hidden'); modal.classList.add('flex');
   }
   function closeModal(){
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
+    modal.classList.add('hidden'); modal.classList.remove('flex');
   }
   modalClose?.addEventListener('click', closeModal);
   modal?.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
 
-  // ---------- AJAX submit for any .ajax-form ----------
-  async function postForm(form){
-    const data = new FormData(form);
-    const url  = form.action;
-    // Try normal CORS first
-    try {
-      const resp = await fetch(url, { method:'POST', body:data, headers:{ 'Accept':'application/json' } });
-      // Some webhooks don’t send CORS or any body; treat 2xx as success
-      if (resp.ok) return true;
-      // If response is opaque or blocked, fall through to no-cors
-    } catch (_) { /* ignore and try no-cors */ }
-
-    // Fallback: no-cors (can’t read response, but request is sent)
-    try {
-      await fetch(url, { method:'POST', body:data, mode:'no-cors' });
-      return true;
-    } catch (err) {
-      console.error('Submit failed:', err);
-      return false;
-    }
-  }
-
+  // ---------- Utility ----------
   function setSubmittingState(btn, isSubmitting){
     if (!btn) return;
     btn.disabled = isSubmitting;
     if (isSubmitting) {
       btn.dataset._label = btn.textContent;
       btn.textContent = 'Submitting…';
-      btn.classList.add('opacity-80', 'cursor-not-allowed');
+      btn.classList.add('opacity-80','cursor-not-allowed');
     } else {
       if (btn.dataset._label) btn.textContent = btn.dataset._label;
-      btn.classList.remove('opacity-80', 'cursor-not-allowed');
+      btn.classList.remove('opacity-80','cursor-not-allowed');
     }
   }
 
-  // Hook up all forms with class="ajax-form"
+  async function postForm(url, data){
+    try {
+      const resp = await fetch(url, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+      if (resp.ok) return true;
+    } catch(_) {}
+    try {
+      await fetch(url, { method:'POST', body:data, mode:'no-cors' });
+      return true;
+    } catch(_) { return false; }
+  }
+
+  // ---------- ONE handler to rule them all ----------
   document.querySelectorAll('form.ajax-form').forEach(form => {
+    // prevent double-binding if this script is included twice
+    if (form.dataset.bound === '1') return;
+    form.dataset.bound = '1';
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // prevent double-clicks / duplicate submits
+      if (form.dataset.submitting === '1') return;
+      form.dataset.submitting = '1';
+
       const submitBtn = form.querySelector('button[type="submit"], [data-submit]');
       setSubmittingState(submitBtn, true);
 
-      const ok = await postForm(form);
+      const data = new FormData(form);
+      const ok = await postForm(form.action, data);
 
       setSubmittingState(submitBtn, false);
+      form.dataset.submitting = '0';
 
       if (ok) {
-        // Show friendly modal (custom per-form message if provided)
         const msg = form.getAttribute('data-success') ||
           'Thanks! We’ve received your submission. We’ll be in touch shortly.';
         openModal(msg);
-
-        // Reset form + re-run any price logic if present
         form.reset?.();
-        // If you have a registration price renderer (from earlier), call it:
         if (typeof renderPrice === 'function') { try { renderPrice(); } catch(_){} }
-
-        // Scroll to top for context on mobile
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         alert('We had trouble submitting. Please email info@studentchapterofcenla.org and we’ll get you registered.');
-        // Optional: open mailto as a fallback
-        // window.location.href = 'mailto:info@studentchapterofcenla.org?subject=Skeet%20Shoot%20Registration%20Help';
       }
     }, { passive:false });
   });
-    // Auto-close after 4 seconds
-function openModal(msg){
-  if (msg) modalText.textContent = msg;
-  modal.classList.remove('hidden'); modal.classList.add('flex');
-  clearTimeout(openModal._t);
-  openModal._t = setTimeout(closeModal, 4000);
-}
+</script>
 
 </script>
