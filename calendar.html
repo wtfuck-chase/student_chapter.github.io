@@ -65,7 +65,7 @@
 
           <div class="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
             <a href="#register" class="inline-flex items-center rounded-2xl px-5 py-3 bg-[#c4a44d] text-white font-semibold shadow hover:bg-[#a68c3d] transition">
-              Register — $25/person
+              Register — $20/person
             </a>
             <a href="#sponsor" class="inline-flex items-center rounded-2xl px-5 py-3 bg-white/10 ring-1 ring-white/40 font-semibold hover:bg-white/20 transition">
               Sponsor the event
@@ -147,12 +147,13 @@
       <div class="bg-white rounded-2xl p-6 shadow">
         <p class="text-sm uppercase tracking-wide text-gray-500">Location</p>
         <p class="mt-1 text-xl font-bold text-[#0b1c2c]">Michael D. Burns Public Shooting Complex</p>
+        <p class="text-sm text-gray-600">1140 Landfill Road, Dry Prong, LA 71423
         <p class="text-sm text-gray-600">Free parking • Concessions available</p>
       </div>
       <div class="bg-white rounded-2xl p-6 shadow">
         <p class="text-sm uppercase tracking-wide text-gray-500">Entry</p>
-        <p class="mt-1 text-xl font-bold text-[#0b1c2c]">$25 per person</p>
-        <p class="text-sm text-gray-600">Teams of 4 ($100) or individuals welcome • Awards & prizes</p>
+        <p class="mt-1 text-xl font-bold text-[#0b1c2c]">$20 per person</p>
+        <p class="text-sm text-gray-600">Individuals welcome • Awards & prizes</p>
       </div>
     </div>
   </section>
@@ -193,18 +194,8 @@
           <select id="regType" name="registration_type" 
           class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
             <option value="individual" selected>Individual ($25)</option>
-            <option value="team">Team of 4 ($100)</option>
           </select>
         </div>
-        <div id="teamNameWrap" class="hidden">
-          <label class="block text-sm font-semibold">Team Name</label>
-          <input id="teamName" name="team_name" class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-        </div>
-        <div id="rosterWrap" class="hidden">
-          <label class="block text-sm font-semibold">Team Roster</label>
-          <textarea name="roster" rows="3" class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"></textarea>
-        </div>
-        <div>
           <label class="flex items-start gap-3">
             <input type="checkbox" required class="mt-1 accent-[#c4a44d]">
             <span class="text-sm text-gray-700">I acknowledge all participants will sign a waiver and follow safety rules.</span>
@@ -433,9 +424,6 @@
           <li class="rounded-xl border border-gray-200 p-4">Coming Soon — sponsor updates will appear here.</li>
         </ul>
       </div>
-
-      <p class="mt-6 text-xs text-gray-500">Last updated: <span id="partners-updated"></span></p>
-    </div>
   </div>
 </section>
 
