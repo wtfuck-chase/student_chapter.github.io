@@ -16,6 +16,141 @@
   display: block;
   margin: 0px auto 0px; /* centers it with top/bottom spacing */
 }
+        /* Zeffy button styling */
+    zeffy-donate {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 2.5rem;
+      font-size: 1.2rem;
+      background-color: #1e1e2f;
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    zeffy-donate:hover {
+      background-color: #333;
+    }
+
+    .spacer { height: 3rem; }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    nav ul li { margin: 0 1rem; }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      nav ul { display: none; flex-direction: column; background-color: #14141f; padding: 1rem 0; }
+      nav ul.show { display: flex; }
+      nav ul li { margin: 0.5rem 0; text-align: center; }
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 760px;
+      margin: 3rem auto;
+      overflow: hidden;
+      border-radius: 15px;
+      background-color: transparent;
+      text-align: center;
+    }
+
+    .carousel-track { display: flex; transition: transform 0.8s ease-in-out; }
+
+    .carousel-item {
+      min-width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-item img {
+      max-width: 100%;
+      max-height: 600px;
+      object-fit: contain;
+      background: transparent;
+      border-radius: 15px;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: #1e1e2f;
+      font-weight: bold;
+      font-size: 24px;
+      border: none;
+      background-color: rgba(255,255,255,0.7);
+      border-radius: 50%;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .prev:hover, .next:hover { background-color: #4a90e2; color: white; }
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    #student-hub {
+  position: relative;
+}
+
+.student-hub-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1e1e2f;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  z-index: 1000;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#student-hub.show .student-hub-dropdown {
+  display: block;
+}
+
+.student-hub-dropdown a {
+  display: block;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.student-hub-dropdown a:hover {
+  background-color: #333;
+}
+
+/* Optional: Hide dropdown on mobile */
+@media (max-width: 768px) {
+  .student-hub-dropdown {
+    display: none !important;
 
   </style>
 </head>
@@ -24,20 +159,22 @@
   <!-- ================= HEADER / NAV ================= -->
   <!-- Replace this block with your existing site-wide header/nav include -->
   <!-- Top logo only -->
-<div style="text-align: center; padding: 20px 0 5px;">
-  <img src="student_chapter_logo.jpg.jpg"
-       alt="Student Chapter of Central Louisiana"
-       class="page-logo">
-</div>
+ <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
+  <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
+  <p>Building the Future – One Student at a Time</p>
+</header>
 
-<!-- Your regular site nav bar -->
 <nav>
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   <ul id="nav-links">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html">About</a></li>
     <li><a href="CTA.html">Call to Action</a></li>
     <li><a href="calendar.html">Skeet &amp; Scholars Classic</a></li>
+    
+
+    <!-- New Mardi Gras link -->
     <li><a href="mardi_gras.html">Mardi Gras</a></li>
+
     <li id="student-hub">
       <a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a>
       <div class="student-hub-dropdown">
@@ -46,8 +183,9 @@
         <a href="student-learning.html">Student Learning</a>
       </div>
     </li>
+
     <li><a href="newsletter.html">Newsletter</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
   </ul>
 </nav>
 
