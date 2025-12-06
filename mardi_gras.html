@@ -23,20 +23,34 @@
 
   <!-- ================= HEADER / NAV ================= -->
   <!-- Replace this block with your existing site-wide header/nav include -->
-  <header class="bg-white shadow">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-       <img src="student_chapter_logo.jpg.jpg"
-     alt="Student Chapter of Central Louisiana"
-     class="page-logo">
+  <!-- Top logo only -->
+<div style="text-align: center; padding: 20px 0 5px;">
+  <img src="student_chapter_logo.jpg.jpg"
+       alt="Student Chapter of Central Louisiana"
+       class="page-logo">
+</div>
+
+<!-- Your regular site nav bar -->
+<nav>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="CTA.html">Call to Action</a></li>
+    <li><a href="calendar.html">Skeet &amp; Scholars Classic</a></li>
+    <li><a href="mardi_gras.html">Mardi Gras</a></li>
+    <li id="student-hub">
+      <a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a>
+      <div class="student-hub-dropdown">
+        <a href="blog.html">Student Blog</a>
+        <a href="student-store.html">Student Store</a>
+        <a href="student-learning.html">Student Learning</a>
       </div>
-      <nav class="hidden md:flex space-x-6 text-sm font-medium">
-        <a href="/index.html" class="hover:text-purple-600">Home</a>
-        <a href="/calendar.html" class="hover:text-purple-600">Calendar</a>
-        <a href="/skeet_shoot.html" class="hover:text-purple-600">Skeet & Scholars Classic</a>
-        <a href="/mardi_gras.html" class="text-purple-700 font-semibold">Mardi Gras</a>
-        <a href="/contact.html" class="hover:text-purple-600">Contact</a>
-      </nav>
+    </li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
     </div>
     <style>
   .page-logo {
