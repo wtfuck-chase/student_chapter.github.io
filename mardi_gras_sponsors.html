@@ -4,414 +4,326 @@
   <meta charset="utf-8" />
   <title>Mardi Gras Sponsor Registration | Student Chapter of Central Louisiana</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Register as a sponsor for the Student Chapter of Central Louisiana’s float in the Alexandria Children’s Mardi Gras Parade." />
+  <meta name="description" content="Register as a sponsor for the Alexandria Children’s Mardi Gras Parade with the Student Chapter of Central Louisiana." />
+  <!-- Tailwind CDN (must be online to see styling) -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-slate-100 text-slate-900">
 
-  <!-- ========= HEADER (Logo) ========= -->
-  <header class="bg-white py-6">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col items-center justify-center">
-      <img
-        src="student_chapter_logo.jpg.jpg"
-        alt="Student Chapter of Central Louisiana Logo"
-        class="h-[150px] w-auto object-contain"
-      />
+  <!-- ================= HEADER / NAV ================= -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 pt-4 pb-3 flex flex-col items-center gap-3">
+      <!-- Logo -->
+      <a href="index.html" class="flex flex-col items-center gap-2">
+        <img src="student_chapter_logo.jpg.jpg"
+             alt="Student Chapter of Central Louisiana Logo"
+             class="h-16 w-auto">
+      </a>
+
+      <!-- Nav – same order as the main site -->
+      <nav class="w-full">
+        <ul class="flex flex-wrap justify-center gap-6 text-sm font-semibold">
+          <li><a href="index.html" class="hover:text-purple-600">About</a></li>
+          <li><a href="calendar.html" class="hover:text-purple-600">Skeet &amp; Scholars Classic</a></li>
+          <li><a href="CTA.html" class="hover:text-purple-600">Call to Action</a></li>
+          <li><a href="mardi_gras.html" class="text-purple-700">Mardi Gras</a></li>
+          <li><a href="newsletter.html" class="hover:text-purple-600">Newsletter</a></li>
+          <li><a href="contact.html" class="hover:text-purple-600">Contact Us</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- ========= GLOBAL NAV BAR (same order/site style) ========= -->
-  <nav class="bg-[#14141f] text-white text-sm">
-    <div class="max-w-6xl mx-auto px-4">
-      <ul class="flex flex-wrap items-center justify-center gap-6 py-3">
-        <li><a href="index.html" class="hover:text-yellow-300">About</a></li>
-        <li><a href="calendar.html" class="hover:text-yellow-300">Skeet &amp; Scholars Classic</a></li>
-        <li><a href="CTA.html" class="hover:text-yellow-300">Call to Action</a></li>
-        <li><a href="mardi_gras.html" class="text-yellow-300 font-semibold">Mardi Gras</a></li>
-        <li><a href="newsletter.html" class="hover:text-yellow-300">Newsletter</a></li>
-        <li><a href="contact.html" class="hover:text-yellow-300">Contact Us</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ========= PAGE HERO ========= -->
+  <!-- ================= MARDI GRAS HERO ================= -->
   <section class="bg-gradient-to-r from-purple-800 via-green-700 to-yellow-500 text-white">
-    <div class="max-w-4xl mx-auto px-4 py-10 md:py-12">
-      <p class="uppercase text-xs tracking-[0.3em] mb-2 text-yellow-200">Sponsor Registration</p>
+    <div class="max-w-5xl mx-auto px-4 py-10 md:py-12">
+      <p class="text-xs uppercase tracking-[0.25em] text-yellow-200 mb-2">
+        Alexandria Children’s Mardi Gras Parade
+      </p>
       <h1 class="text-3xl md:text-4xl font-extrabold mb-3">
-        Alexandria Children’s Mardi Gras Parade<br />
-        Float Sponsorship
+        Sponsor Registration
       </h1>
-      <p class="text-sm md:text-base text-purple-50 max-w-2xl">
-        Partner with the Student Chapter of Central Louisiana to put your brand in front of tens of
-        thousands of parade-goers while supporting nearly 100 students from Tioga, Grant, and Jena.
-        Complete the form below and we’ll follow up with your invoice and event details.
+      <p class="text-sm md:text-base text-purple-100 max-w-3xl">
+        Partner with the Student Chapter of Central Louisiana to bring nearly 100 students from
+        Tioga, Grant, and Jena to the parade. Complete the form below and our team will follow
+        up with your invoice, confirmation, and detailed parade instructions.
       </p>
     </div>
   </section>
 
-  <!-- ========= MAIN CONTENT / FORM ========= -->
-  <main class="max-w-5xl mx-auto px-4 py-10 md:py-12">
+  <!-- ================= PAGE CONTENT ================= -->
+  <main class="max-w-5xl mx-auto px-4 py-8 md:py-10">
 
-    <!-- Sponsorship levels summary -->
-    <section class="mb-8 bg-white rounded-xl shadow-md border border-gray-200 p-6">
-      <h2 class="text-xl md:text-2xl font-bold mb-3 text-purple-800">Sponsorship Levels</h2>
-      <ul class="text-sm md:text-base text-gray-700 space-y-2">
-        <li><strong>Float Partnership – $1,500</strong>  
-          <span class="block md:inline text-gray-600">
-            Major float signage, brand recognition along the route, and merch toss privileges.
-          </span>
-        </li>
-        <li><strong>Brand Placement – $500</strong>  
-          <span class="block md:inline text-gray-600">
-            Professionally printed sign on the float + merch toss privileges.
-          </span>
-        </li>
-        <li><strong>Participant Sponsor – $250</strong>  
-          <span class="block md:inline text-gray-600">
-            Support the chapter and join students during the parade with merch toss privileges
-            (no float signage).
-          </span>
-        </li>
-      </ul>
-      <p class="mt-3 text-xs md:text-sm text-gray-700">
-        <strong>HBACL members receive a $100 discount</strong> on all sponsorships. All donations are
-        tax-deductible to the fullest extent allowed by law; receipts are provided upon processing.
-      </p>
-    </section>
+    <!-- ================= FORM CARD ================= -->
+    <section class="bg-white rounded-xl shadow-lg px-5 md:px-8 py-7 md:py-8">
+      <h2 class="text-xl md:text-2xl font-bold text-purple-900 mb-4">
+        Sponsor Registration Form
+      </h2>
 
-    <!-- Registration Form -->
-    <section class="bg-white rounded-xl shadow-md border border-gray-200 p-6 md:p-8 mb-10">
-      <h2 class="text-xl md:text-2xl font-bold mb-4 text-purple-800">Sponsor Registration Form</h2>
+      <!-- STATUS MESSAGE (optional client-side only) -->
+      <div id="form-status" class="hidden mb-4 text-sm rounded-md px-3 py-2"></div>
 
-      <!--
-        ACTION: replace the placeholder URL below with your Make.com webhook URL
-        so submissions can feed directly into your Monday.com Sponsors board.
-      -->
-    <form
-  action="https://hook.us2.make.com/8k427boda9uyn8bjcrr76vjmksw8r0jf" 
-  method="POST"
-  class="space-y-4"
->
-  <!-- Business name -->
-  <div>
-    <label for="business_name" class="block text-sm font-semibold mb-1">Business Name*</label>
-    <input
-      id="business_name"
-      name="business_name"
-      type="text"
-      required
-      class="w-full border rounded px-3 py-2"
-    >
-  </div>
-
-  <!-- Business contact -->
-  <div>
-    <label for="business_contact" class="block text-sm font-semibold mb-1">Business Contact*</label>
-    <input
-      id="business_contact"
-      name="business_contact"
-      type="text"
-      required
-      class="w-full border rounded px-3 py-2"
-    >
-  </div>
-
-  <!-- Phone + Email -->
-  <div class="grid gap-4 md:grid-cols-2">
-    <div>
-      <label for="phone" class="block text-sm font-semibold mb-1">Phone*</label>
-      <input
-        id="phone"
-        name="phone"
-        type="tel"
-        required
-        class="w-full border rounded px-3 py-2"
+      <form
+        id="sponsor-form"
+        action="https://hook.us2.make.com/8k427boda9uyn8bjcrr76vjmksw8r0jf"
+        method="POST"
+        class="space-y-6"
       >
-    </div>
-    <div>
-      <label for="email" class="block text-sm font-semibold mb-1">Email*</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        required
-        class="w-full border rounded px-3 py-2"
-      >
-    </div>
-  </div>
-
-  <!-- Sponsorship level -->
-  <div>
-    <label for="sponsorship_level" class="block text-sm font-semibold mb-1">Sponsorship Level*</label>
-    <select
-      id="sponsorship_level"
-      name="sponsorship_level"
-      required
-      class="w-full border rounded px-3 py-2"
-    >
-      <option value="">Select a level…</option>
-      <option value="Float Partnership - 1500">Float Partnership – $1,500</option>
-      <option value="Brand Placement - 500">Brand Placement – $500</option>
-      <option value="Participant Sponsor - 250">Participant Sponsor – $250</option>
-    </select>
-  </div>
-
-  <!-- HBACL member -->
-  <div>
-    <span class="block text-sm font-semibold mb-1">HBACL Member?*</span>
-    <div class="flex gap-4">
-      <label class="inline-flex items-center gap-1">
-        <input type="radio" name="hbacl_member" value="Yes" required>
-        <span>Yes</span>
-      </label>
-      <label class="inline-flex items-center gap-1">
-        <input type="radio" name="hbacl_member" value="No">
-        <span>No</span>
-      </label>
-    </div>
-  </div>
-
-  <!-- Invoice method -->
-  <div>
-    <span class="block text-sm font-semibold mb-1">Invoice Method*</span>
-    <div class="flex flex-wrap gap-4">
-      <label class="inline-flex items-center gap-1">
-        <input type="radio" name="invoice_method" value="Email Invoice" required>
-        <span>Email</span>
-      </label>
-      <label class="inline-flex items-center gap-1">
-        <input type="radio" name="invoice_method" value="Mail Invoice">
-        <span>Mail</span>
-      </label>
-      <label class="inline-flex items-center gap-1">
-        <input type="radio" name="invoice_method" value="Other">
-        <span>Other</span>
-      </label>
-    </div>
-  </div>
-
-  <!-- Notes -->
-  <div>
-    <label for="notes" class="block text-sm font-semibold mb-1">Notes / Special Requests</label>
-    <textarea
-      id="notes"
-      name="notes"
-      rows="4"
-      class="w-full border rounded px-3 py-2"
-    ></textarea>
-  </div>
-
-  <!-- Optional: identify source in Make -->
-  <input type="hidden" name="form_source" value="mardi_gras_sponsor">
-
-  <!-- Submit -->
-  <button
-    type="submit"
-    class="inline-flex items-center justify-center px-6 py-2 rounded-full font-semibold text-white bg-purple-700 hover:bg-purple-800"
-  >
-    Submit Sponsor Registration
-  </button>
-</form>
-
-
-
-        <!-- Business & Contact Info -->
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <label for="business_name" class="block text-sm font-semibold text-gray-800 mb-1">
-              Business / Organization Name <span class="text-red-600">*</span>
+        <!-- ========== BUSINESS / CONTACT INFO ========== -->
+        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Business / Organization Name <span class="text-red-500">*</span>
             </label>
             <input
               type="text"
-              id="business_name"
               name="business_name"
               required
-              class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
             />
           </div>
 
-          <div>
-            <label for="primary_contact" class="block text-sm font-semibold text-gray-800 mb-1">
-              Primary Contact Name <span class="text-red-600">*</span>
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Primary Contact Name <span class="text-red-500">*</span>
             </label>
             <input
               type="text"
-              id="primary_contact"
               name="primary_contact"
               required
-              class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
             />
           </div>
-        </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="md:col-span-2">
-            <label for="email" class="block text-sm font-semibold text-gray-800 mb-1">
-              Contact Email <span class="text-red-600">*</span>
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Contact Email <span class="text-red-500">*</span>
             </label>
             <input
               type="email"
-              id="email"
-              name="email"
+              name="contact_email"
               required
-              class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
             />
           </div>
 
-          <div>
-            <label for="phone" class="block text-sm font-semibold text-gray-800 mb-1">
-              Contact Phone <span class="text-red-600">*</span>
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Contact Phone <span class="text-red-500">*</span>
             </label>
             <input
               type="tel"
-              id="phone"
-              name="phone"
+              name="contact_phone"
               required
-              class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
             />
           </div>
         </div>
 
-        <!-- Sponsorship Level -->
-        <div>
-          <span class="block text-sm font-semibold text-gray-800 mb-2">
-            Sponsorship Level <span class="text-red-600">*</span>
-          </span>
-          <div class="grid md:grid-cols-2 gap-3 text-sm text-gray-800">
-            <label class="flex items-start space-x-2 border border-gray-200 rounded-lg px-3 py-2 cursor-pointer hover:border-purple-500">
-              <input type="radio" name="sponsorship_level" value="Float Partnership - 1500" required class="mt-1">
-              <span>
-                <strong>Float Partnership – $1,500</strong><br>
-                Major float signage + brand recognition + merch toss privileges.
-              </span>
+        <!-- ========== SPONSORSHIP LEVELS ========== -->
+        <div class="space-y-2">
+          <label class="block text-sm font-semibold">
+            Sponsorship Level <span class="text-red-500">*</span>
+          </label>
+
+          <div class="grid md:grid-cols-2 gap-3">
+            <label class="flex items-start gap-3 border border-slate-300 rounded-lg px-3 py-3 bg-purple-50/70 cursor-pointer hover:border-purple-500">
+              <input
+                type="radio"
+                name="sponsorship_level"
+                value="Float Partnership – $1,500"
+                required
+                class="mt-1"
+              />
+              <div class="text-sm">
+                <div class="font-semibold">
+                  Float Partnership – $1,500
+                </div>
+                <p class="text-slate-700 text-xs md:text-sm">
+                  Major float signage, brand recognition, and merch toss privileges.
+                </p>
+              </div>
             </label>
 
-            <label class="flex items-start space-x-2 border border-gray-200 rounded-lg px-3 py-2 cursor-pointer hover:border-purple-500">
-              <input type="radio" name="sponsorship_level" value="Brand Placement - 500" class="mt-1">
-              <span>
-                <strong>Brand Placement – $500</strong><br>
-                Professionally printed sign on the float + merch toss privileges.
-              </span>
+            <label class="flex items-start gap-3 border border-slate-300 rounded-lg px-3 py-3 bg-purple-50/70 cursor-pointer hover:border-purple-500">
+              <input
+                type="radio"
+                name="sponsorship_level"
+                value="Brand Placement – $500"
+                class="mt-1"
+              />
+              <div class="text-sm">
+                <div class="font-semibold">
+                  Brand Placement – $500
+                </div>
+                <p class="text-slate-700 text-xs md:text-sm">
+                  Professionally printed sign on the float plus merch toss privileges.
+                </p>
+              </div>
             </label>
 
-            <label class="flex items-start space-x-2 border border-gray-200 rounded-lg px-3 py-2 cursor-pointer hover:border-purple-500">
-              <input type="radio" name="sponsorship_level" value="Participant Sponsor - 250" class="mt-1">
-              <span>
-                <strong>Participant Sponsor – $250</strong><br>
-                Support the chapter and toss merch with students (no signage).
-              </span>
+            <label class="flex items-start gap-3 border border-slate-300 rounded-lg px-3 py-3 bg-purple-50/70 cursor-pointer hover:border-purple-500">
+              <input
+                type="radio"
+                name="sponsorship_level"
+                value="Participant Sponsor – $250"
+                class="mt-1"
+              />
+              <div class="text-sm">
+                <div class="font-semibold">
+                  Participant Sponsor – $250
+                </div>
+                <p class="text-slate-700 text-xs md:text-sm">
+                  Support the chapter and toss merch with students (no signage).
+                </p>
+              </div>
             </label>
 
-            <label class="flex items-start space-x-2 border border-gray-200 rounded-lg px-3 py-2 cursor-pointer hover:border-purple-500">
-              <input type="radio" name="sponsorship_level" value="Other / In-Kind Support" class="mt-1">
-              <span>
-                <strong>Other / In-Kind Support</strong><br>
-                Tools, materials, or custom support. Describe below in the notes field.
-              </span>
+            <label class="flex items-start gap-3 border border-slate-300 rounded-lg px-3 py-3 bg-purple-50/70 cursor-pointer hover:border-purple-500">
+              <input
+                type="radio"
+                name="sponsorship_level"
+                value="Other / In-Kind Support"
+                class="mt-1"
+              />
+              <div class="text-sm">
+                <div class="font-semibold">
+                  Other / In-Kind Support
+                </div>
+                <p class="text-slate-700 text-xs md:text-sm">
+                  Tools, materials, or custom support. Describe details in the notes field below.
+                </p>
+              </div>
             </label>
           </div>
+
+          <p class="text-xs text-slate-500">
+            Members receive a $100 discount on all sponsorship levels.
+          </p>
         </div>
 
-        <!-- HBACL Member + Invoice Preference -->
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <label class="block text-sm font-semibold text-gray-800 mb-1">
-              Are you an HBACL member?
+        <!-- ========== HBACL MEMBER + INVOICE METHOD ========== -->
+        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Are you an HBACL member? <span class="text-red-500">*</span>
             </label>
             <select
               name="hbacl_member"
-              id="hbacl_member"
-              class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
             >
               <option value="">Please select</option>
-              <option value="Yes - apply $100 member discount">Yes</option>
+              <option value="Yes">Yes</option>
               <option value="No">No</option>
-              <option value="Unsure - please confirm">Unsure</option>
+              <option value="Unsure">Unsure</option>
             </select>
-            <p class="text-xs text-gray-500 mt-1">
-              Members receive a $100 discount on all sponsorship levels.
-            </p>
           </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-800 mb-1">
-              Preferred Invoice Method
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Preferred Invoice Method <span class="text-red-500">*</span>
             </label>
             <select
               name="invoice_method"
-              id="invoice_method"
-              class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
             >
               <option value="">Please select</option>
-              <option value="Email Invoice">Email invoice</option>
-              <option value="Pay by Check">Pay by check</option>
-              <option value="Discuss Other Options">Contact me to discuss options</option>
+              <option value="Email">Email</option>
+              <option value="Mail">Mail</option>
+              <option value="Other">Other / Discuss</option>
             </select>
           </div>
         </div>
 
-        <!-- Notes -->
-        <div>
-          <label for="notes" class="block text-sm font-semibold text-gray-800 mb-1">
+        <!-- ========== NOTES ========== -->
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold">
             Notes / Special Requests
           </label>
           <textarea
-            id="notes"
             name="notes"
-            rows="4"
-            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm min-h-[140px] resize-y focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
             placeholder="Examples: number of participants from your company, merch you plan to toss, special branding needs, etc."
           ></textarea>
         </div>
 
-        <!-- Acknowledgement -->
-        <div class="bg-purple-50 border border-purple-200 rounded-lg px-4 py-3 text-xs md:text-sm text-purple-900">
-          <label class="flex items-start space-x-2">
-            <input type="checkbox" name="acknowledgement" value="Yes" required class="mt-1">
+        <!-- ========== ACKNOWLEDGEMENT ========== -->
+        <div class="space-y-2">
+          <label class="flex items-start gap-3 text-xs md:text-sm">
+            <input
+              type="checkbox"
+              name="terms_ack"
+              value="Yes"
+              required
+              class="mt-1"
+            />
             <span>
-              I understand that float and walking space is limited and that final participant assignments
-              will be made based on student registrations and safety requirements. I agree to abide by all
-              safety guidelines provided prior to the parade.
+              I understand that float and walking space is limited and that final participant
+              assignments will be made based on student registrations and safety requirements.
+              I agree to abide by all safety guidelines provided prior to the parade.
             </span>
           </label>
         </div>
 
-        <!-- Submit -->
+        <!-- Hidden helper -->
+        <input type="hidden" name="source_form" value="Mardi Gras Sponsor Registration" />
+
+        <!-- ========== SUBMIT BUTTON ========== -->
         <div class="pt-2">
           <button
             type="submit"
-            class="inline-flex items-center justify-center px-8 py-3 rounded-full text-sm md:text-base font-semibold
-                   bg-purple-700 hover:bg-purple-800 text-white shadow-lg border-2 border-yellow-300"
+            id="submit-btn"
+            class="inline-flex items-center justify-center px-7 py-2.5 rounded-full text-sm font-semibold text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-600"
           >
             Submit Sponsor Registration
           </button>
         </div>
-
-        <p class="text-xs text-gray-500 mt-2">
-          After you submit this form, a member of the Student Chapter team will follow up with your invoice,
-          confirmation, and detailed parade instructions.
-        </p>
       </form>
     </section>
+
+    <p class="mt-4 text-xs text-slate-500">
+      After you submit this form, a member of the Student Chapter team will follow up with your
+      invoice, confirmation, and detailed parade instructions.
+    </p>
   </main>
 
-  <!-- ========= FOOTER ========= -->
-  <footer class="bg-gray-900 text-gray-300 text-xs">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-10 bg-slate-900 text-slate-300 text-xs">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
       <div>
-        © <span id="year"></span> Student Chapter of Central Louisiana. All rights reserved.
+        &copy; <span id="year"></span> Student Chapter of Central Louisiana. All rights reserved.
       </div>
-      <div class="space-x-4">
-        <a href="mailto:info@studentchapterofcenla.org" class="hover:text-yellow-300">info@studentchapterofcenla.org</a>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="mailto:info@studentchapterofcenla.org" class="hover:text-yellow-300">
+          info@studentchapterofcenla.org
+        </a>
         <span>|</span>
-        <a href="https://www.studentchapterofcenla.org" class="hover:text-yellow-300">studentchapterofcenla.org</a>
+        <a href="https://www.studentchapterofcenla.org" class="hover:text-yellow-300">
+          studentchapterofcenla.org
+        </a>
       </div>
     </div>
   </footer>
 
+  <!-- Year + small submit UX -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('sponsor-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const statusBox = document.getElementById('form-status');
+
+    form.addEventListener('submit', function () {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      statusBox.className =
+        'mb-4 text-xs rounded-md px-3 py-2 bg-purple-50 text-purple-800';
+      statusBox.textContent =
+        'Submitting your registration. Please do not refresh this page.';
+      statusBox.style.display = 'block';
+    });
   </script>
 </body>
 </html>
