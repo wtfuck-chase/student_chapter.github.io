@@ -5,30 +5,33 @@
   <title>Mardi Gras Sponsor Registration | Student Chapter of Central Louisiana</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Register as a sponsor for the Alexandria Children’s Mardi Gras Parade with the Student Chapter of Central Louisiana." />
-  <!-- Tailwind CDN (must be online to see styling) -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-100 text-slate-900">
 
-  <!-- ================= HEADER / NAV ================= -->
-  <header class="bg-white shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 pt-4 pb-3 flex flex-col items-center gap-3">
-      <!-- Logo -->
+  <!-- ================= HEADER / LOGO ================= -->
+  <header class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 pt-6 pb-4 flex justify-center">
       <a href="index.html" class="flex flex-col items-center gap-2">
-        <img src="student_chapter_logo.jpg.jpg"
-             alt="Student Chapter of Central Louisiana Logo"
-             class="h-16 w-auto">
+        <img
+          src="student_chapter_logo.jpg.jpg"
+          alt="Student Chapter of Central Louisiana Logo"
+          class="h-20 w-auto"
+        >
       </a>
+    </div>
 
-      <!-- Nav – same order as the main site -->
-      <nav class="w-full">
+    <!-- Dark nav bar matching main site -->
+    <div class="bg-slate-900 text-white">
+      <nav class="max-w-6xl mx-auto px-4 py-3">
         <ul class="flex flex-wrap justify-center gap-6 text-sm font-semibold">
-          <li><a href="index.html" class="hover:text-purple-600">About</a></li>
-          <li><a href="calendar.html" class="hover:text-purple-600">Skeet &amp; Scholars Classic</a></li>
-          <li><a href="CTA.html" class="hover:text-purple-600">Call to Action</a></li>
-          <li><a href="mardi_gras.html" class="text-purple-700">Mardi Gras</a></li>
-          <li><a href="newsletter.html" class="hover:text-purple-600">Newsletter</a></li>
-          <li><a href="contact.html" class="hover:text-purple-600">Contact Us</a></li>
+          <li><a href="index.html" class="hover:text-purple-300">About</a></li>
+          <li><a href="calendar.html" class="hover:text-purple-300">Skeet &amp; Scholars Classic</a></li>
+          <li><a href="CTA.html" class="hover:text-purple-300">Call to Action</a></li>
+          <li><a href="mardi_gras.html" class="text-purple-300">Mardi Gras</a></li>
+          <li><a href="newsletter.html" class="hover:text-purple-300">Newsletter</a></li>
+          <li><a href="contact.html" class="hover:text-purple-300">Contact Us</a></li>
         </ul>
       </nav>
     </div>
@@ -60,7 +63,7 @@
         Sponsor Registration Form
       </h2>
 
-      <!-- STATUS MESSAGE (optional client-side only) -->
+      <!-- STATUS MESSAGE -->
       <div id="form-status" class="hidden mb-4 text-sm rounded-md px-3 py-2"></div>
 
       <form
@@ -249,8 +252,8 @@
           ></textarea>
         </div>
 
-        <!-- ========== ACKNOWLEDGEMENT ========== -->
-        <div class="space-y-2">
+        <!-- ========== ACKNOWLEDGEMENT (COLORED BOX) ========== -->
+        <div class="space-y-2 bg-purple-50 border border-purple-200 rounded-lg px-4 py-3">
           <label class="flex items-start gap-3 text-xs md:text-sm">
             <input
               type="checkbox"
@@ -307,7 +310,7 @@
     </div>
   </footer>
 
-  <!-- Year + small submit UX -->
+  <!-- Year + submit UX -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
