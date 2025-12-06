@@ -6,73 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Join the Student Chapter of Central Louisiana for the Alexandria Children's Mardi Gras Parade. Learn how to sponsor the float or register students to participate." />
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    <style>
-/* Big logo at top of Mardi Gras page */
-.page-logo {
-  max-width: 150px;       /* how wide you want it max */
-  width: 100%;            /* scales down on smaller screens */
-  height: auto;
-  display: block;
-  margin: 30px auto 10px; /* centers it with top/bottom spacing */
-}
-
-
-  nav,
-  .nav-container {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  .hero-section {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-</style>
-
-  </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
 
   <!-- ================= HEADER / NAV ================= -->
-  <!-- Replace this block with your existing site-wide header/nav include -->
-  <header>
-  <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
-</header>
-
-<nav>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <ul id="nav-links">
-    <li><a href="index.html">About</a></li>
-    <li><a href="CTA.html">Call to Action</a></li>
-    <li><a href="calendar.html">Skeet &amp; Scholars Classic</a></li>
-    
-
-    <!-- New Mardi Gras link -->
-    <li><a href="mardi_gras.html">Mardi Gras</a></li>
-
-    <li id="student-hub">
-      <a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a>
-      <div class="student-hub-dropdown">
-        <a href="blog.html">Student Blog</a>
-        <a href="student-store.html">Student Store</a>
-        <a href="student-learning.html">Student Learning</a>
-      </div>
-    </li>
-
-    <li><a href="newsletter.html">Newsletter</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-  </ul>
-</nav>
+  <header class="bg-white border-b border-gray-200">
+    <!-- LOGO -->
+    <div class="w-full flex justify-center py-4">
+      <img
+        src="student_chapter_logo.jpg.jpg"
+        alt="Student Chapter Logo"
+        class="max-h-[150px] w-auto object-contain"
+      >
     </div>
+
+    <!-- NAV BAR -->
+    <nav class="bg-gray-900 text-white">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center space-x-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-yellow-300">Home</a>
+        <!-- calendar.html is your Skeet & Scholars page; label updated -->
+        <a href="calendar.html" class="hover:text-yellow-300">Skeet &amp; Scholars Classic</a>
+        <a href="mardi_gras.html" class="text-yellow-400 font-semibold">Mardi Gras</a>
+        <a href="contact.html" class="hover:text-yellow-300">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <!-- ================= HERO ================= -->
   <section class="bg-gradient-to-r from-purple-800 via-green-700 to-yellow-500 text-white">
     <div class="max-w-6xl mx-auto px-4 py-12 md:py-16 grid md:grid-cols-2 gap-8 items-center">
       <div>
-        <p class="uppercase text-xs tracking-[0.3em] mb-2 text-yellow-200">February 14, 2026 • 10:00 AM</p>
+        <p class="uppercase text-xs tracking-[0.3em] mb-2 text-yellow-200">
+          February 14, 2026 • 10:00 AM
+        </p>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
           Alexandria Children’s Mardi Gras Parade
         </h1>
@@ -87,10 +53,12 @@
         </p>
       </div>
       <div class="flex justify-center md:justify-end">
-        <!-- Flyer image placeholder -->
-        <img src="assets/mardi_gras_2026_flyer.jpg"
-             alt="Student Chapter 2026 Mardi Gras Parade Flyer"
-             class="rounded-xl shadow-2xl border-4 border-yellow-300 max-h-96 object-contain bg-white">
+        <!-- Flyer image -->
+        <img
+          src="assets/mardi_gras_2026_flyer.jpg"
+          alt="Student Chapter 2026 Mardi Gras Parade Flyer"
+          class="rounded-xl shadow-2xl border-4 border-yellow-300 max-h-96 object-contain bg-white"
+        >
       </div>
     </div>
   </section>
@@ -106,14 +74,18 @@
         or a student ready to ride and represent your school, start by selecting one of the options below.
       </p>
       <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-        <a href="/mardi_gras_sponsors.html"
-           class="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-semibold shadow-lg
-                  bg-purple-700 hover:bg-purple-800 text-white border-2 border-yellow-300">
+        <a
+          href="mardi_gras_sponsors.html"
+          class="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-semibold shadow-lg
+                 bg-purple-700 hover:bg-purple-800 text-white border-2 border-yellow-300"
+        >
           🎭 Sponsor Registration
         </a>
-        <a href="/mardi_gras_students.html"
-           class="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-semibold shadow-lg
-                  bg-yellow-400 hover:bg-yellow-500 text-purple-900 border-2 border-purple-700">
+        <a
+          href="mardi_gras_students.html"
+          class="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-semibold shadow-lg
+                 bg-yellow-400 hover:bg-yellow-500 text-purple-900 border-2 border-purple-700"
+        >
           🎓 Student Registration
         </a>
       </div>
@@ -152,11 +124,13 @@
           The parade will follow the traditional Alexandria Children’s Mardi Gras route through downtown.
           A map is provided below for staging and viewing reference.
         </p>
-        <!-- Route map placeholder -->
+        <!-- Route map -->
         <div class="border-2 border-dashed border-purple-300 rounded-xl p-3 bg-purple-50">
-          <img src="assets/mardi_gras_route_map.jpg"
-               alt="Mardi Gras Parade Route Map"
-               class="w-full h-56 object-cover rounded-lg bg-gray-200">
+          <img
+            src="assets/mardi_gras_route_map.jpg"
+            alt="Mardi Gras Parade Route Map"
+            class="w-full h-56 object-cover rounded-lg bg-gray-200"
+          >
           <p class="text-xs text-gray-600 mt-2">
             Route map placeholder – replace with final JPEG/PNG of the Alexandria Children’s Mardi Gras Parade route.
           </p>
@@ -195,9 +169,13 @@
         © <span id="year"></span> Student Chapter of Central Louisiana. All rights reserved.
       </div>
       <div class="space-x-4">
-        <a href="mailto:info@studentchapterofcenla.org" class="hover:text-yellow-300">info@studentchapterofcenla.org</a>
+        <a href="mailto:info@studentchapterofcenla.org" class="hover:text-yellow-300">
+          info@studentchapterofcenla.org
+        </a>
         <span>|</span>
-        <a href="https://www.studentchapterofcenla.org" class="hover:text-yellow-300">studentchapterofcenla.org</a>
+        <a href="https://www.studentchapterofcenla.org" class="hover:text-yellow-300">
+          studentchapterofcenla.org
+        </a>
       </div>
     </div>
   </footer>
@@ -207,4 +185,3 @@
   </script>
 </body>
 </html>
-
