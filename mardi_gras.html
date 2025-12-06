@@ -6,6 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Join the Student Chapter of Central Louisiana for the Alexandria Children's Mardi Gras Parade. Learn how to sponsor the float or register students to participate." />
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Big logo at top of Mardi Gras page */
+.page-logo {
+  max-width: 420px;       /* how wide you want it max */
+  width: 100%;            /* scales down on smaller screens */
+  height: auto;
+  display: block;
+  margin: 30px auto 10px; /* centers it with top/bottom spacing */
+}
+
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
 
@@ -14,8 +26,10 @@
   <header class="bg-white shadow">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-       <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo">
-        <hr style="width: 60%; margin: 1rem auto; border: 1px solid #ccc;">
+       <img src="student_chapter_logo.jpg.jpg"
+     alt="Student Chapter of Central Louisiana"
+     class="page-logo">
+
         <div class="text-sm">
           <div class="font-bold uppercase tracking-wide text-gray-800">Student Chapter of Central Louisiana</div>
           <div class="text-gray-500 text-xs">Building the Future One Student at a Time</div>
