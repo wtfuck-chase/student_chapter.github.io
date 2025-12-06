@@ -88,11 +88,133 @@
         ACTION: replace the placeholder URL below with your Make.com webhook URL
         so submissions can feed directly into your Monday.com Sponsors board.
       -->
-      <form
-        action="https://hook.us2.make.com/8k427boda9uyn8bjcrr76vjmksw8r0jf"
-        method="POST"
-        class="space-y-6"
+    <form
+  action="https://hook.us2.make.com/8k427boda9uyn8bjcrr76vjmksw8r0jf" 
+  method="POST"
+  class="space-y-4"
+>
+  <!-- Business name -->
+  <div>
+    <label for="business_name" class="block text-sm font-semibold mb-1">Business Name*</label>
+    <input
+      id="business_name"
+      name="business_name"
+      type="text"
+      required
+      class="w-full border rounded px-3 py-2"
+    >
+  </div>
+
+  <!-- Business contact -->
+  <div>
+    <label for="business_contact" class="block text-sm font-semibold mb-1">Business Contact*</label>
+    <input
+      id="business_contact"
+      name="business_contact"
+      type="text"
+      required
+      class="w-full border rounded px-3 py-2"
+    >
+  </div>
+
+  <!-- Phone + Email -->
+  <div class="grid gap-4 md:grid-cols-2">
+    <div>
+      <label for="phone" class="block text-sm font-semibold mb-1">Phone*</label>
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+        required
+        class="w-full border rounded px-3 py-2"
       >
+    </div>
+    <div>
+      <label for="email" class="block text-sm font-semibold mb-1">Email*</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        required
+        class="w-full border rounded px-3 py-2"
+      >
+    </div>
+  </div>
+
+  <!-- Sponsorship level -->
+  <div>
+    <label for="sponsorship_level" class="block text-sm font-semibold mb-1">Sponsorship Level*</label>
+    <select
+      id="sponsorship_level"
+      name="sponsorship_level"
+      required
+      class="w-full border rounded px-3 py-2"
+    >
+      <option value="">Select a level…</option>
+      <option value="Float Partnership - 1500">Float Partnership – $1,500</option>
+      <option value="Brand Placement - 500">Brand Placement – $500</option>
+      <option value="Participant Sponsor - 250">Participant Sponsor – $250</option>
+    </select>
+  </div>
+
+  <!-- HBACL member -->
+  <div>
+    <span class="block text-sm font-semibold mb-1">HBACL Member?*</span>
+    <div class="flex gap-4">
+      <label class="inline-flex items-center gap-1">
+        <input type="radio" name="hbacl_member" value="Yes" required>
+        <span>Yes</span>
+      </label>
+      <label class="inline-flex items-center gap-1">
+        <input type="radio" name="hbacl_member" value="No">
+        <span>No</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Invoice method -->
+  <div>
+    <span class="block text-sm font-semibold mb-1">Invoice Method*</span>
+    <div class="flex flex-wrap gap-4">
+      <label class="inline-flex items-center gap-1">
+        <input type="radio" name="invoice_method" value="Email Invoice" required>
+        <span>Email</span>
+      </label>
+      <label class="inline-flex items-center gap-1">
+        <input type="radio" name="invoice_method" value="Mail Invoice">
+        <span>Mail</span>
+      </label>
+      <label class="inline-flex items-center gap-1">
+        <input type="radio" name="invoice_method" value="Other">
+        <span>Other</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Notes -->
+  <div>
+    <label for="notes" class="block text-sm font-semibold mb-1">Notes / Special Requests</label>
+    <textarea
+      id="notes"
+      name="notes"
+      rows="4"
+      class="w-full border rounded px-3 py-2"
+    ></textarea>
+  </div>
+
+  <!-- Optional: identify source in Make -->
+  <input type="hidden" name="form_source" value="mardi_gras_sponsor">
+
+  <!-- Submit -->
+  <button
+    type="submit"
+    class="inline-flex items-center justify-center px-6 py-2 rounded-full font-semibold text-white bg-purple-700 hover:bg-purple-800"
+  >
+    Submit Sponsor Registration
+  </button>
+</form>
+
+
 
         <!-- Business & Contact Info -->
         <div class="grid md:grid-cols-2 gap-6">
