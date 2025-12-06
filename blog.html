@@ -31,7 +31,7 @@
       margin: 0 auto;
       padding: 0;
       gap: 1rem;
-      max-width: 1000px;
+      max-width: 100%;
     }
     nav ul.show { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #14141f; padding: 1rem 0; }
     nav a { color: white; text-decoration: none; font-weight: bold; }
@@ -104,8 +104,13 @@
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   <ul id="nav-links">
     <li><a href="index.html">About</a></li>
-    <li><a href="calendar.html">Events</a></li>
     <li><a href="CTA.html">Call to Action</a></li>
+    <li><a href="calendar.html">Skeet &amp; Scholars Classic</a></li>
+    
+
+    <!-- New Mardi Gras link -->
+    <li><a href="mardi_gras.html">Mardi Gras</a></li>
+
     <li id="student-hub">
       <a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a>
       <div class="student-hub-dropdown">
@@ -114,10 +119,12 @@
         <a href="student-learning.html">Student Learning</a>
       </div>
     </li>
+
     <li><a href="newsletter.html">Newsletter</a></li>
     <li><a href="contact.html">Contact Us</a></li>
   </ul>
 </nav>
+
 
 <section id="password-section">
   <h2>Rules of Engagement</h2>
