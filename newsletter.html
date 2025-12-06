@@ -49,7 +49,7 @@
 
 nav ul {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   list-style: none;
   margin: 0;
@@ -121,8 +121,13 @@ nav ul li { margin: 0 1rem; }
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   <ul id="nav-links">
     <li><a href="index.html">About</a></li>
-    <li><a href="calendar.html">Events</a></li>
     <li><a href="CTA.html">Call to Action</a></li>
+    <li><a href="calendar.html">Skeet &amp; Scholars Classic</a></li>
+    
+
+    <!-- New Mardi Gras link -->
+    <li><a href="mardi_gras.html">Mardi Gras</a></li>
+
     <li id="student-hub">
       <a href="#" onclick="toggleStudentHub(event)">Student Hub ▾</a>
       <div class="student-hub-dropdown">
@@ -131,10 +136,12 @@ nav ul li { margin: 0 1rem; }
         <a href="student-learning.html">Student Learning</a>
       </div>
     </li>
+
     <li><a href="newsletter.html">Newsletter</a></li>
     <li><a href="contact.html">Contact Us</a></li>
   </ul>
 </nav>
+
 
   <section id="September-newsletter" style="padding: 2rem; background-color: #f9f9f9;">
   <h2 style="text-align: center; font-size: 2rem; color: #1e1e2f;">📬 September 2025 Newsletter</h2>
