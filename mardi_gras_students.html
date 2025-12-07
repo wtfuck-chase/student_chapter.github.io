@@ -12,53 +12,55 @@
 
   <!-- ================= HEADER / LOGO ================= -->
  <!-- ================= HEADER / LOGO ================= -->
-<header class="bg-white shadow">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-2">
+<header class="bg-white">
+  <!-- Logo row -->
+  <div class="max-w-6xl mx-auto px-4 pt-6 pb-4 flex justify-center">
+    <a href="index.html" class="flex flex-col items-center gap-2">
       <img
         src="student_chapter_logo.jpg.jpg"
         alt="Student Chapter of Central Louisiana Logo"
-        class="h-16 w-auto md:h-24"
+        class="h-40 md:h-52 w-auto"
       >
     </a>
-
-    <!-- Hamburger Button -->
-    <button
-      id="mobile-menu-button"
-      class="md:hidden text-slate-900 hover:text-purple-600 focus:outline-none"
-    >
-      <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2"
-           viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-800">
-      <a href="index.html" class="hover:text-purple-600">About</a>
-      <a href="CTA.html" class="hover:text-purple-600">Call to Action</a>
-      <a href="calendar.html" class="hover:text-purple-600">Skeet & Scholars Classic</a>
-      <a href="mardi_gras.html" class="hover:text-purple-600">Mardi Gras</a>
-      <a href="newsletter.html" class="hover:text-purple-600">Newsletter</a>
-      <a href="contact.html" class="hover:text-purple-600">Contact Us</a>
-    </nav>
   </div>
 
-  <!-- Mobile Slide-Down Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-slate-100 border-t border-slate-300">
-    <nav class="px-4 py-3 flex flex-col space-y-3 text-sm font-semibold text-slate-800">
-      <a href="index.html" class="hover:text-purple-600">About</a>
-      <a href="CTA.html" class="hover:text-purple-600">Call to Action</a>
-      <a href="calendar.html" class="hover:text-purple-600">Skeet & Scholars Classic</a>
-      <a href="mardi_gras.html" class="hover:text-purple-600">Mardi Gras</a>
-      <a href="newsletter.html" class="hover:text-purple-600">Newsletter</a>
-      <a href="contact.html" class="hover:text-purple-600">Contact Us</a>
+  <!-- Dark nav bar (matches main site) -->
+  <div class="bg-slate-900 text-white">
+    <nav class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
+        <!-- Left spacer so logo row feels balanced on mobile -->
+        <div class="md:hidden w-6"></div>
+
+        <!-- Desktop nav links -->
+        <ul
+          id="nav-links"
+          class="hidden md:flex flex-wrap justify-center gap-6 text-sm font-semibold"
+        >
+          <li><a href="index.html" class="hover:text-purple-300">About</a></li>
+          <li><a href="CTA.html" class="hover:text-purple-300">Call to Action</a></li>
+          <li><a href="calendar.html" class="hover:text-purple-300">Skeet &amp; Scholars Classic</a></li>
+          <li><a href="mardi_gras.html" class="hover:text-purple-300">Mardi Gras</a></li>
+          <li><a href="newsletter.html" class="hover:text-purple-300">Newsletter</a></li>
+          <li><a href="contact.html" class="hover:text-purple-300">Contact Us</a></li>
+        </ul>
+
+        <!-- Hamburger (mobile only) -->
+        <button
+          id="nav-toggle"
+          type="button"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-slate-600 text-slate-50 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-purple-400"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="sr-only">Open main menu</span>
+          <span class="block w-5 h-0.5 bg-slate-50 mb-1"></span>
+          <span class="block w-5 h-0.5 bg-slate-50 mb-1"></span>
+          <span class="block w-5 h-0.5 bg-slate-50"></span>
+        </button>
+      </div>
     </nav>
   </div>
 </header>
+
 
 <!-- Nav Toggle Script -->
 <script>
