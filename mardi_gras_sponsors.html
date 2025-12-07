@@ -66,11 +66,13 @@
       <!-- STATUS MESSAGE -->
       <div id="form-status" class="hidden mb-4 text-sm rounded-md px-3 py-2"></div>
 
-      <form
-        id="sponsor-form"
-        action="https://hook.us2.make.com/ghmy858kgsht83iolbstrrqol67us9ok"
-        method="POST"
-        class="space-y-6"
+     <form
+  id="sponsor-form"
+  method="POST"
+  class="space-y-6"
+  action="#"
+>
+
       >
         <!-- ========== BUSINESS / CONTACT INFO ========== -->
         <div class="grid md:grid-cols-2 gap-4 md:gap-6">
@@ -312,7 +314,6 @@
 
   <!-- Year + submit UX -->
 <script>
-  // Footer year (safe)
   (function () {
     var yearEl = document.getElementById('year');
     if (yearEl) {
@@ -323,7 +324,7 @@
   (function () {
     var form = document.getElementById('sponsor-form');
     var statusBox = document.getElementById('form-status');
-    var submitBtn = document.getElementById('submit-btn'); // if you gave the button this id
+    var submitBtn = document.getElementById('submit-btn');
     var WEBHOOK_URL = 'https://hook.us2.make.com/ghmy858kgsht83iolbstrrqol67us9ok';
 
     if (!form) {
@@ -332,7 +333,7 @@
     }
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault(); // stay on our own page
+      e.preventDefault(); // stay on page NO MATTER WHAT
 
       if (statusBox) {
         statusBox.style.display = 'block';
@@ -348,60 +349,38 @@
       }
 
       var formData = new FormData(form);
-      var payload = {};
-      formData.forEach(function (value, key) {
-        payload[key] = value;
+
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        body: formData,        // send as regular form data
+        mode: 'no-cors'        // keep this so CORS doesn’t block it
+      })
+      .then(function () {
+        if (statusBox) {
+          statusBox.className =
+            'mb-4 text-sm rounded-md px-3 py-2 bg-green-50 text-green-800 border border-green-300';
+          statusBox.textContent =
+            'Thank you! Your Mardi Gras sponsorship request has been received. A member of the Student Chapter team will follow up with your invoice and parade details.';
+        }
+        form.reset();
+      })
+      .catch(function (err) {
+        console.error('Webhook error:', err);
+        if (statusBox) {
+          statusBox.className =
+            'mb-4 text-sm rounded-md px-3 py-2 bg-red-50 text-red-800 border border-red-300';
+          statusBox.textContent =
+            'Something went wrong while submitting your registration. Please try again in a moment, or contact us directly if the issue continues.';
+        }
+      })
+      .finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Sponsor Registration';
+        }
       });
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault(); // stay on our own page
-
-  if (statusBox) {
-    statusBox.style.display = 'block';
-    statusBox.className =
-      'mb-4 text-sm rounded-md px-3 py-2 bg-purple-50 text-purple-800 border border-purple-300';
-    statusBox.textContent =
-      'Submitting your registration. Please do not refresh this page.';
-  }
-
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
-  }
-
-  // IMPORTANT: send FormData, NOT JSON
-  var formData = new FormData(form);
-
-  fetch(WEBHOOK_URL, {
-    method: 'POST',
-    mode: 'no-cors',   // fine here, we don't need to read the response
-    body: formData     // <--- no JSON, no headers
-  })
-    .then(function () {
-      if (statusBox) {
-        statusBox.className =
-          'mb-4 text-sm rounded-md px-3 py-2 bg-green-50 text-green-800 border border-green-300';
-        statusBox.textContent =
-          'Thank you! Your Mardi Gras sponsorship request has been received. A member of the Student Chapter team will follow up with your invoice and parade details.';
-      }
-      form.reset();
-    })
-    .catch(function (err) {
-      console.error('Webhook error:', err);
-      if (statusBox) {
-        statusBox.className =
-          'mb-4 text-sm rounded-md px-3 py-2 bg-red-50 text-red-800 border border-red-300';
-        statusBox.textContent =
-          'Something went wrong while submitting your registration. Please try again in a moment, or contact us directly if the issue continues.';
-      }
-    })
-    .finally(function () {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Sponsor Registration';
-      }
     });
-});
-
+  })();
 </script>
+
 
