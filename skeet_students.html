@@ -1,1 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Shooter Registration | Skeet &amp; Scholars Classic</title>
+  <meta name="description" content="Register as a student shooter for the Skeet & Scholars Classic on March 28, 2026.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Archivo, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .classic-font { font-family:'Great Vibes', cursive; }
+    .hero-logo {
+      filter: drop-shadow(0 0 18px rgba(15,23,42,0.6))
+              drop-shadow(0 0 30px rgba(15,23,42,0.8));
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900">
 
+  <!-- Header / Nav (same as main) -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 pt-6 pb-3 flex flex-col items-center gap-3">
+      <a href="index.html" class="flex flex-col items-center gap-2">
+        <img src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo" class="hero-logo h-32 w-auto md:h-40">
+      </a>
+    </div>
+
+    <div class="bg-slate-900 text-white">
+      <nav class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center justify-between h-12">
+          <a href="index.html" class="text-sm font-semibold tracking-wide hover:text-amber-300">
+            Student Chapter of Central Louisiana
+          </a>
+
+          <button id="navToggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-slate-800" aria-controls="navMenu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+
+          <div id="navMenu" class="hidden sm:flex items-center gap-6 text-sm font-medium">
+            <a href="skeet_shoot.html" class="text-amber-300 font-semibold">Skeet &amp; Scholars</a>
+            <a href="mardi_gras.html" class="hover:text-amber-300">Mardi Gras</a>
+            <a href="CTA.html" class="hover:text-amber-300">Call to Action</a>
+            <a href="newsletter.html" class="hover:text-amber-300">Newsletter</a>
+            <a href="contact.html" class="hover:text-amber-300">Contact Us</a>
+          </div>
+        </div>
+
+        <div id="navMenuMobile" class="sm:hidden hidden pb-3 space-y-2 text-sm font-medium">
+          <a href="skeet_shoot.html" class="block text-amber-300 font-semibold">Skeet &amp; Scholars</a>
+          <a href="mardi_gras.html" class="block hover:text-amber-300">Mardi Gras</a>
+          <a href="CTA.html" class="block hover:text-amber-300">Call to Action</a>
+          <a href="newsletter.html" class="block hover:text-amber-300">Newsletter</a>
+          <a href="contact.html" class="block hover:text-amber-300">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-sky-900 via-slate-900 to-amber-500 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-12">
+      <p class="text-xs uppercase tracking-[0.25em] text-amber-200 mb-2">
+        Skeet &amp; Scholars Classic • Saturday, March 28, 2026
+      </p>
+      <h1 class="text-2xl md:text-3xl font-extrabold">
+        Student Shooter Registration
+      </h1>
+      <p class="mt-2 text-sm md:text-base text-amber-100 max-w-2xl">
+        This event is for current middle and high school students only. Each student shooter must register
+        separately and confirm they are currently enrolled in school.
+      </p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <main class="max-w-6xl mx-auto px-4 py-8 md:py-10">
+    <section class="bg-white rounded-2xl shadow border-t-4 border-amber-400 px-5 md:px-8 py-7 md:py-8">
+      <h2 class="text-xl md:text-2xl font-extrabold text-slate-900">
+        Student Registration — $20 per shooter
+      </h2>
+      <p class="mt-1 text-sm text-slate-600">
+        After you submit this form, a member of the Student Chapter team will follow up with payment instructions
+        and any additional waivers required by the range.
+      </p>
+
+      <!-- Status message -->
+      <div id="formStatus" class="hidden mt-4 mb-2 text-sm rounded-md px-3 py-2"></div>
+
+      <form
+        id="studentRegForm"
+        class="ajax-form mt-6 grid grid-cols-1 gap-6"
+        action="https://hook.us2.make.com/yepzt6rriqr3g3at3yxjops9vzk38koi"
+        method="POST"
+        data-success="Thank you! Your student registration has been received. Watch your email for confirmation and payment details."
+      >
+        <!-- Hidden routing helpers -->
+        <input type="hidden" name="submission_type" value="skeet_student_registration">
+        <input type="hidden" name="event" value="Skeet &amp; Scholars Classic">
+        <input type="hidden" name="event_date" value="2026-03-28">
+        <input type="hidden" name="registration_amount" value="20">
+        <input type="hidden" name="currency" value="USD">
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-semibold">
+              Student Name <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="student_name"
+              required
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
+            >
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold">
+              Student Email <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              name="student_email"
+              required
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
+            >
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold">
+              Student Phone <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="student_phone"
+              required
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
+            >
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold">
+              School <span class="text-red-500">*</span>
+            </label>
+            <select
+              name="school"
+              required
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
+            >
+              <option value="">Please select</option>
+              <option value="Tioga">Tioga</option>
+              <option value="Grant">Grant</option>
+              <option value="Jena">Jena</option>
+              <option value="Home School">Home School</option>
+              <option value="Other">Other (not listed)</option>
+            </select>
+            <input
+              type="text"
+              name="school_other"
+              placeholder="If 'Other', enter school name"
+              class="mt-2 w-full rounded-lg border border-slate-200 px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-amber-400 focus:border-amber-400"
+            >
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-semibold">
+              Student Chapter Member? <span class="text-red-500">*</span>
+            </label>
+            <select
+              name="student_chapter_member"
+              required
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
+            >
+              <option value="">Please select</option>
+              <option value="Yes">Yes, I’m a current member</option>
+              <option value="No">No, not yet</option>
+              <option value="Unsure">Unsure / need more info</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold">
+              Parent / Guardian Contact (optional)
+            </label>
+            <input
+              type="text"
+              name="parent_contact"
+              placeholder="Name & phone/email"
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
+            >
+          </div>
+        </div>
+
+        <div class="space-y-3 text-xs md:text-sm text-slate-700">
+          <label class="flex items-start gap-3">
+            <input
+              type="checkbox"
+              name="confirm_enrolled"
+              value="Yes"
+              required
+              class="mt-1 h-4 w-4 rounded border-slate-300 text-amber-500 focus:ring-amber-400"
+            >
+            <span>
+              I confirm that I am currently enrolled in middle school or high school,
+              and all information provided on this form is accurate.
+            </span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+            <input
+              type="checkbox"
+              name="waiver_ack"
+              value="Yes"
+              required
+              class="mt-1 h-4 w-4 rounded border-slate-300 text-amber-500 focus:ring-amber-400"
+            >
+            <span>
+              I understand that a parent/guardian may be required to sign additional waivers
+              before I can shoot, and that I must follow all range safety rules and instructions.
+            </span>
+          </label>
+        </div>
+
+        <div class="flex items-center justify-between flex-wrap gap-3 pt-2">
+          <p class="text-sm md:text-base font-semibold text-slate-900">
+            Registration Amount: <span class="text-amber-600 font-bold">$20</span>
+          </p>
+          <button
+            type="submit"
+            class="inline-flex items-center rounded-full bg-amber-400 px-6 py-2.5 text-sm font-semibold text-slate-900 shadow hover:bg-amber-300 disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            Submit Student Registration
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Success modal (shared with other skeet forms) -->
+  <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative mx-4 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+      <h3 class="text-lg font-semibold text-slate-900">Submission received!</h3>
+      <p id="successText" class="mt-2 text-sm text-slate-700">
+        Thank you for registering. Please watch your email for confirmation and payment instructions.
+      </p>
+      <div class="mt-5 flex justify-end">
+        <button
+          id="modalClose"
+          class="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-slate-900 text-slate-200 mt-8">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-xs">
+      <p class="font-semibold text-amber-300">Student Chapter of Central Louisiana</p>
+      <p>PO Box 11684, Alexandria, LA 71315 • info@studentchapterofcenla.org</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    (function () {
+      var btn = document.getElementById('navToggle');
+      var mob = document.getElementById('navMenuMobile');
+      if (!btn || !mob) return;
+      btn.addEventListener('click', function () {
+        var open = !mob.classList.contains('hidden');
+        mob.classList.toggle('hidden', open);
+        btn.setAttribute('aria-expanded', String(!open));
+      });
+    })();
+
+    // Modal helpers
+    const modal = document.getElementById('successModal');
+    const modalText = document.getElementById('successText');
+    const modalClose = document.getElementById('modalClose');
+
+    function openModal(msg) {
+      if (msg) modalText.textContent = msg;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+    modalClose?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    // Button state
+    function setSubmittingState(btn, isSubmitting) {
+      if (!btn) return;
+      btn.disabled = isSubmitting;
+      if (isSubmitting) {
+        btn.dataset._label = btn.textContent;
+        btn.textContent = 'Submitting…';
+      } else if (btn.dataset._label) {
+        btn.textContent = btn.dataset._label;
+      }
+    }
+
+    async function postForm(url, data) {
+      try {
+        const resp = await fetch(url, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        if (resp.ok) return true;
+      } catch (e) {}
+      try {
+        await fetch(url, { method: 'POST', body: data, mode: 'no-cors' });
+        return true;
+      } catch (e) { return false; }
+    }
+
+    // Bind ajax-form
+    document.querySelectorAll('form.ajax-form').forEach(form => {
+      if (form.dataset.bound === '1') return;
+      form.dataset.bound = '1';
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (form.dataset.submitting === '1') return;
+        form.dataset.submitting = '1';
+
+        const btn = form.querySelector('button[type="submit"]');
+        setSubmittingState(btn, true);
+
+        const data = new FormData(form);
+        const ok = await postForm(form.action, data);
+
+        setSubmittingState(btn, false);
+        form.dataset.submitting = '0';
+
+        if (ok) {
+          const msg = form.getAttribute('data-success') ||
+            'Thanks! We’ve received your submission.';
+          openModal(msg);
+          form.reset();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          alert('We had trouble submitting. Please email info@studentchapterofcenla.org and we’ll get you registered.');
+        }
+      }, { passive: false });
+    });
+  </script>
+</body>
+</html>
