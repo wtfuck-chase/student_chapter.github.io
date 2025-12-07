@@ -353,39 +353,55 @@
         payload[key] = value;
       });
 
-      fetch(WEBHOOK_URL, {
-        method: 'POST',
-        mode: 'no-cors', // avoids CORS blocking
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-        .then(function () {
-          if (statusBox) {
-            statusBox.className =
-              'mb-4 text-sm rounded-md px-3 py-2 bg-green-50 text-green-800 border border-green-300';
-            statusBox.textContent =
-              'Thank you! Your Mardi Gras sponsorship request has been received. A member of the Student Chapter team will follow up with your invoice and parade details.';
-          }
-          form.reset();
-        })
-        .catch(function (err) {
-          console.error('Webhook error:', err);
-          if (statusBox) {
-            statusBox.className =
-              'mb-4 text-sm rounded-md px-3 py-2 bg-red-50 text-red-800 border border-red-300';
-            statusBox.textContent =
-              'Something went wrong while submitting your registration. Please try again in a moment, or contact us directly if the issue continues.';
-          }
-        })
-        .finally(function () {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Sponsor Registration';
-          }
-        });
+form.addEventListener('submit', function (e) {
+  e.preventDefault(); // stay on our own page
+
+  if (statusBox) {
+    statusBox.style.display = 'block';
+    statusBox.className =
+      'mb-4 text-sm rounded-md px-3 py-2 bg-purple-50 text-purple-800 border border-purple-300';
+    statusBox.textContent =
+      'Submitting your registration. Please do not refresh this page.';
+  }
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+  }
+
+  // IMPORTANT: send FormData, NOT JSON
+  var formData = new FormData(form);
+
+  fetch(WEBHOOK_URL, {
+    method: 'POST',
+    mode: 'no-cors',   // fine here, we don't need to read the response
+    body: formData     // <--- no JSON, no headers
+  })
+    .then(function () {
+      if (statusBox) {
+        statusBox.className =
+          'mb-4 text-sm rounded-md px-3 py-2 bg-green-50 text-green-800 border border-green-300';
+        statusBox.textContent =
+          'Thank you! Your Mardi Gras sponsorship request has been received. A member of the Student Chapter team will follow up with your invoice and parade details.';
+      }
+      form.reset();
+    })
+    .catch(function (err) {
+      console.error('Webhook error:', err);
+      if (statusBox) {
+        statusBox.className =
+          'mb-4 text-sm rounded-md px-3 py-2 bg-red-50 text-red-800 border border-red-300';
+        statusBox.textContent =
+          'Something went wrong while submitting your registration. Please try again in a moment, or contact us directly if the issue continues.';
+      }
+    })
+    .finally(function () {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Sponsor Registration';
+      }
     });
-  })();
+});
+
 </script>
 
