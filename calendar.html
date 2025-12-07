@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skeet & Scholars Classic | Student Chapter of Central Louisiana</title>
-  <meta name="description" content="Join us for the Skeet & Scholars Classic — a clay shooting competition supporting local high school programs and scholarships.">
+  <meta name="description" content="Join us for the Skeet & Scholars Classic — a clay shooting competition supporting local high school students and scholarships.">
   <meta property="og:title" content="Skeet & Scholars Classic">
-  <meta property="og:description" content="Where Aim Meets Ambition — a high-energy clay shoot benefiting education and workforce development in Central Louisiana.">
+  <meta property="og:description" content="Where Aim Meets Ambition — a high-energy clay shoot benefiting students and workforce development in Central Louisiana.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.studentchapterofcenla.org/skeet_shoot.html">
   <meta property="og:image" content="https://www.studentchapterofcenla.org/assets/skeet_og.jpg">
@@ -14,825 +14,250 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
+
   <style>
-    body{font-family:Archivo,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    .primary-bg {background-color:#0b1c2c;} /* dark navy */
-    .primary-text {color:#0b1c2c;}
-    .accent-bg {background-color:#c4a44d;} /* gold accent */
-    .accent-text {color:#c4a44d;}
-    .classic-font {font-family:'Great Vibes', cursive; font-weight:400; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); font-size:1.2em;}
-
-    /* Logo glow / highlight */
-.hero-logo {
-  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.55))
-          drop-shadow(0 0 25px rgba(255, 255, 255, 0.25))
-          drop-shadow(0 0 40px rgba(255, 255, 255, 0.1));
-  transition: filter 0.3s ease;
-}
-
+    body { font-family: Archivo, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .classic-font { font-family:'Great Vibes', cursive; font-weight:400; }
+    .hero-logo {
+      filter: drop-shadow(0 0 18px rgba(15,23,42,0.6))
+              drop-shadow(0 0 30px rgba(15,23,42,0.8));
+    }
   </style>
 </head>
-<body class="bg-[#f8fafc] text-[#0b1c2c]">
+<body class="bg-slate-100 text-slate-900">
 
+  <!-- ========= GLOBAL HEADER & NAV (matches Mardi Gras pages) ========= -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 pt-6 pb-3 flex flex-col items-center gap-3">
+      <a href="index.html" class="flex flex-col items-center gap-2">
+        <img
+          src="student_chapter_logo.jpg.jpg"
+          alt="Student Chapter of Central Louisiana Logo"
+          class="hero-logo h-32 w-auto md:h-40"
+        >
+      </a>
+    </div>
 
-<header class="relative overflow-hidden bg-[url('https://images.unsplash.com/photo-1520975847890-2f2be3174b63?q=80&w=1600&auto=format&fit=crop')] bg-center bg-cover">
-  <!-- Soft gradient overlay -->
-  <div class="absolute inset-0 bg-gradient-to-b from-[#0b1c2c]/70 via-[#0b1c2c]/50 to-[#0b1c2c]/70"></div>
+    <!-- Dark nav bar -->
+    <div class="bg-slate-900 text-white">
+      <nav class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center justify-between h-12">
+          <!-- Site name / home -->
+          <a href="index.html" class="text-sm font-semibold tracking-wide hover:text-amber-300">
+            Student Chapter of Central Louisiana
+          </a>
 
-  <div class="relative backdrop-brightness-50">
-    <div class="mx-auto max-w-6xl px-4 py-12 sm:py-16 text-white fade-in flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 sm:gap-12">
+          <!-- Mobile button -->
+          <button
+            id="navToggle"
+            class="sm:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-slate-800"
+            aria-controls="navMenu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
 
-        
-        <!-- Left: Logo (slightly larger, no border) -->
-        <div class="shrink-0">
-          <img
-  src="student_chapter_logo.jpg.jpg" alt="Student Chapter Logo"
-  class="hero-logo w-48 sm:w-56 md:w-64 object-contain"
-/>
-
-        </div>
-
-        <!-- Right: Event info -->
-        <div class="flex-1 text-center sm:text-left">
-          <p class="uppercase tracking-widest text-[#c4a44d] font-semibold text-sm sm:text-base">1st Annual</p>
-          <h1 class="text-4xl sm:text-5xl font-extrabold text-white drop-shadow">
-            Skeet & Scholars <span class="classic-font text-[#c4a44d]">Classic</span>
-          </h1>
-          <p class="text-[#c4a44d] italic mt-2 text-base sm:text-lg">Where Aim Meets Ambition</p>
-          <p class="mt-3 max-w-xl text-gray-200 text-base sm:text-lg">
-            All proceeds support local Student Chapter High School programs &amp; scholarships!
-          </p>
-
-          <div class="mt-6 flex flex-wrap gap-3 justify-center sm:justify-start">
-            <a href="#register" class="inline-flex items-center rounded-2xl px-5 py-3 bg-[#c4a44d] text-white font-semibold shadow hover:bg-[#a68c3d] transition">
-              Register — $20/person
-            </a>
-            <a href="#sponsor" class="inline-flex items-center rounded-2xl px-5 py-3 bg-white/10 ring-1 ring-white/40 font-semibold hover:bg-white/20 transition">
-              Sponsor the event
-            </a>
+          <!-- Desktop nav -->
+          <div id="navMenu" class="hidden sm:flex items-center gap-6 text-sm font-medium">
+            <a href="about.html" class="hover:text-amber-300">About</a>
+            <a href="CTA.html" class="hover:text-amber-300">Call to Action</a>
+            <a href="mardi_gras.html" class="hover:text-amber-300">Mardi Gras</a>
+            <a href="newsletter.html" class="hover:text-amber-300">Newsletter</a>
+            <a href="contact.html" class="hover:text-amber-300">Contact Us</a>
           </div>
         </div>
 
-      </div>
+        <!-- Mobile dropdown -->
+        <div id="navMenuMobile" class="sm:hidden hidden pb-3 space-y-2 text-sm font-medium">
+          <a href="about.html" class="block hover:text-amber-300">About</a>
+          <a href="CTA.html" class="block hover:text-amber-300">Call to Action</a>
+          <a href="mardi_gras.html" class="block hover:text-amber-300">Mardi Gras</a>
+          <a href="newsletter.html" class="block hover:text-amber-300">Newsletter</a>
+          <a href="contact.html" class="block hover:text-amber-300">Contact Us</a>
+        </div>
+      </nav>
     </div>
-</header>
+  </header>
 
-<!-- Sticky sub-nav under hero -->
-<nav id="site-subnav" class="bg-[#0b1c2c] text-white sticky top-0 z-40 shadow">
-  <div class="mx-auto max-w-6xl px-4">
-    <div class="h-14 flex items-center justify-between">
-      <!-- Home/brand -->
-      <a href="/" class="font-extrabold text-[#c4a44d] hover:text-white transition">Home</a>
-
-      <!-- Mobile button -->
-      <button id="navToggle" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 ring-1 ring-white/20 hover:bg-white/10" aria-controls="navMenu" aria-expanded="false">
-        <span class="sr-only">Open menu</span>
-        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
-        </svg>
-      </button>
-
-      <!-- Desktop links -->
-<div id="navMenu" class="hidden sm:flex items-center gap-6 text-sm">
-  <a href="/about.html" class="hover:text-[#c4a44d]">About</a>
-  <a href="/CTA.html" class="hover:text-[#c4a44d]">Call to Action</a>
-  <li><a href="mardi_gras.html">Mardi Gras</a></li>
-  <a href="/newsletter.html" class="hover:text-[#c4a44d]">Newsletter</a>
-  <a href="/contact.html" class="hover:text-[#c4a44d]">Contact</a>
-  <span class="opacity-40">|</span>
-  <a href="#details" class="hover:text-[#c4a44d]">Details</a>
-  <a href="#register" class="text-[#c4a44d] font-semibold hover:text-white">Register</a>
-  <a href="#prizes" class="hover:text-[#c4a44d]">Prizes</a>
-  <a href="#auction" class="hover:text-[#c4a44d]">Auction</a>
-  <a href="#vendors" class="hover:text-[#c4a44d]">Vendors</a>
-  <a href="#sponsor" class="hover:text-[#c4a44d]">Sponsor</a>
-  <a href="#faq" class="hover:text-[#c4a44d]">FAQ</a>
-</div>
-    </div>
-
-    <!-- Mobile dropdown -->
-<div id="navMenuMobile" class="sm:hidden hidden pb-3 space-y-2 text-sm">
-  <a href="/about.html" class="block hover:text-[#c4a44d]">About</a>
-  <a href="/CTA.html" class="block hover:text-[#c4a44d]">Call to Action</a>
-  <a href="/mardi_gras.html" class="block hover:text-[#c4a44d]">Mardi Gras</a>
-  <a href="/newsletter.html" class="block hover:text-[#c4a44d]">Newsletter</a>
-  <a href="/contact.html" class="block hover:text-[#c4a44d]">Contact</a>
-  <div class="opacity-40">────────</div>
-  <a href="#details" class="block hover:text-[#c4a44d]">Details</a>
-  <a href="#register" class="block text-[#c4a44d] font-semibold">Register</a>
-  <a href="#prizes" class="block hover:text-[#c4a44d]">Prizes</a>
-  <a href="#auction" class="block hover:text-[#c4a44d]">Auction</a>
-  <a href="#vendors" class="block hover:text-[#c4a44d]">Vendors</a>
-  <a href="#sponsor" class="block hover:text-[#c4a44d]">Sponsor</a>
-  <a href="#faq" class="block hover:text-[#c4a44d]">FAQ</a>
-</div>
-</nav>
-
-<script>
-  // Mobile nav toggle
-  (function () {
-    const btn = document.getElementById('navToggle');
-    const mob = document.getElementById('navMenuMobile');
-    if (!btn || !mob) return;
-    btn.addEventListener('click', () => {
-      const open = !mob.classList.contains('hidden');
-      mob.classList.toggle('hidden', open);
-      btn.setAttribute('aria-expanded', String(!open));
-    });
-  })();
-</script>
-
-
-
-    <section id="details" class="mx-auto max-w-6xl px-4 py-12">
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-2xl p-6 shadow">
-        <p class="text-sm uppercase tracking-wide text-gray-500">Date</p>
-        <p class="mt-1 text-xl font-bold text-[#0b1c2c]">Saturday, April 18</p>
-        <p class="text-sm text-gray-600">Check-in 8:00 AM • Safety brief 8:30 • First shots 9:00</p>
-      </div>
-      <div class="bg-white rounded-2xl p-6 shadow">
-        <p class="text-sm uppercase tracking-wide text-gray-500">Location</p>
-        <p class="mt-1 text-xl font-bold text-[#0b1c2c]">Michael D. Burns Public Shooting Complex</p>
-        <p class="text-sm text-gray-600">1140 Landfill Road, Dry Prong, LA 71423
-        <p class="text-sm text-gray-600">Free parking • Concessions available</p>
-      </div>
-      <div class="bg-white rounded-2xl p-6 shadow">
-        <p class="text-sm uppercase tracking-wide text-gray-500">Entry</p>
-        <p class="mt-1 text-xl font-bold text-[#0b1c2c]">$20 per person</p>
-        <p class="text-sm text-gray-600">Individuals welcome • Awards & prizes</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="register" class="mx-auto max-w-6xl px-4 pb-16">
-    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow border-t-4 border-[#c4a44d]">
-      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Shooter Registration</h2>
-      <p class="mt-1 text-gray-600">Complete the form; you’ll automatically receive a secure QuickBooks payment link.</p>
-      <!-- Shooter Registration Form (Make-connected) -->
-<form id="regForm"
-      class="ajax-form mt-6 grid grid-cols-1 gap-6"
-      action="https://hook.us2.make.com/8jbnw2wnwo74dy857q989qtew8s761e8"
-      method="POST"
-      data-success="Thanks! We’ve received your registration. Check your email soon for payment details.">
-
-
-  <!-- Hidden routing info for Make -->
-  <input type="hidden" name="submission_type" value="shooter_registration">
-  <input type="hidden" name="event" value="Skeet & Scholars Classic">
-  <input type="hidden" name="event_date" value="2026-04-18">
-  <input type="hidden" id="calc_total" name="calc_total" value="25" />
-  <input type="hidden" id="calc_qty" name="calc_qty" value="1" />
-
-          <div>
-            <label class="block text-sm font-semibold">Contact Name</label>
-            <input name="contact_name" required class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-          </div>
-          <div>
-            <label class="block text-sm font-semibold">Email</label>
-            <input type="email" name="email" required class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-          </div>
-        <div>
-          <label class="block text-sm font-semibold">Phone</label>
-          <input name="phone" required class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold">Registration Type</label>
-          <select id="regType" name="registration_type" 
-          class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-            <option value="individual" selected>Individual ($25)</option>
-          </select>
-        </div>
-          <label class="flex items-start gap-3">
-            <input type="checkbox" required class="mt-1 accent-[#c4a44d]">
-            <span class="text-sm text-gray-700">I acknowledge all participants will sign a waiver and follow safety rules.</span>
-          </label>
-        </div>
-        <div class="flex items-center justify-between">
-          <p class="text-lg font-bold text-[#0b1c2c]">Total: <span id="priceText">$25</span></p>
-          <button class="rounded-2xl bg-[#c4a44d] px-6 py-3 font-semibold text-white shadow hover:bg-[#a68c3d]" type="submit">Submit</button>
-        </div>
-        <p class="text-sm text-green-700 hidden" id="successMsg">Thanks! Check your email for the payment link.</p>
-      </form>
-    </div>
-  </section>
-
-  <!-- ===================== PRIZES & RAFFLES ===================== -->
-<section id="prizes" class="mx-auto max-w-6xl px-4 pb-20">
-  <div class="bg-white rounded-2xl shadow border-t-4 border-[#c4a44d]">
-    <div class="p-6 sm:p-8">
-      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">
-        Prizes & Raffle Items — Live Updates
-      </h2>
-      <p class="mt-2 text-gray-600">
-        As sponsors and partners come on board, we’ll keep this section updated
-        with the prizes and raffle items you can win at the Skeet &amp; Scholars Classic.
-      </p>
-
-      <div class="mt-6 grid gap-8 md:grid-cols-2">
-        <!-- Competition Prizes -->
-        <div>
-          <h3 class="text-lg font-bold text-[#0b1c2c] mb-2">
-            Competition Prizes
-          </h3>
-          <ul class="space-y-2 text-gray-700 list-disc list-inside">
-            <li>Top Shooter – Coming Soon</li>
-            <li>2nd Place - Coming Soon</li>
-            <li>3rd Place - Coming Soon</li>
-            <li>4th Place - Coming Soon</li>
-            <li>Additional category awards will be listed here.</li>
-          </ul>
-        </div>
-
-        <!-- Raffle Items -->
-        <div>
-          <h3 class="text-lg font-bold text-[#0b1c2c] mb-2">
-            Raffle Items
-          </h3>
-          <ul class="space-y-2 text-gray-700 list-disc list-inside">
-            <li>Premium outdoor / hunting items – Coming Soon</li>
-            <li>Check back often — new items added as they are confirmed.</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="mt-6 text-sm text-gray-500">
-        Note: Final prize list and raffle rules will be posted on this page and at the registration table on event day.
-      </p>
-    </div>
-  </div>
-</section>
-
-  <!-- ===================== AUCTION PREVIEW ===================== -->
-<section id="auction" class="mx-auto max-w-6xl px-4 pb-20">
-  <div class="bg-white rounded-2xl shadow border-t-4 border-[#c4a44d]">
-    <div class="p-6 sm:p-8">
-      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">
-        Auction Preview — Live Updates
-      </h2>
-      <p class="mt-2 text-gray-600">
-        Preview a selection of the silent auction items that will be available
-        during the Skeet &amp; Scholars Classic. Items and descriptions will be updated
-        as donations are confirmed.
-      </p>
-
-      <!-- Auction items grid -->
-      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Item card -->
-        <div class="rounded-xl border border-gray-200 p-4 flex flex-col justify-between">
-          <div>
-            <p class="text-sm uppercase tracking-wide text-gray-500">Silent Auction</p>
-            <p class="mt-1 font-semibold text-[#0b1c2c]">
-               – Coming Soon
-            </p>
-            <p class="mt-1 text-sm text-gray-600">
-              Full details will be posted once the package is finalized.
-            </p>
-          </div>
-          <p class="mt-3 text-xs text-gray-500">
-            Donated by: To Be Announced
-          </p>
-        </div>
-
-        <div class="rounded-xl border border-gray-200 p-4 flex flex-col justify-between">
-          <div>
-            <p class="text-sm uppercase tracking-wide text-gray-500">Silent Auction</p>
-            <p class="mt-1 font-semibold text-[#0b1c2c]">
-              Local Business Gift Basket – Coming Soon
-            </p>
-            <p class="mt-1 text-sm text-gray-600">
-              A bundle of items from community partners. Check back for a full list.
-            </p>
-          </div>
-          <p class="mt-3 text-xs text-gray-500">
-            Donated by: Community Partners
-          </p>
-        </div>
-
-        <div class="rounded-xl border border-gray-200 p-4 flex flex-col justify-between">
-          <div>
-            <p class="text-sm uppercase tracking-wide text-gray-500">Silent Auction</p>
-            <p class="mt-1 font-semibold text-[#0b1c2c]">
-              Premium Item – To Be Announced
-            </p>
-            <p class="mt-1 text-sm text-gray-600">
-              Check back soon for details on one of our headline auction items.
-            </p>
-          </div>
-          <p class="mt-3 text-xs text-gray-500">
-            Donated by: To Be Announced
-          </p>
-        </div>
-      </div>
-
-      <p class="mt-6 text-sm text-gray-500">
-        All auction proceeds directly benefit Student Chapter programs, tools, and scholarships.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-
-  <section id="sponsor" class="mx-auto max-w-6xl px-4 pb-20">
-    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow">
-      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Sponsor the Classic</h2>
-      <p class="mt-2 text-gray-600">We’re assembling prize packages and corporate tiers now. Interested? Leave your info in the registration form’s notes field or email <span class="text-[#c4a44d] font-semibold">info@studentchapterofcenla.org</span> and we’ll send the sponsor packet.</p>
-    </div>
-  </section>
-  
-  <!-- ================= Food Truck Application ================= -->
-<section id="foodtrucks" class="mx-auto max-w-6xl px-4 pb-20">
-  <div class="bg-white rounded-2xl p-6 sm:p-8 shadow border-t-4 border-[#c4a44d]">
-    <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Food Truck Application</h2>
-    <p class="mt-2 text-gray-600">
-      We’re curating a small lineup of food trucks for the Skeet & Scholars Classic. Slots are limited.
-      If you’re interested, apply below—approved vendors will receive full details by email.
-    </p>
-
-    <ul class="mt-4 space-y-2 text-gray-700 list-disc list-inside">
-      <li>Spaces are limited and subject to approval.</li>
-      <li>Self-contained power/water preferred (generator friendly).</li>
-      <li>Local health permit and proof of insurance required.</li>
-      <li>Setup target: <strong>7:00 AM</strong>; service during competition hours.</li>
-    </ul>
-
-    <!-- Food Truck Application Form (Make-connected) -->
-<form id="vendorForm"
-      class="ajax-form mt-6 grid grid-cols-1 gap-6"
-      action="https://hook.us2.make.com/8jbnw2wnwo74dy857q989qtew8s761e8"
-      method="POST"
-      data-success="Thanks! Your application is in. We’ll review and email you next steps.">
-
-
-  <!-- Hidden routing info for Make -->
-  <input type="hidden" name="submission_type" value="food_truck_application">
-  <input type="hidden" name="event" value="Skeet & Scholars Classic">
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-sm font-semibold">Business / Truck Name</label>
-          <input name="business_name" required
-                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-        </div>
-<!-- Vendor Type -->
-<div>
-  <label class="block text-sm font-semibold">Vendor Type</label>
-  <select id="vendorType" name="vendor_type"
-          class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                 focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50" required>
-    <option value="" selected disabled>Select one</option>
-    <option value="Food Truck">Food Truck</option>
-    <option value="Vendor Booth">Vendor Booth</option>
-  </select>
-</div>
-
-        
-        <div>
-          <label class="block text-sm font-semibold">Cuisine / Specialty</label>
-          <input name="cuisine" required
-                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <label class="block text-sm font-semibold">Contact Name</label>
-          <input name="contact_name" required
-                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold">Email</label>
-          <input type="email" name="email" required
-                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold">Phone</label>
-          <input name="phone" required
-                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <label class="block text-sm font-semibold">Truck Size (length)</label>
-          <input name="truck_size"
-                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"
-                 placeholder="e.g., 20 ft">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold">Power</label>
-          <select name="power" class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-            <option value="self-contained">Self-contained (generator)</option>
-            <option value="shore-if-available">Prefer shore power if available</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-semibold">Service Window</label>
-          <select name="service_window" class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50">
-            <option value="breakfast">Breakfast / Early AM</option>
-            <option value="lunch" selected>Mid-morning through Awards</option>
-            <option value="full-day">Full Event</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-sm font-semibold">Permits / Insurance</label>
-          <input name="permits"
-                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"
-                 placeholder="Health permit #, insurance carrier, etc.">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold">Website / Social (optional)</label>
-          <input name="links"
-                 class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                        focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"
-                 placeholder="Instagram, Facebook, or site URL">
-        </div>
-      </div>
-
-      <div>
-        <label class="block text-sm font-semibold">Menu Highlights & Notes</label>
-        <textarea name="notes" rows="3"
-                  class="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5
-                         focus:border-[#c4a44d] focus:ring-2 focus:ring-[#c4a44d]/50"
-                  placeholder="Top sellers, special requests, logistics needs…"></textarea>
-      </div>
-
-      <div class="flex items-center justify-between">
-        <p class="text-sm text-gray-600">
-          No fees are published here; approved vendors will receive details by email.
+  <!-- ========= HERO ========= -->
+  <section class="bg-gradient-to-r from-sky-900 via-slate-900 to-amber-500 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-14 flex flex-col md:flex-row items-start md:items-center gap-10">
+      <div class="flex-1">
+        <p class="uppercase tracking-[0.3em] text-amber-200 text-xs mb-2">
+          1st Annual • Where Aim Meets Ambition
         </p>
-        <button class="rounded-2xl bg-[#c4a44d] px-6 py-3 font-semibold text-white shadow hover:bg-[#a68c3d]" type="submit">
-          Apply to Serve
-        </button>
-      </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
+          Skeet &amp; Scholars <span class="classic-font text-amber-300 text-4xl md:text-5xl">Classic</span>
+        </h1>
+        <p class="mt-3 text-sm md:text-base text-slate-100 max-w-xl">
+          A clay shooting fundraiser exclusively for current middle and high school students,
+          benefiting scholarships and workforce-development programs across Central Louisiana.
+        </p>
 
-      <p class="text-sm text-green-700 hidden" id="vendorSuccess">Thanks! We received your application.</p>
-    </form>
-  </div>
-</section>
-
-  <!-- ===================== VENDORS & FOOD TRUCKS ===================== -->
-<section id="vendors" class="mx-auto max-w-6xl px-4 pb-20">
-  <div class="bg-white rounded-2xl shadow border-t-4 border-[#c4a44d]">
-    <div class="p-6 sm:p-8">
-      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">
-        Confirmed Vendors &amp; Food Trucks — Live Updates
-      </h2>
-      <p class="mt-2 text-gray-600">
-        As applications are approved, we’ll list food trucks and vendor booths here so guests
-        can see who will be on site. Status will be updated as commitments are finalized.
-      </p>
-
-      <!-- Legend -->
-      <div class="mt-4 flex flex-wrap gap-3 text-sm">
-        <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-emerald-700 ring-1 ring-emerald-200">
-          <span class="h-2 w-2 rounded-full bg-emerald-600"></span> Confirmed
-        </span>
-        <span class="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-amber-700 ring-1 ring-amber-200">
-          <span class="h-2 w-2 rounded-full bg-amber-500"></span> Verbal Yes
-        </span>
-        <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-slate-600 ring-1 ring-slate-200">
-          <span class="h-2 w-2 rounded-full bg-slate-400"></span> Soft Yes / Pending
-        </span>
-      </div>
-
-      <!-- Vendor grid -->
-      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Example card – edit as confirmations come in -->
-        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between">
-          <div>
-            <p class="font-semibold text-[#0b1c2c]">Food Truck Name – Coming Soon</p>
-            <p class="text-sm text-gray-600">Cuisine / specialty will be listed here.</p>
-          </div>
-          <span class="status-pill">Soft Yes</span>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="skeet_students.html" class="inline-flex items-center rounded-full bg-amber-400 px-5 py-2.5 text-sm font-semibold text-slate-900 shadow hover:bg-amber-300">
+            Student Shooter Registration — $20
+          </a>
+          <a href="skeet_sponsors.html" class="inline-flex items-center rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/40 hover:bg-white/15">
+            Sponsor the Classic
+          </a>
+          <a href="skeet_vendors.html" class="inline-flex items-center rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/40 hover:bg-white/15">
+            Food Trucks &amp; Vendors
+          </a>
         </div>
 
-        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between">
-          <div>
-            <p class="font-semibold text-[#0b1c2c]">Vendor Booth – Coming Soon</p>
-            <p class="text-sm text-gray-600">Student chapter partner / community vendor.</p>
-          </div>
-          <span class="status-pill">Soft Yes</span>
-        </div>
+        <p class="mt-3 text-xs md:text-sm text-amber-100">
+          <strong>Students only.</strong> All shooters must currently be enrolled in school and follow
+          range safety rules and waiver requirements.
+        </p>
       </div>
 
-      <p class="mt-6 text-sm text-gray-500">
-        Approved vendors and food trucks will also receive setup details and schedules by email.
-      </p>
-    </div>
-  </div>
-</section>
+      <!-- Event quick facts card -->
+      <div class="w-full md:w-80">
+        <div class="bg-slate-900/80 backdrop-blur rounded-2xl p-5 shadow-lg border border-white/10">
+          <p class="text-xs uppercase tracking-wide text-slate-300">Event at a Glance</p>
+          <p class="mt-2 text-lg font-semibold text-amber-300">
+            Saturday, March 28, 2026
+          </p>
+          <p class="text-xs text-slate-200">
+            Check-in 8:00 AM • Safety Brief 8:30 • First Shots 9:00
+          </p>
 
-
-<section id="partners" class="mx-auto max-w-6xl px-4 pb-20">
-  <div class="bg-white rounded-2xl shadow border-t-4 border-[#c4a44d]">
-    <div class="p-6 sm:p-8">
-      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">Friends, Partners & Sponsors — Live Updates</h2>
-      <p class="mt-2 text-gray-600">
-        Organizations and agencies planning to attend or support the Skeet & Scholars Classic.
-        This section will be updated as confirmations and sponsors are received.
-      </p>
-
-      <!-- Legend -->
-      <div class="mt-4 flex flex-wrap gap-3 text-sm">
-        <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-emerald-700 ring-1 ring-emerald-200">
-          <span class="h-2 w-2 rounded-full bg-emerald-600"></span> Confirmed
-        </span>
-        <span class="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-amber-700 ring-1 ring-amber-200">
-          <span class="h-2 w-2 rounded-full bg-amber-500"></span> Verbal Yes
-        </span>
-        <span class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-slate-600 ring-1 ring-slate-200">
-          <span class="h-2 w-2 rounded-full bg-slate-400"></span> Soft Yes / Pending
-        </span>
-      </div>
-
-      <!-- Partner Grid -->
-      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between">
-          <div>
-            <p class="font-semibold text-[#0b1c2c]">LaSalle Parish Sheriff’s Office</p>
-            <p class="text-sm text-gray-600">Range support / presence</p>
+          <div class="mt-4 space-y-2 text-sm">
+            <div class="flex items-start gap-2">
+              <span class="mt-0.5 h-2 w-2 rounded-full bg-amber-400"></span>
+              <p>
+                <span class="font-semibold text-white">Location:</span><br>
+                Michael D. Burns Public Shooting Complex<br>
+                1140 Landfill Road, Dry Prong, LA 71423
+              </p>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="mt-0.5 h-2 w-2 rounded-full bg-emerald-400"></span>
+              <p>
+                <span class="font-semibold text-white">Entry:</span><br>
+                $20 per student shooter • individuals welcome
+              </p>
+            </div>
           </div>
-          <span class="status-pill">Confirmed</span>
+
+          <p class="mt-4 text-xs text-slate-300">
+            All proceeds support Student Chapter programs, tools, and scholarships.
+          </p>
         </div>
-
-        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between">
-          <div>
-            <p class="font-semibold text-[#0b1c2c]">Rapides Parish Sheriff’s Office</p>
-            <p class="text-sm text-gray-600">Community support</p>
-          </div>
-          <span class="status-pill">Confirmed</span>
-        </div>
-
-        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between">
-          <div>
-            <p class="font-semibold text-[#0b1c2c]">Grant Parish Sheriff’s Office</p>
-            <p class="text-sm text-gray-600">Event presence</p>
-          </div>
-          <span class="status-pill">Soft Yes</span>
-        </div>
-
-        <div class="rounded-xl border border-gray-200 p-4 flex items-start justify-between sm:col-span-2">
-          <div>
-            <p class="font-semibold text-[#0b1c2c]">Louisiana Dept. of Wildlife & Fisheries</p>
-            <p class="text-sm text-gray-600">Education, gun safety, and student safety</p>
-          </div>
-          <span class="status-pill">Soft Yes</span>
-        </div>
-      </div>
-
-      <!-- Sponsors list -->
-      <div class="mt-10">
-        <h3 class="text-xl font-bold text-[#0b1c2c] mb-2">Confirmed Sponsors</h3>
-        <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-gray-700">
-          <li class="rounded-xl border border-gray-200 p-4">Coming Soon — sponsor updates will appear here.</li>
-        </ul>
-      </div>
-  </div>
-</section>
-
-
-<!-- ===================== FAQ ===================== -->
-<section id="faq" class="mx-auto max-w-6xl px-4 pb-20">
-  <div class="bg-white rounded-2xl shadow border-t-4 border-[#c4a44d]">
-    <div class="p-6 sm:p-8">
-      <h2 class="text-2xl font-extrabold text-[#0b1c2c]">FAQ</h2>
-      <p class="mt-2 text-gray-600">Quick answers about the Skeet & Scholars Classic.</p>
-
-      <div class="mt-6 divide-y divide-gray-200" role="region" aria-labelledby="faq-heading">
-        <!-- Item -->
-        <details class="group py-4">
-          <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold text-[#0b1c2c]">Who can compete?</span>
-            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
-          </summary>
-          <div class="mt-3 text-gray-700">
-            Individuals and teams of four are welcome. Novice through experienced shooters may participate.
-          </div>
-        </details>
-
-        <details class="group py-4">
-          <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold text-[#0b1c2c]">Are minors allowed?</span>
-            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
-          </summary>
-          <div class="mt-3 text-gray-700">
-            Yes, with a parent/guardian on site and signed waiver. All youth must follow range safety rules and staff directions.
-          </div>
-        </details>
-
-        <details class="group py-4">
-          <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold text-[#0b1c2c]">What equipment do I need?</span>
-            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
-          </summary>
-          <div class="mt-3 text-gray-700">
-            A shotgun (12/20 gauge recommended), eye/ear protection, and ammo. Limited loaner gear may be available—ask at check-in.
-          </div>
-        </details>
-
-        <details class="group py-4">
-          <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold text-[#0b1c2c]">How do payments work?</span>
-            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
-          </summary>
-          <div class="mt-3 text-gray-700">
-            After you submit the form, you’ll receive a secure QuickBooks payment link by email. Pay online to confirm your spot.
-          </div>
-        </details>
-
-        <details class="group py-4">
-          <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold text-[#0b1c2c]">What’s the schedule?</span>
-            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
-          </summary>
-          <div class="mt-3 text-gray-700">
-            Check-in 8:00 AM · Safety brief 8:30 · First shots 9:00 AM · Awards immediately after rounds conclude.
-          </div>
-        </details>
-
-        <details class="group py-4">
-          <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold text-[#0b1c2c]">Rain or refund policy?</span>
-            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
-          </summary>
-          <div class="mt-3 text-gray-700">
-            The event is rain-or-shine unless the range closes for safety. If postponed, all registrations roll to the new date.
-          </div>
-        </details>
-
-        <details class="group py-4">
-          <summary class="flex cursor-pointer list-none items-center justify-between">
-            <span class="font-semibold text-[#0b1c2c]">How do I sponsor or donate prizes?</span>
-            <svg class="h-5 w-5 shrink-0 text-[#c4a44d] transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.205l3.71-3.975a.75.75 0 111.08 1.04l-4.24 4.54a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
-          </summary>
-          <div class="mt-3 text-gray-700">
-            Email <a href="mailto:info@studentchapterofcenla.org" class="text-[#c4a44d] font-semibold">info@studentchapterofcenla.org</a> and we’ll send the sponsor packet with levels and prize needs.
-          </div>
-        </details>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ========= FLYER GALLERY (right under hero) ========= -->
+  <section class="max-w-6xl mx-auto px-4 py-8 md:py-10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+      <div>
+        <h2 class="text-xl md:text-2xl font-extrabold text-slate-900">
+          Event Flyers &amp; Promo Materials
+        </h2>
+        <p class="text-sm text-slate-600 max-w-2xl">
+          Download and share these flyers with students, families, and community partners.
+          As new versions are created, we’ll add them here for easy access.
+        </p>
+      </div>
+      <p class="text-xs text-slate-500">
+        Need a print-ready file? Email <a href="mailto:info@studentchapterofcenla.org" class="text-sky-700 font-semibold">info@studentchapterofcenla.org</a>.
+      </p>
+    </div>
 
-<footer class="bg-[#0b1c2c] text-white">
-    <div class="mx-auto max-w-6xl px-4 py-10">
-      <p class="font-extrabold text-[#c4a44d]">Student Chapter of Central Louisiana</p>
-      <p class="text-sm">PO Box 11684, Alexandria, LA 71315</p>
-      <p class="text-sm">info@studentchapterofcenla.org</p>
+    <!-- Thumbnails – replace src/href with your real file paths -->
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <a href="assets/skeet_flyer1.jpg" class="group block bg-white rounded-xl shadow hover:shadow-md overflow-hidden">
+        <img src="assets/skeet_flyer1.jpg" alt="Skeet & Scholars Flyer 1" class="h-44 w-full object-cover group-hover:scale-[1.02] transition">
+        <div class="px-3 py-2 text-xs font-medium text-slate-700">
+          General Event Flyer
+        </div>
+      </a>
+      <a href="assets/skeet_flyer2.jpg" class="group block bg-white rounded-xl shadow hover:shadow-md overflow-hidden">
+        <img src="assets/skeet_flyer2.jpg" alt="Skeet & Scholars Flyer 2" class="h-44 w-full object-cover group-hover:scale-[1.02] transition">
+        <div class="px-3 py-2 text-xs font-medium text-slate-700">
+          Student-Focused Flyer
+        </div>
+      </a>
+      <a href="assets/skeet_flyer3.jpg" class="group block bg-white rounded-xl shadow hover:shadow-md overflow-hidden">
+        <img src="assets/skeet_flyer3.jpg" alt="Skeet & Scholars Flyer 3" class="h-44 w-full object-cover group-hover:scale-[1.02] transition">
+        <div class="px-3 py-2 text-xs font-medium text-slate-700">
+          Sponsor One-Pager
+        </div>
+      </a>
+      <a href="assets/skeet_flyer4.jpg" class="group block bg-white rounded-xl shadow hover:shadow-md overflow-hidden">
+        <img src="assets/skeet_flyer4.jpg" alt="Skeet & Scholars Flyer 4" class="h-44 w-full object-cover group-hover:scale-[1.02] transition">
+        <div class="px-3 py-2 text-xs font-medium text-slate-700">
+          Vendor / Food Truck Flyer
+        </div>
+      </a>
+      <a href="assets/skeet_flyer5.jpg" class="group block bg-white rounded-xl shadow hover:shadow-md overflow-hidden">
+        <img src="assets/skeet_flyer5.jpg" alt="Skeet & Scholars Flyer 5" class="h-44 w-full object-cover group-hover:scale-[1.02] transition">
+        <div class="px-3 py-2 text-xs font-medium text-slate-700">
+          Social-Media Graphic
+        </div>
+      </a>
+    </div>
+
+    <p class="mt-3 text-xs text-slate-500">
+      <!-- You can tweak this line anytime -->
+      Don’t stress if you don’t have all five yet — you can point multiple tiles at the same file and update them as new designs roll out.
+    </p>
+  </section>
+
+  <!-- ========= SHORTER INFO SECTIONS (kept high-level, no forms) ========= -->
+  <section id="details" class="max-w-6xl mx-auto px-4 pb-12">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl p-5 shadow">
+        <p class="text-xs uppercase tracking-wide text-slate-500">Who Can Shoot?</p>
+        <p class="mt-1 text-lg font-bold text-slate-900">Current Students Only</p>
+        <p class="mt-1 text-sm text-slate-600">
+          Open to actively enrolled middle and high school students. You’ll verify enrollment and list your school on the registration form.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl p-5 shadow">
+        <p class="text-xs uppercase tracking-wide text-slate-500">Why We’re Shooting</p>
+        <p class="mt-1 text-lg font-bold text-slate-900">Scholarships &amp; Tools</p>
+        <p class="mt-1 text-sm text-slate-600">
+          Proceeds fund student scholarships, classroom tools, and hands-on workforce-development projects.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl p-5 shadow">
+        <p class="text-xs uppercase tracking-wide text-slate-500">Safety First</p>
+        <p class="mt-1 text-lg font-bold text-slate-900">Structured &amp; Supervised</p>
+        <p class="mt-1 text-sm text-slate-600">
+          Students shoot under range-approved safety protocols with support from law enforcement and wildlife &amp; fisheries partners.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- You can keep / trim the partners & FAQ sections from before if you want.
+       For now I’ll leave the page lean and focused. -->
+
+  <footer class="bg-slate-900 text-slate-200 mt-8">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-xs">
+      <p class="font-semibold text-amber-300">Student Chapter of Central Louisiana</p>
+      <p>PO Box 11684, Alexandria, LA 71315 • info@studentchapterofcenla.org</p>
     </div>
   </footer>
-  <!-- Success Modal -->
-<div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
-  <div class="absolute inset-0 bg-black/50"></div>
-  <div class="relative mx-4 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
-    <h3 class="text-lg font-semibold text-[#0b1c2c]">Thanks for applying!</h3>
-    <p id="successText" class="mt-2 text-sm text-gray-700">
-      Someone will reach out to you shortly at the email you provided to complete registration and payment.
-    </p>
-    <div class="mt-5 flex justify-end gap-2">
-      <button id="modalClose" class="rounded-xl bg-[#0b1c2c] px-4 py-2 text-white hover:bg-[#132a40]">Close</button>
-    </div>
-  </div>
-</div>
 
-<script>
-(function () {
-  // ===== Partners status auto-styling =====
-  const CLASS_BASE = "ml-4 shrink-0 rounded-full px-3 py-1 text-xs font-semibold ";
-  const STATUS_MAP = {
-    confirmed: "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200",
-    verbal: "bg-amber-50 text-amber-700 ring-1 ring-amber-200",
-    soft: "bg-slate-100 text-slate-700 ring-1 ring-slate-200",
-  };
-
-  document.querySelectorAll("#partners .status-pill").forEach((pill) => {
-    const raw = (pill.dataset.status || pill.textContent || "").toLowerCase().trim();
-    let key = "soft";
-    if (raw.startsWith("confirm")) key = "confirmed";
-    else if (raw.startsWith("verbal")) key = "verbal";
-    else if (raw.startsWith("soft")) key = "soft";
-    pill.className = CLASS_BASE + (STATUS_MAP[key] || STATUS_MAP.soft);
-    pill.textContent = key === "confirmed" ? "Confirmed" : key === "verbal" ? "Verbal Yes" : "Soft Yes";
-  });
-
-  const stamp = document.getElementById("partners-updated");
-  if (stamp) {
-    stamp.textContent = new Date().toLocaleString([], { dateStyle: "medium", timeStyle: "short" });
-  }
-
-  // ===== Registration price logic =====
-  const regType = document.getElementById("regType");
-  const teamNameWrap = document.getElementById("teamNameWrap");
-  const rosterWrap = document.getElementById("rosterWrap");
-  const priceText = document.getElementById("priceText");
-  const calcTotal = document.getElementById("calc_total");
-  const calcQty = document.getElementById("calc_qty");
-
-  function renderPrice() {
-    if (!regType) return;
-    const isTeam = regType.value === "team";
-    const total = isTeam ? 100 : 25;
-    if (priceText) priceText.textContent = `$${total}`;
-    if (calcTotal) calcTotal.value = total;
-    if (calcQty) calcQty.value = isTeam ? 4 : 1;
-    if (teamNameWrap) teamNameWrap.classList.toggle("hidden", !isTeam);
-    if (rosterWrap) rosterWrap.classList.toggle("hidden", !isTeam);
-  }
-
-  if (regType) {
-    regType.addEventListener("change", renderPrice);
-    renderPrice();
-  }
-})(); // <-- properly closes the IIFE
-</script>
-
+  <!-- Mobile nav script -->
   <script>
-// ---------- Modal helpers ----------
-const modal = document.getElementById('successModal');
-const modalText = document.getElementById('successText');
-const modalClose = document.getElementById('modalClose');
-
-function openModal(msg){
-  if (msg) modalText.textContent = msg;
-  modal.classList.remove('hidden'); modal.classList.add('flex');
-}
-function closeModal(){
-  modal.classList.add('hidden'); modal.classList.remove('flex');
-}
-modalClose?.addEventListener('click', closeModal);
-modal?.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
-
-// ---------- Button state ----------
-function setSubmittingState(btn, isSubmitting){
-  if (!btn) return;
-  btn.disabled = isSubmitting;
-  if (isSubmitting) {
-    btn.dataset._label = btn.textContent;
-    btn.textContent = 'Submitting…';
-    btn.classList.add('opacity-80','cursor-not-allowed');
-  } else {
-    if (btn.dataset._label) btn.textContent = btn.dataset._label;
-    btn.classList.remove('opacity-80','cursor-not-allowed');
-  }
-}
-
-// ---------- POST helper with CORS fallback ----------
-async function postForm(url, data){
-  try {
-    const resp = await fetch(url, { method:'POST', body:data, headers:{ 'Accept':'application/json' } });
-    if (resp.ok) return true;
-  } catch(_) {}
-  try {
-    await fetch(url, { method:'POST', body:data, mode:'no-cors' });
-    return true;
-  } catch(_) { return false; }
-}
-
-// ---------- SINGLE handler for all ajax forms ----------
-document.querySelectorAll('form.ajax-form').forEach(form => {
-  if (form.dataset.bound === '1') return;
-  form.dataset.bound = '1';
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (form.dataset.submitting === '1') return;
-    form.dataset.submitting = '1';
-
-    const submitBtn = form.querySelector('button[type="submit"], [data-submit]');
-    setSubmittingState(submitBtn, true);
-
-    const data = new FormData(form);
-    const ok = await postForm(form.action, data);
-
-    setSubmittingState(submitBtn, false);
-    form.dataset.submitting = '0';
-
-    if (ok) {
-      const msg = form.getAttribute('data-success') ||
-        'Thanks! We’ve received your submission. We’ll be in touch shortly.';
-      openModal(msg);
-      form.reset?.();
-      if (typeof renderPrice === 'function') { try { renderPrice(); } catch(_){} }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      alert('We had trouble submitting. Please email info@studentchapterofcenla.org and we’ll get you registered.');
-    }
-  }, { passive:false });
-});
-</script>
-
+    (function () {
+      var btn = document.getElementById('navToggle');
+      var mob = document.getElementById('navMenuMobile');
+      if (!btn || !mob) return;
+      btn.addEventListener('click', function () {
+        var open = !mob.classList.contains('hidden');
+        mob.classList.toggle('hidden', open);
+        btn.setAttribute('aria-expanded', String(!open));
+      });
+    })();
+  </script>
+</body>
+</html>
