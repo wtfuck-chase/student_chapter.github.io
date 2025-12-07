@@ -311,22 +311,63 @@
   </footer>
 
   <!-- Year + submit UX -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+ <script>
+  // Year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    const form = document.getElementById('sponsor-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const statusBox = document.getElementById('form-status');
+  const form = document.getElementById('sponsor-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const statusBox = document.getElementById('form-status');
+  const WEBHOOK_URL = 'https://hook.us2.make.com/8k427boda9uyn8bjcrr76vjmksw8r0jf';
 
-    form.addEventListener('submit', function () {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-      statusBox.className =
-        'mb-4 text-xs rounded-md px-3 py-2 bg-purple-50 text-purple-800';
-      statusBox.textContent =
-        'Submitting your registration. Please do not refresh this page.';
-      statusBox.style.display = 'block';
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); // stop browser from leaving the page
+
+    // Basic UI state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    statusBox.style.display = 'block';
+    statusBox.className =
+      'mb-4 text-sm rounded-md px-3 py-2 bg-purple-50 text-purple-800 border border-purple-300';
+    statusBox.textContent =
+      'Submitting your registration. Please do not refresh this page.';
+
+    // Build payload from form fields
+    const formData = new FormData(form);
+    const payload = {};
+    formData.forEach((value, key) => {
+      payload[key] = value;
     });
-  </script>
-</body>
-</html>
+
+    try {
+      // Send to Make in the background
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload),
+        // We don't need to read the response, just fire-and-forget
+        mode: 'no-cors'
+      });
+
+      // Success message on YOUR page
+      statusBox.className =
+        'mb-4 text-sm rounded-md px-3 py-2 bg-green-50 text-green-800 border border-green-300';
+      statusBox.textContent =
+        'Thank you! Your Mardi Gras sponsorship request has been received. A member of the Student Chapter team will follow up with your invoice and parade details.';
+
+      // Reset form
+      form.reset();
+    } catch (err) {
+      // Fallback error message (in case of network failure)
+      statusBox.className =
+        'mb-4 text-sm rounded-md px-3 py-2 bg-red-50 text-red-800 border border-red-300';
+      statusBox.textContent =
+        'Something went wrong while submitting your registration. Please try again in a moment, or contact us directly if the issue continues.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Sponsor Registration';
+    }
+  });
+</script>
