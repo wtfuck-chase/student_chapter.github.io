@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mardi Gras Student Registration | Student Chapter of Central Louisiana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Register a student to ride or walk in the Alexandria Children’s Mardi Gras Parade with the Student Chapter of Central Louisiana." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 text-slate-900">
+
+  <!-- ================= HEADER / LOGO ================= -->
+  <header class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 pt-6 pb-4 flex justify-center">
+      <a href="index.html" class="flex flex-col items-center gap-2">
+        <img
+          src="student_chapter_logo.jpg.jpg"
+          alt="Student Chapter of Central Louisiana Logo"
+          class="h-60 w-auto"
+        >
+      </a>
+    </div>
+
+    <!-- Dark nav bar matching main site -->
+    <div class="bg-slate-900 text-white">
+      <nav class="max-w-6xl mx-auto px-4 py-3">
+        <ul class="flex flex-wrap justify-center gap-6 text-sm font-semibold">
+          <li><a href="index.html" class="hover:text-purple-300">About</a></li>
+          <li><a href="CTA.html" class="hover:text-purple-300">Call to Action</a></li>
+          <li><a href="calendar.html" class="hover:text-purple-300">Skeet &amp; Scholars Classic</a></li>
+          <li><a href="mardi_gras.html" class="text-purple-300">Mardi Gras</a></li>
+          <li><a href="newsletter.html" class="hover:text-purple-300">Newsletter</a></li>
+          <li><a href="contact.html" class="hover:text-purple-300">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= MARDI GRAS HERO ================= -->
+  <section class="bg-gradient-to-r from-purple-800 via-green-700 to-yellow-500 text-white">
+    <div class="max-w-5xl mx-auto px-4 py-10 md:py-12">
+      <p class="text-xs uppercase tracking-[0.25em] text-yellow-200 mb-2">
+        Alexandria Children’s Mardi Gras Parade
+      </p>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-3">
+        Student Rider / Walker Registration
+      </h1>
+      <p class="text-sm md:text-base text-purple-100 max-w-3xl">
+        Use this form to register your student to participate in the parade.
+        Float space is limited, so final assignments will be based on safety requirements
+        and total registrations from each school.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= PAGE CONTENT ================= -->
+  <main class="max-w-5xl mx-auto px-4 py-8 md:py-10">
+
+    <!-- ================= FORM CARD ================= -->
+    <section class="bg-white rounded-xl shadow-lg px-5 md:px-8 py-7 md:py-8">
+      <h2 class="text-xl md:text-2xl font-bold text-purple-900 mb-4">
+        Student Registration Form
+      </h2>
+
+      <!-- STATUS MESSAGE -->
+      <div id="form-status" class="hidden mb-4 text-sm rounded-md px-3 py-2"></div>
+
+      <form
+        id="student-form"
+        action="https://hook.us2.make.com/4s9hsg4smzvhvqbtjso9ak4mgsrag8mn"
+        method="POST"
+        class="space-y-6"
+      >
+        <!-- ========== STUDENT INFO ========== -->
+        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+          <div class="space-y-1.5 md:col-span-2">
+            <label class="block text-sm font-semibold">
+              Student Name <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="student_name"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              School <span class="text-red-500">*</span>
+            </label>
+            <select
+              name="school"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            >
+              <option value="">Please select</option>
+              <option value="Jena">Jena</option>
+              <option value="Grant">Grant</option>
+              <option value="Tioga">Tioga</option>
+            </select>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Student Phone <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="student_phone"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Student Email <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              name="student_email"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            />
+          </div>
+
+          <div class="space-y-1.5 md:col-span-2">
+            <label class="block text-sm font-semibold">
+              Parade Preference (Ride / Walk) <span class="text-red-500">*</span>
+            </label>
+
+            <div class="grid md:grid-cols-3 gap-3">
+              <label class="flex items-start gap-3 border border-slate-300 rounded-lg px-3 py-3 bg-purple-50/70 cursor-pointer hover:border-purple-500">
+                <input
+                  type="radio"
+                  name="parade_status"
+                  value="Ride"
+                  required
+                  class="mt-1"
+                />
+                <div class="text-sm">
+                  <div class="font-semibold">Ride</div>
+                  <p class="text-xs text-slate-700">
+                    Student prefers to ride on the float.
+                  </p>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3 border border-slate-300 rounded-lg px-3 py-3 bg-purple-50/70 cursor-pointer hover:border-purple-500">
+                <input
+                  type="radio"
+                  name="parade_status"
+                  value="Walk"
+                  class="mt-1"
+                />
+                <div class="text-sm">
+                  <div class="font-semibold">Walk</div>
+                  <p class="text-xs text-slate-700">
+                    Student prefers to walk alongside the float.
+                  </p>
+                </div>
+              </label>
+
+              <label class="flex items-start gap-3 border border-slate-300 rounded-lg px-3 py-3 bg-purple-50/70 cursor-pointer hover:border-purple-500">
+                <input
+                  type="radio"
+                  name="parade_status"
+                  value="Either"
+                  class="mt-1"
+                />
+                <div class="text-sm">
+                  <div class="font-semibold">Either</div>
+                  <p class="text-xs text-slate-700">
+                    Student is flexible and can be assigned to ride or walk.
+                  </p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== PARENT / EMERGENCY CONTACT ========== -->
+        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Parent / Emergency Contact Name <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="parent_contact"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="block text-sm font-semibold">
+              Emergency Contact Number <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="emergency_phone"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            />
+          </div>
+        </div>
+
+        <!-- ========== NOTES ========== -->
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold">
+            Notes / Special Information
+          </label>
+          <textarea
+            name="notes"
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm min-h-[140px] resize-y focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            placeholder="Examples: allergies, medical concerns, car-rider vs bus-rider details, or anything else we should know."
+          ></textarea>
+        </div>
+
+        <!-- ========== ACKNOWLEDGEMENT (COLORED BOX) ========== -->
+        <div class="space-y-2 bg-purple-50 border border-purple-200 rounded-lg px-4 py-3">
+          <label class="flex items-start gap-3 text-xs md:text-sm">
+            <input
+              type="checkbox"
+              name="terms_ack"
+              value="Yes"
+              required
+              class="mt-1"
+            />
+            <span>
+              I understand that float and walking space is limited and that final student assignments
+              will be made based on safety requirements, overall registration numbers, and school
+              participation. I agree that my student will follow all safety guidelines provided by the
+              Student Chapter of Central Louisiana and the Alexandria Mardi Gras Association.
+            </span>
+          </label>
+        </div>
+
+        <!-- Hidden helper -->
+        <input type="hidden" name="source_form" value="Mardi Gras Student Registration" />
+
+        <!-- ========== SUBMIT BUTTON ========== -->
+        <div class="pt-2">
+          <button
+            type="submit"
+            id="submit-btn"
+            class="inline-flex items-center justify-center px-7 py-2.5 rounded-full text-sm font-semibold text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-600"
+          >
+            Submit Student Registration
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <p class="mt-4 text-xs text-slate-500">
+      After you submit this form, a member of the Student Chapter team may contact you if any additional
+      information is needed. Final parade details will be shared with students and teachers prior to parade day.
+    </p>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-10 bg-slate-900 text-slate-300 text-xs">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
+      <div>
+        &copy; <span id="year"></span> Student Chapter of Central Louisiana. All rights reserved.
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="mailto:info@studentchapterofcenla.org" class="hover:text-yellow-300">
+          info@studentchapterofcenla.org
+        </a>
+        <span>|</span>
+        <a href="https://www.studentchapterofcenla.org" class="hover:text-yellow-300">
+          studentchapterofcenla.org
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Year + submit UX + webhook POST -->
+  <script>
+    // Footer year
+    (function () {
+      var yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    })();
+
+    (function () {
+      var form = document.getElementById('student-form');
+      var statusBox = document.getElementById('form-status');
+      var submitBtn = document.getElementById('submit-btn');
+      var WEBHOOK_URL = 'https://hook.us2.make.com/4s9hsg4smzvhvqbtjso9ak4mgsrag8mn';
+
+      if (!form) {
+        console.error('Student form not found on page.');
+        return;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault(); // stay on our page
+
+        if (statusBox) {
+          statusBox.style.display = 'block';
+          statusBox.className =
+            'mb-4 text-sm rounded-md px-3 py-2 bg-purple-50 text-purple-800 border border-purple-300';
+          statusBox.textContent =
+            'Submitting your registration. Please do not refresh this page.';
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
+        }
+
+        var formData = new FormData(form);
+        var payload = {};
+        formData.forEach(function (value, key) {
+          payload[key] = value;
+        });
+
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(function () {
+            if (statusBox) {
+              statusBox.className =
+                'mb-4 text-sm rounded-md px-3 py-2 bg-green-50 text-green-800 border border-green-300';
+              statusBox.textContent =
+                'Thank you! Your Mardi Gras student registration has been received. Your student’s teacher or a member of the Student Chapter team will share final parade details closer to the event.';
+            }
+            form.reset();
+          })
+          .catch(function (err) {
+            console.error('Webhook error:', err);
+            if (statusBox) {
+              statusBox.className =
+                'mb-4 text-sm rounded-md px-3 py-2 bg-red-50 text-red-800 border border-red-300';
+              statusBox.textContent =
+                'Something went wrong while submitting the registration. Please try again in a moment, or contact us directly if the issue continues.';
+            }
+          })
+          .finally(function () {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Submit Student Registration';
+            }
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
