@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdqUD4sAAAAAPQYBSqAdYC4j4MpNIAdakyx_4TG"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Student Shooter Registration | Skeet &amp; Scholars Classic</title>
@@ -232,6 +232,7 @@
           <p class="text-sm md:text-base font-semibold text-slate-900">
             Registration Amount: <span class="text-amber-600 font-bold">$20</span>
           </p>
+          <div class="g-recaptcha" data-sitekey="6Lfajj4sAAAAAK61Q-PYA-UaEdoLKawueYJjAhQ5"></div>
           <button
             type="submit"
             class="inline-flex items-center rounded-full bg-amber-400 px-6 py-2.5 text-sm font-semibold text-slate-900 shadow hover:bg-amber-300 disabled:opacity-70 disabled:cursor-not-allowed"
@@ -270,12 +271,6 @@
   </footer>
 
   <script>
-      function onClick(e) {
-    e.preventDefault();
-    grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LdqUD4sAAAAAPQYBSqAdYC4j4MpNIAdakyx_4TG', {action: 'LOGIN'});
-    });
-  }
     // Mobile nav
     (function () {
       var btn = document.getElementById('navToggle');
