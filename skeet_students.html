@@ -18,43 +18,7 @@
     }
   </style>
 </head>
-  <script>
-  const form = document.querySelector("form");
-  const btn = document.getElementById("submitBtn");
-  const err = document.getElementById("captcha-error");
-
-  function setButton(enabled) {
-    btn.disabled = !enabled;
-    btn.style.cursor = enabled ? "pointer" : "not-allowed";
-    btn.style.opacity = enabled ? "1" : "0.6";
-    if (enabled) btn.style.background = "#4a90e2";
-  }
-
-  // Called by reCAPTCHA when checkbox is completed
-  window.recaptchaPassed = function () {
-    err.style.display = "none";
-    setButton(true);
-  };
-
-  // Called when token expires / errors / gets reset
-  window.recaptchaExpired = function () {
-    setButton(false);
-  };
-
-  // Hard block form submission unless token exists
-  form.addEventListener("submit", function (e) {
-    const token = (window.grecaptcha && grecaptcha.getResponse()) ? grecaptcha.getResponse() : "";
-    if (!token) {
-      e.preventDefault();
-      err.style.display = "block";
-      setButton(false);
-      return false;
-    }
-  });
-
-  // On load, keep disabled
-  setButton(false);
-</script>
+ 
 
 <body class="bg-slate-100 text-slate-900">
 
@@ -266,20 +230,43 @@
           </label>
         </div>
 
-        <div class="g-recaptcha"
-     data-sitekey="6Lfajj4sAAAAAK61Q-PYA-UaEdoLKawueYJjAhQ5"
-     data-callback="recaptchaPassed"
-     data-expired-callback="recaptchaExpired"
-     data-error-callback="recaptchaExpired"></div>
+       <!-- reCAPTCHA -->
+<div class="g-recaptcha"
+     data-sitekey="YOUR_SITE_KEY"
+     data-callback="onCaptchaSuccess"
+     data-expired-callback="onCaptchaExpired">
+</div>
 
-<p id="captcha-error" style="display:none; margin: 10px 0 0; color:#b00020; font-weight:600;">
-  Please confirm you’re not a robot before submitting.
-</p>
+<!-- Hidden field to track captcha -->
+<input type="hidden" id="captchaVerified" name="captchaVerified" value="false">
 
-<button id="submitBtn" type="submit" disabled
-  style="background:#4a90e2;color:#fff;border:none;padding:0.75rem 2rem;border-radius:50px;font-size:1rem;cursor:not-allowed;opacity:.6;">
-  Submit
+<!-- Submit button -->
+        .submit-btn {
+  background: #c87400; /* burnt orange */
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.submit-btn.enabled {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.submit-btn.enabled:hover {
+  background: #a85f00;
+}
+
+<button type="submit" id="submitBtn" class="submit-btn" disabled>
+  Submit Student Registration
 </button>
+
 
         </div>
       </form>
@@ -313,21 +300,6 @@
   </footer>
 
   <script>
-    <script>
-function validateCaptcha() {
-  const response = grecaptcha.getResponse();
-  const error = document.getElementById('captcha-error');
-  const form = document.querySelector('form');
-
-  if (!response) {
-    error.style.display = 'block';
-    return;
-  }
-
-  error.style.display = 'none';
-  form.submit();
-}
-</script>
 
     // Mobile nav
     (function () {
@@ -411,6 +383,30 @@ function validateCaptcha() {
         }
       }, { passive: false });
     });
+
+    
+function onCaptchaSuccess() {
+  document.getElementById("captchaVerified").value = "true";
+
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = false;
+  btn.classList.add("enabled");
+}
+
+function onCaptchaExpired() {
+  document.getElementById("captchaVerified").value = "false";
+
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true;
+  btn.classList.remove("enabled");
+}
+
+document.querySelector("form").addEventListener("submit", function(e) {
+  if (document.getElementById("captchaVerified").value !== "true") {
+    e.preventDefault();
+    alert("Please confirm you are not a robot.");
+  }
+});
   </script>
 </body>
 </html>
