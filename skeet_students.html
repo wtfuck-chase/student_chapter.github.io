@@ -233,12 +233,8 @@
             Registration Amount: <span class="text-amber-600 font-bold">$20</span>
           </p>
           <div class="g-recaptcha" data-sitekey="6Lfajj4sAAAAAK61Q-PYA-UaEdoLKawueYJjAhQ5"></div>
-          <button
-            type="submit"
-            class="inline-flex items-center rounded-full bg-amber-400 px-6 py-2.5 text-sm font-semibold text-slate-900 shadow hover:bg-amber-300 disabled:opacity-70 disabled:cursor-not-allowed"
-          >
-            Submit Student Registration
-          </button>
+          <button type="button" onclick="validateCaptcha()">Submit</button>
+
         </div>
       </form>
     </section>
@@ -271,6 +267,22 @@
   </footer>
 
   <script>
+    <script>
+function validateCaptcha() {
+  const response = grecaptcha.getResponse();
+  const error = document.getElementById('captcha-error');
+  const form = document.querySelector('form');
+
+  if (!response) {
+    error.style.display = 'block';
+    return;
+  }
+
+  error.style.display = 'none';
+  form.submit();
+}
+</script>
+
     // Mobile nav
     (function () {
       var btn = document.getElementById('navToggle');
