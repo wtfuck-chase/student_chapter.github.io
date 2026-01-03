@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdqUD4sAAAAAPQYBSqAdYC4j4MpNIAdakyx_4TG"></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Student Shooter Registration | Skeet &amp; Scholars Classic</title>
@@ -269,6 +270,12 @@
   </footer>
 
   <script>
+      function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LdqUD4sAAAAAPQYBSqAdYC4j4MpNIAdakyx_4TG', {action: 'LOGIN'});
+    });
+  }
     // Mobile nav
     (function () {
       var btn = document.getElementById('navToggle');
